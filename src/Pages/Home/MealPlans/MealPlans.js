@@ -10,7 +10,7 @@ const MealPlans = ({}) => {
 
   return (
     <section
-      className="mealPlans bg-dark"
+      className="mealPlans bg-dark row"
       style={{ fontFamily: "Signika", padding: "64px 32px" }}
     >
       <div className="container text-center" style={{ marginLeft: "auto" }}>

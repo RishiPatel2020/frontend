@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer
-      className="p-5 bg-dark text-white text-center position-relative"
+      className="p-5 bg-dark text-white text-center position-relative row"
       style={{ fontFamily: "Signika" }}
     >
       <div className="container">

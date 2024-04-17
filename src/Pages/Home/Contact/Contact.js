@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <section className="p-5" style={{ fontFamily: "Signika" }}>
+    <section className="row p-5" style={{ fontFamily: "Signika" }}>
       <div className="container">
         <div className="row g-4">
           <div className="col-md">
