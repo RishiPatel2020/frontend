@@ -1,16 +1,36 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.f855e6bc.css",
-    "main.js": "/frontend/static/js/main.5cd01f80.js",
-    "static/js/488.c9e09703.chunk.js": "/frontend/static/js/488.c9e09703.chunk.js",
-    "static/media/logo.svg": "/frontend/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/frontend/static/css/main.6614fe8d.css",
+    "main.js": "/frontend/static/js/main.57cd43f4.js",
+    "static/js/488.535652aa.chunk.js": "/frontend/static/js/488.535652aa.chunk.js",
+    "static/media/customers.png": "/frontend/static/media/customers.fd128c736d97eab3a55b.png",
+    "static/media/kankotri1.jpg": "/frontend/static/media/kankotri1.a5f65a3743277a914643.jpg",
+    "static/media/satisfiction.png": "/frontend/static/media/satisfiction.6c1c267191b8b75da7c9.png",
+    "static/media/kitchen.png": "/frontend/static/media/kitchen.0165d4bd74a2f60f3ef1.png",
+    "static/media/meal4.png": "/frontend/static/media/meal4.133b4d56cfc8105bf066.png",
+    "static/media/meal3.png": "/frontend/static/media/meal3.d628c5fddd68435b7eac.png",
+    "static/media/meal2.png": "/frontend/static/media/meal2.66e761d761329c840e2c.png",
+    "static/media/Mary.png": "/frontend/static/media/Mary.bf413106ec276c89b0ff.png",
+    "static/media/meal1.png": "/frontend/static/media/meal1.fa62fb41ba155e0b9647.png",
+    "static/media/Shreya.png": "/frontend/static/media/Shreya.f6c866153615289ed33d.png",
+    "static/media/Pallavi.png": "/frontend/static/media/Pallavi.4bd7a0d5258a6f46a36f.png",
+    "static/media/Anastasia.png": "/frontend/static/media/Anastasia.ebac5d4966769d08cdeb.png",
+    "static/media/Maitri.png": "/frontend/static/media/Maitri.e867c9658eff801efad8.png",
+    "static/media/Ankhi.png": "/frontend/static/media/Ankhi.c56bb6d77078cfba24db.png",
+    "static/media/Uma.png": "/frontend/static/media/Uma.afa679192e12d3be2934.png",
+    "static/media/Cherry.png": "/frontend/static/media/Cherry.d8a3b39cbc6d41e2da53.png",
+    "static/media/step2.png": "/frontend/static/media/step2.39a2554b77d476e6698c.png",
+    "static/media/Krish.png": "/frontend/static/media/Krish.d453fc9148aed3ce2449.png",
+    "static/media/step3.png": "/frontend/static/media/step3.4e542ebdf78d13a13bb3.png",
+    "static/media/step1.png": "/frontend/static/media/step1.b07b4c04c2b74e5fb492.png",
+    "static/media/mirchiMealsLogo.png": "/frontend/static/media/mirchiMealsLogo.edea7ed0341520f42b54.png",
     "index.html": "/frontend/index.html",
-    "main.f855e6bc.css.map": "/frontend/static/css/main.f855e6bc.css.map",
-    "main.5cd01f80.js.map": "/frontend/static/js/main.5cd01f80.js.map",
-    "488.c9e09703.chunk.js.map": "/frontend/static/js/488.c9e09703.chunk.js.map"
+    "main.6614fe8d.css.map": "/frontend/static/css/main.6614fe8d.css.map",
+    "main.57cd43f4.js.map": "/frontend/static/js/main.57cd43f4.js.map",
+    "488.535652aa.chunk.js.map": "/frontend/static/js/488.535652aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.5cd01f80.js"
+    "static/css/main.6614fe8d.css",
+    "static/js/main.57cd43f4.js"
   ]
 }
