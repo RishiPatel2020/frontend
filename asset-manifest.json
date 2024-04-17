@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.17782094.css",
+    "main.css": "/frontend/static/css/main.b95e457f.css",
     "main.js": "/frontend/static/js/main.502bdbbf.js",
     "static/js/488.535652aa.chunk.js": "/frontend/static/js/488.535652aa.chunk.js",
     "static/media/customers.png": "/frontend/static/media/customers.fd128c736d97eab3a55b.png",
@@ -25,12 +25,12 @@
     "static/media/step1.png": "/frontend/static/media/step1.b07b4c04c2b74e5fb492.png",
     "static/media/mirchiMealsLogo.png": "/frontend/static/media/mirchiMealsLogo.edea7ed0341520f42b54.png",
     "index.html": "/frontend/index.html",
-    "main.17782094.css.map": "/frontend/static/css/main.17782094.css.map",
+    "main.b95e457f.css.map": "/frontend/static/css/main.b95e457f.css.map",
     "main.502bdbbf.js.map": "/frontend/static/js/main.502bdbbf.js.map",
     "488.535652aa.chunk.js.map": "/frontend/static/js/488.535652aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.17782094.css",
+    "static/css/main.b95e457f.css",
     "static/js/main.502bdbbf.js"
   ]
 }
