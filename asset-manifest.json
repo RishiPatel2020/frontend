@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.6614fe8d.css",
-    "main.js": "/frontend/static/js/main.57cd43f4.js",
+    "main.css": "/frontend/static/css/main.61a830b8.css",
+    "main.js": "/frontend/static/js/main.72766896.js",
     "static/js/488.535652aa.chunk.js": "/frontend/static/js/488.535652aa.chunk.js",
     "static/media/customers.png": "/frontend/static/media/customers.fd128c736d97eab3a55b.png",
     "static/media/kankotri1.jpg": "/frontend/static/media/kankotri1.a5f65a3743277a914643.jpg",
@@ -25,12 +25,12 @@
     "static/media/step1.png": "/frontend/static/media/step1.b07b4c04c2b74e5fb492.png",
     "static/media/mirchiMealsLogo.png": "/frontend/static/media/mirchiMealsLogo.edea7ed0341520f42b54.png",
     "index.html": "/frontend/index.html",
-    "main.6614fe8d.css.map": "/frontend/static/css/main.6614fe8d.css.map",
-    "main.57cd43f4.js.map": "/frontend/static/js/main.57cd43f4.js.map",
+    "main.61a830b8.css.map": "/frontend/static/css/main.61a830b8.css.map",
+    "main.72766896.js.map": "/frontend/static/js/main.72766896.js.map",
     "488.535652aa.chunk.js.map": "/frontend/static/js/488.535652aa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6614fe8d.css",
-    "static/js/main.57cd43f4.js"
+    "static/css/main.61a830b8.css",
+    "static/js/main.72766896.js"
   ]
 }
