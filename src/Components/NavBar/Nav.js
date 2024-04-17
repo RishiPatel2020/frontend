@@ -9,7 +9,7 @@ function NavBar({}) {
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="secondary"
+      bg="primary"
       variant="light"
       className="fixed-top"
     >
@@ -27,8 +27,8 @@ function NavBar({}) {
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
+          className="bg-secondary"
           style={{
-            backgroundColor: "rgb(247, 193, 68)",
             boxShadow: "2px 1px 3px black",
             height: "36px",
             width: "48px",
@@ -38,25 +38,25 @@ function NavBar({}) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto" defaultActiveKey="/home">
             <Nav.Link href="#/order">
-              <span className="fontAdjustment" style={{ marginRight: "40px" }}>
+              <span className="fontAdjustment text-dark" style={{ marginRight: "40px" }}>
                 Order
               </span>
             </Nav.Link>
             <Nav.Link href="#/faq">
-              <span className="fontAdjustment" style={{ marginRight: "40px" }}>
+              <span className="fontAdjustment text-dark" style={{ marginRight: "40px" }}>
                 FAQ
               </span>
             </Nav.Link>
             <Nav.Link href="#/about">
               <span
-                className="fontAdjustment"
+                className="fontAdjustment text-dark"
                 style={{ marginLeft: "0px", marginRight: "40px" }}
               >
                 About
               </span>
             </Nav.Link>
             <Nav.Link href="#/help">
-              <span className="fontAdjustment" style={{ marginRight: "40px" }}>
+              <span className="fontAdjustment text-dark" style={{ marginRight: "40px" }}>
                 Help
               </span>
             </Nav.Link>
