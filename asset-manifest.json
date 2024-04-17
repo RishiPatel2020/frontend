@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend/static/css/main.17782094.css",
-    "main.js": "/frontend/static/js/main.0e3a5e5d.js",
+    "main.js": "/frontend/static/js/main.502bdbbf.js",
     "static/js/488.535652aa.chunk.js": "/frontend/static/js/488.535652aa.chunk.js",
     "static/media/customers.png": "/frontend/static/media/customers.fd128c736d97eab3a55b.png",
     "static/media/kankotri1.jpg": "/frontend/static/media/kankotri1.a5f65a3743277a914643.jpg",
@@ -26,11 +26,11 @@
     "static/media/mirchiMealsLogo.png": "/frontend/static/media/mirchiMealsLogo.edea7ed0341520f42b54.png",
     "index.html": "/frontend/index.html",
     "main.17782094.css.map": "/frontend/static/css/main.17782094.css.map",
-    "main.0e3a5e5d.js.map": "/frontend/static/js/main.0e3a5e5d.js.map",
+    "main.502bdbbf.js.map": "/frontend/static/js/main.502bdbbf.js.map",
     "488.535652aa.chunk.js.map": "/frontend/static/js/488.535652aa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.17782094.css",
-    "static/js/main.0e3a5e5d.js"
+    "static/js/main.502bdbbf.js"
   ]
 }
