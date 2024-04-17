@@ -7,7 +7,7 @@ const Banner = () => {
       style={{ backgroundColor: "rgb(98, 10, 21)" }}
     >
       
-      Experience Taste With A Savory 15% Off All Our Meals
+     Find yourself scrolling endlessly on dating apps? Stop it, get some help!
     </div>
   );
 };

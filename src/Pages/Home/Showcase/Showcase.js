@@ -1,7 +1,7 @@
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React from "react";
-import background from "../../../Resources/Background/newBackground.png";
+import background from "../../../Resources/Background/kankotri1.jpg";
 import "./Showcase.css";
 const Showcase = () => {
   return (
@@ -21,31 +21,25 @@ const Showcase = () => {
             <div className="bigTexts">
               {/* Text 1 */}
               <div className="text-primary">
-                <strong>Ready to Eat</strong>
+                <strong>Stop</strong>
               </div>
 
-              {/* Text 2 */}
-              {/* <div className="text-primary">
-                <strong>All In One </strong>
-              </div> */}
-
               <div className="text-primary">
-                <strong>Delivered</strong>
+                <strong>Swiping</strong>
               </div>
 
               {/* Text 3 */}
-              <div className="text-primary">
-                <strong>Indian Meals</strong>
-              </div>
+              {/* <div className="text-primary">
+                <strong>Endlessly</strong>
+              </div> */}
             </div>
 
             {/* Text 4,5,6 */}
             <div className="smallTexts">
-              <br></br>
               <span className="lead text-primary" style={{ fontSize: "1.7em" }}>
-                <span className="text-primary">Freshly Cooked</span>
+                <span className="text-primary">Endlessly</span>
                 <br></br>
-                <span style={{ color: "rgb(255,87,20)" }}>Authentic Taste</span>
+                <span style={{ color: "rgb(255,87,20)" }}>Save your time</span>
                 <br></br>
               </span>
             </div>
@@ -67,7 +61,7 @@ const Showcase = () => {
                         fontSize: "25px",
                       }}
                     >
-                      Order
+                      Get Started
                     </Button>
                   </Link>
                 </div>
