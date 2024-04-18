@@ -3,8 +3,12 @@ import Container from "react-bootstrap/Container";
 import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function NavBar({}) {
+function NavBar({
+}) {
+  const navigate = useNavigate();
+
   return (
     <Navbar
       collapseOnSelect
@@ -25,10 +29,13 @@ function NavBar({}) {
           </Nav.Link>
         </Navbar.Brand>
 
+       
+ 
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          className="bg-secondary"
           style={{
+            backgroundColor: "rgb(247, 193, 68)",
             boxShadow: "2px 1px 3px black",
             height: "36px",
             width: "48px",
@@ -36,13 +43,14 @@ function NavBar({}) {
           }}
         />
         <Navbar.Collapse id="responsive-navbar-nav">
+          {/* About, Order, Help Links */}
           <Nav className="me-auto" defaultActiveKey="/home">
             <Nav.Link href="#/order">
               <span className="fontAdjustment text-dark" style={{ marginRight: "40px" }}>
                 Order
               </span>
             </Nav.Link>
-            <Nav.Link href="#/faq">
+            <Nav.Link className="text-dark mx-1">
               <span className="fontAdjustment text-dark" style={{ marginRight: "40px" }}>
                 FAQ
               </span>

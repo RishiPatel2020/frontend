@@ -5,7 +5,7 @@ const Question = () => {
   return (
     <section
       id="questions"
-      className="p-5 bg-dark row"
+      className="p-5 bg-dark"
       style={{ fontFamily: "Signika" }}
     >
       <h2 className="text-center text-light mb-4" style={{ fontSize: "42px" }}>

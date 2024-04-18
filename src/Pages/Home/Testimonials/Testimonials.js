@@ -83,7 +83,7 @@ const responsive = {
 export default function App() {
   return (
     <>
-      <div className="testimonial-container row">
+      <div className="testimonial-container ">
         <div className="testimonials" style={{ fontSize: "48px" }}>
           Customer Reviews
         </div>
@@ -112,7 +112,7 @@ export default function App() {
                 fontSize: "25px",
               }}
             >
-              Get Started
+              Order
             </Button>
           </Link>
         </div>
