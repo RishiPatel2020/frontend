@@ -112,7 +112,7 @@ export default function App() {
                 fontSize: "25px",
               }}
             >
-              Get Started
+              Order
             </Button>
           </Link>
         </div>

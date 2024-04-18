@@ -1,13 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const MealPlans = ({}) => {
-  const navigate = useNavigate();
-
-  const buttonClicked = () => {
-    navigate("/order");
-  };
-
   return (
     <section
       className="mealPlans bg-dark"
@@ -26,22 +20,14 @@ const MealPlans = ({}) => {
             className="text-light"
             style={{ margin: "0px 0px 10px", fontSize: "48px" }}
           >
-            Stop wasting time, life is short
+            Meal Plans for You
           </h1>
 
           {/* Main description */}
-          {/* <h5 className="text-primary">Stop Endlessly swiping for love</h5> */}
-          <h4 className="text-primary">
-            Stop scrolling endlessly on stale, fake, and inauthentic profiles
-          </h4>
-          <h5 className="text-primary">
-            Stop scrolling endlessly, let your personalized match making AI do
-            its job
-          </h5>
-          <h6 className="text-primary">
-            Review bold and relevant profiles of candidates right to your inbox
-            monthly for free
-          </h6>
+          <p className="text-primary">
+            Order anywhere between 2 to 8+ meals per week, with prices as low as
+            $11.99 per meal. No reoccurring subscriptions to tie you down.
+          </p>
         </div>
 
         <Container className="text-primary">
@@ -49,10 +35,7 @@ const MealPlans = ({}) => {
             <Col sm style={{ marginLeft: "8px", marginRight: "8px" }}>
               <div className="card-body text-center">
                 {/* Image button 1  */}
-                <button
-                  onClick={() => buttonClicked()}
-                  style={{ background: "transparent", border: "none" }}
-                >
+                <button style={{ background: "transparent", border: "none" }}>
                   <img
                     className="h1 mb-3"
                     src={require("../../../Resources/Meals/meal1.png")}
@@ -73,10 +56,7 @@ const MealPlans = ({}) => {
             <Col sm style={{ marginLeft: "8px", marginRight: "8px" }}>
               <div className="card-body text-center">
                 {/* Image button 2 */}
-                <button
-                  onClick={() => buttonClicked()}
-                  style={{ background: "transparent", border: "none" }}
-                >
+                <button style={{ background: "transparent", border: "none" }}>
                   <img
                     className="h1 mb-3"
                     src={require("../../../Resources/Meals/meal2.png")}
@@ -102,10 +82,7 @@ const MealPlans = ({}) => {
             <Col sm style={{ marginLeft: "8px", marginRight: "8px" }}>
               <div className="card-body text-center">
                 {/* Image button 3 */}
-                <button
-                  onClick={() => buttonClicked()}
-                  style={{ background: "transparent", border: "none" }}
-                >
+                <button style={{ background: "transparent", border: "none" }}>
                   <img
                     className="h1 mb-3"
                     src={require("../../../Resources/Meals/meal3.png")}
@@ -131,10 +108,7 @@ const MealPlans = ({}) => {
             <Col sm style={{ marginLeft: "8px", marginRight: "8px" }}>
               <div className="card-body text-center">
                 {/* Image button 4 */}
-                <button
-                  onClick={() => buttonClicked()}
-                  style={{ background: "transparent", border: "none" }}
-                >
+                <button style={{ background: "transparent", border: "none" }}>
                   <img
                     className="h1 mb-3"
                     src={require("../../../Resources/Meals/meal4.png")}
@@ -173,14 +147,11 @@ const MealPlans = ({}) => {
                       fontSize: "25px",
                     }}
                   >
-                    Get Started
+                    Order
                   </Button>
                 </Link>
               </div>
             </Col>
-          </Row>
-          <Row>
-            <p className="text-primary">#1 South Asian Matchmaker</p>
           </Row>
         </Container>
       </div>

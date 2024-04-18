@@ -1,3 +1,8 @@
+/***
+ * has 1 Nav bar, 2 Information Boxes, 1 Foot Bar
+ */
+
+import { useEffect } from "react";
 import React from "react";
 import Showcase from "./Showcase/Showcase";
 import Question from "./Questions/Question";
@@ -7,6 +12,7 @@ import Banner from "./Banner/Banner";
 import MealPlans from "./MealPlans/MealPlans";
 import Testimonials from "./Testimonials/Testimonials";
 const Home = ({}) => {
+  useEffect(() => {}, []);
   const saveTime = {
     backColor: "primary",
     headingColor: "dark",

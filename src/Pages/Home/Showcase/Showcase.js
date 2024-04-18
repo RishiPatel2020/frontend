@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import background from "../../../Resources/Background/kankotri1.jpg";
 import "./Showcase.css";
+
 const Showcase = () => {
   return (
     <section
@@ -24,21 +25,25 @@ const Showcase = () => {
                 <strong>Stop</strong>
               </div>
 
+              {/* Text 2 */}
+              {/* <div className="text-primary">
+                <strong>All In One </strong>
+              </div> */}
+
               <div className="text-primary">
-                <strong>Swiping</strong>
+                <strong>Scrolling</strong>
               </div>
 
               {/* Text 3 */}
-              {/* <div className="text-primary">
-                <strong>Endlessly</strong>
-              </div> */}
+              <div className="text-primary">
+                <strong>Endlessely</strong>
+              </div>
             </div>
 
             {/* Text 4,5,6 */}
             <div className="smallTexts">
               <span className="lead text-primary" style={{ fontSize: "1.7em" }}>
-                <span className="text-primary">Endlessly</span>
-                <br></br>
+                {/* <span className="text-primary">Freshly Cooked</span> */}
                 <span style={{ color: "rgb(255,87,20)" }}>Save your time</span>
                 <br></br>
               </span>
@@ -61,7 +66,7 @@ const Showcase = () => {
                         fontSize: "25px",
                       }}
                     >
-                      Get Started
+                      Get started
                     </Button>
                   </Link>
                 </div>

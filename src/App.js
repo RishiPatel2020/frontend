@@ -1,16 +1,21 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Landing from "./Pages/Landing/Landing";
-import About from "./Pages/About/About";
-import NavBar from "./Components/NavBar/Nav";
-import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Footer from "./Components/Footer/Footer";
+import React from "react";
+import "./index.css";
+import "./App.css";
+import Nav from "./Components/NavBar/Nav";
+import { Route, Routes } from "react-router-dom";
+import ReactGA from "react-ga4";
+import { TRACKINGID } from "./Service/Constants";
 
+ReactGA.initialize(TRACKINGID);
 function App() {
   const navAndFoot = (element) => {
     return (
       <>
-        <NavBar />
+        <Nav />
+
         {/* to make nav sticked to top */}
         <section className="stickNavBarAdjustments"></section>
         {/* About, Home, Help,... */}
@@ -19,6 +24,7 @@ function App() {
       </>
     );
   };
+
   return (
     <>
       <Routes>
@@ -26,7 +32,7 @@ function App() {
         <Route exact path="/" element={navAndFoot(<Home />)} />
         {/* About */}
         <Route exact path="/about" element={navAndFoot(<About />)} />
-        <Route exact path="*" element={navAndFoot(<Landing />)} />
+        <Route path="*" element={navAndFoot(<Home />)} />
       </Routes>
     </>
   );

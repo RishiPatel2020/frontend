@@ -8,7 +8,7 @@
 
   .smallTexts {
     font-size: 0.8em;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .buttonsSpacing {
@@ -18,7 +18,7 @@
 
   .boxing {
     background-color: rgb(98, 10, 21);
-    opacity: 0.81;
+    opacity: 0.91;
     padding: 15px;
     margin-bottom: 55px;
     box-shadow: 15px 15px 15px black;
@@ -43,7 +43,7 @@
 
   .smallTexts {
     font-size: 0.7em;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .buttonsSpacing {
@@ -53,7 +53,7 @@
 
   .boxing {
     background-color: rgb(98, 10, 21);
-    opacity: 0.81;
+    opacity: 0.91;
     padding: 15px;
     margin-bottom: 55px;
     box-shadow: 15px 15px 15px black;
@@ -79,7 +79,7 @@
 
   .smallTexts {
     font-size: 0.8em;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .buttonsSpacing {
@@ -89,7 +89,7 @@
 
   .boxing {
     background-color: rgb(98, 10, 21);
-    opacity: 0.81;
+    opacity: 0.91;
     padding: 15px;
     /* margin-bottom: 0px; */
     box-shadow: 20px 20px 20px black;
@@ -115,7 +115,7 @@
 
   .smallTexts {
     font-size: 0.8em;
-    margin-top: 10px;
+    margin-top: 15px;
   }
 
   .buttonsSpacing {
@@ -125,7 +125,7 @@
 
   .boxing {
     background-color: rgb(98, 10, 21);
-    opacity: 0.81;
+    opacity: 0.91;
     padding: 15px;
     margin-bottom: 55px;
     box-shadow: 15px 15px 15px black;
@@ -161,7 +161,7 @@
     
     background-color: rgb(98, 10, 21);
     /* background-color: rgb(247, 193, 68); */
-    opacity: 0.81;
+    opacity: 1;
     padding-left: 25px;
     padding-right: 25px;
     margin-bottom: 55px;
