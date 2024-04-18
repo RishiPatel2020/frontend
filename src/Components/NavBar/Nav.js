@@ -10,8 +10,8 @@ function NavBar() {
     <Navbar
       collapseOnSelect
       expand="lg"
-      bg="primary"
-      variant="light"
+      bg="dark"
+      variant="gold"
       className="fixed-top"
     >
       <Container style={{ fontFamily: "Signika" }}>
@@ -19,17 +19,18 @@ function NavBar() {
         <Navbar.Brand>
           <Nav.Link href="/#">
             <img
-              src={require("../../Resources/Logo/mirchiMealsLogo.png")}
+              src={require("../../Resources/Logo/ria1.jpg")}
               alt="MirchiMealsLogo"
               className="logoAdjustment"
             />
+            {/* 1618 791 */}
           </Nav.Link>
         </Navbar.Brand>
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           style={{
-            backgroundColor: "rgb(247, 193, 68)",
+            backgroundColor: "rgb(190,156,92)",
             boxShadow: "2px 1px 3px black",
             height: "36px",
             width: "48px",
@@ -41,15 +42,15 @@ function NavBar() {
           <Nav className="me-auto" defaultActiveKey="/home">
             <Nav.Link href="#/order">
               <span
-                className="fontAdjustment text-dark"
+                className="fontAdjustment text-primary"
                 style={{ marginRight: "40px" }}
               >
                 Order
               </span>
             </Nav.Link>
-            <Nav.Link className="text-dark mx-1">
+            <Nav.Link className="text-primary mx-1">
               <span
-                className="fontAdjustment text-dark"
+                className="fontAdjustment text-primary"
                 style={{ marginRight: "40px" }}
               >
                 FAQ
@@ -58,7 +59,7 @@ function NavBar() {
             <Nav.Link href="#/about">
               {/* adjust marginRight Based on screens */}
               <span
-                className="fontAdjustment text-dark"
+                className="fontAdjustment text-primary"
                 style={{ marginLeft: "0px", marginRight: "40px" }}
               >
                 About
@@ -66,7 +67,7 @@ function NavBar() {
             </Nav.Link>
             <Nav.Link href="#/help">
               <span
-                className="fontAdjustment text-dark"
+                className="fontAdjustment text-primary"
                 style={{ marginRight: "40px" }}
               >
                 Help

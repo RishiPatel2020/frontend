@@ -83,8 +83,6 @@ const Home = () => {
       {/* <MealsLookUp /> */}
       <Testimonials />
 
-      {/* Stats */}
-      <InformationGrid data={stats} />
 
       {/* FAQs */}
       <Question />
