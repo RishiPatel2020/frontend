@@ -79,9 +79,8 @@ const Home = () => {
       {/* Meal Plans */}
       <MealPlans />
 
-      {/* Fans Favorite */}
       {/* <MealsLookUp /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
 
 
       {/* FAQs */}

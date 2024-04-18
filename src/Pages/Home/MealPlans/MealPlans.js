@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const MealPlans = () => {
   return (
     <section
-      className="mealPlans bg-dark"
+      className="mealPlans bg-light"
       style={{ fontFamily: "Signika", padding: "64px 32px" }}
     >
       <div className="container text-center" style={{ marginLeft: "auto" }}>
@@ -17,20 +17,20 @@ const MealPlans = () => {
         >
           {/* Main Title: Meal Plans For You */}
           <h1
-            className="text-light"
+            className="text-dark"
             style={{ margin: "0px 0px 10px", fontSize: "48px" }}
           >
             Meal Plans for You
           </h1>
 
           {/* Main description */}
-          <p className="text-primary">
+          <p className="text-secondary">
             Order anywhere between 2 to 8+ meals per week, with prices as low as
             $11.99 per meal. No reoccurring subscriptions to tie you down.
           </p>
         </div>
 
-        <Container className="text-primary">
+        <Container className="text-secondary">
           <Row style={{ marginTop: "66px", marginBottom: "32px" }}>
             <Col sm style={{ marginLeft: "8px", marginRight: "8px" }}>
               <div className="card-body text-center">
@@ -138,8 +138,8 @@ const MealPlans = () => {
                 {/* Link to order page */}
                 <Link to="/order">
                   <Button
-                    variant="primary"
-                    className="text-dark"
+                    variant="dark"
+                    className="text-light"
                     style={{
                       height: "50px",
                       width: "150px",
@@ -147,7 +147,7 @@ const MealPlans = () => {
                       fontSize: "25px",
                     }}
                   >
-                    Order
+                    Get Started
                   </Button>
                 </Link>
               </div>

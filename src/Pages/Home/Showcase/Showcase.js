@@ -44,7 +44,7 @@ const Showcase = () => {
             <div className="smallTexts">
               <span className="lead" style={{ fontSize: "1.7em" }}>
                 {/* <span className="text-primary">Freshly Cooked</span> */}
-                <span style={{ color: "rgb(255,87,20)" }}>Save your time</span>
+                <span style={{ color: "rgb(237,12,60)" }}>Save your time</span>
                 <br></br>
               </span>
             </div>
