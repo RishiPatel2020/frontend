@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.150d3246.css",
-    "main.js": "/frontend/static/js/main.d7082d3f.js",
+    "main.css": "/frontend/static/css/main.2d0be989.css",
+    "main.js": "/frontend/static/js/main.ed9f76e7.js",
     "static/js/488.78208c42.chunk.js": "/frontend/static/js/488.78208c42.chunk.js",
+    "static/media/coupleBack.jpg": "/frontend/static/media/coupleBack.ffa1d49a5636f84413dd.jpg",
     "static/media/customers.png": "/frontend/static/media/customers.fd128c736d97eab3a55b.png",
-    "static/media/kankotri1.jpg": "/frontend/static/media/kankotri1.a5f65a3743277a914643.jpg",
     "static/media/satisfiction.png": "/frontend/static/media/satisfiction.6c1c267191b8b75da7c9.png",
     "static/media/kitchen.png": "/frontend/static/media/kitchen.0165d4bd74a2f60f3ef1.png",
     "static/media/meal4.png": "/frontend/static/media/meal4.133b4d56cfc8105bf066.png",
@@ -23,14 +23,14 @@
     "static/media/Krish.png": "/frontend/static/media/Krish.d453fc9148aed3ce2449.png",
     "static/media/step3.png": "/frontend/static/media/step3.4e542ebdf78d13a13bb3.png",
     "static/media/step1.png": "/frontend/static/media/step1.b07b4c04c2b74e5fb492.png",
-    "static/media/mirchiMealsLogo.png": "/frontend/static/media/mirchiMealsLogo.edea7ed0341520f42b54.png",
+    "static/media/ria1.jpg": "/frontend/static/media/ria1.860edef252c9ef501c3a.jpg",
     "index.html": "/frontend/index.html",
-    "main.150d3246.css.map": "/frontend/static/css/main.150d3246.css.map",
-    "main.d7082d3f.js.map": "/frontend/static/js/main.d7082d3f.js.map",
+    "main.2d0be989.css.map": "/frontend/static/css/main.2d0be989.css.map",
+    "main.ed9f76e7.js.map": "/frontend/static/js/main.ed9f76e7.js.map",
     "488.78208c42.chunk.js.map": "/frontend/static/js/488.78208c42.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.150d3246.css",
-    "static/js/main.d7082d3f.js"
+    "static/css/main.2d0be989.css",
+    "static/js/main.ed9f76e7.js"
   ]
 }
