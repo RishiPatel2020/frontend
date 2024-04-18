@@ -11,7 +11,7 @@ import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import Banner from "./Banner/Banner";
 import MealPlans from "./MealPlans/MealPlans";
 import Testimonials from "./Testimonials/Testimonials";
-const Home = ({}) => {
+const Home = () => {
   useEffect(() => {}, []);
   const saveTime = {
     backColor: "primary",

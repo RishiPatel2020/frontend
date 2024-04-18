@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
-function NavBar({}) {
+function NavBar() {
   // might cause error in PRODUCTION due to paths and hashes "#/"
 
   return (
