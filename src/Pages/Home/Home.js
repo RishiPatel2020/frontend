@@ -85,9 +85,6 @@ const Home = () => {
       {/* The Ria way */}
       <InformationGrid data={theRiaWay} />
 
-      {/* Meal Plans */}
-      <MealPlans />
-
 
       {/* FAQs */}
       <Question />

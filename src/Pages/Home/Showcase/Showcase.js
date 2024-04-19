@@ -1,7 +1,6 @@
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React from "react";
-import background from "../../../Resources/Background/newCoupleBack1.png";
 import "./Showcase.css";
 
 const Showcase = () => {

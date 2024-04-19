@@ -8,7 +8,7 @@ const Contact = () => {
           <div className="col-md">
             <h2 className="text-center mb-4">Contact Info</h2>
             <ul className="list-group list-group-flush lead">
-              <li className="list-group-item">
+              <li className="list-group-item bg-light">
                 <span className="fw-bold">Email: </span>
                 support@mirchimeals.com
               </li>
