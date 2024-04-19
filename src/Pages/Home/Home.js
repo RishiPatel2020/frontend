@@ -12,28 +12,28 @@ import Banner from "./Banner/Banner";
 import MealPlans from "./MealPlans/MealPlans";
 const Home = () => {
   useEffect(() => {}, []);
-  const saveTime = {
+  const theRiaWay = {
     backColor: "primary",
     headingColor: "dark",
     titleColor: "white",
     textColor: "secondary",
 
     heading: "The Ria Way",
-    image1: require("../../Resources/HowItWorks/first.png"),
+    image1: require("../../Resources/TheRiaWay/first.png"),
     image1Height: "150px",
     image1Width: "250px",
     title1: "Verified and Authentic Users.",
     description1:
       "Each user is manually verified by the Ria team to ensure a genuine experience. ",
 
-    image2: require("../../Resources/HowItWorks/second.png"),
+    image2: require("../../Resources/TheRiaWay/second.png"),
     image2Width: "250px",
     image2Height: "150px",
     title2: "Curated Matches Made.",
     description2:
       "Hundreds of users are matched on their unlimited preferences and filters from physicality to personality.",
 
-    image3: require("../../Resources/HowItWorks/third.png"),
+    image3: require("../../Resources/TheRiaWay/third.png"),
     image3Width: "250px",
     image3Height: "150px",
     title3: "No Swiping or Scrolling Ever.",
@@ -41,48 +41,53 @@ const Home = () => {
       "You’ll never scroll or swipe on another random person again. Ria works to directly send relevant candidates to your e-mail every month. ",
   };
 
-  const stats = {
+  const howItWorks = {
     backColor: "light",
     headingColor: "dark",
-    titleColor: "dark",
-    textColor: "dark",
+    titleColor: "white",
+    textColor: "secondary",
 
-    heading: "Authentically Amazing",
-    image1: require("../../Resources/Vector/customers.png"),
+    heading: "How It Works",
+    image1: require("../../Resources/HowItWorks/first.png"),
     image1Height: "150px",
-    image1Width: "345.95px",
-    title1: "Diverse Customers",
+    image1Width: "250px",
+    title1: "Register.",
     description1:
-      "Customers from backgrounds such as: programmers, students, sports enthusiasts, military veterans",
+      "Let us know about yourself and what’s meaningful to you through your profile.",
 
-    image2: require("../../Resources/Vector/satisfiction.png"),
-    image2Width: "241.44px",
+    image2: require("../../Resources/HowItWorks/second.png"),
+    image2Width: "250px",
     image2Height: "150px",
-    title2: "Guaranteed Satisfaction",
+    title2: "Automatically Receive Matching Candidates Each Month.",
     description2:
-      "Customers have repeatedly praised Mirchi Meals’ affordability, quantity and pure taste",
+      "Sit back and let our system discover matching profiles to send to you via e-mail every month.",
 
-    image3: require("../../Resources/Vector/kitchen.png"),
-    image3Width: "313.80px",
+    image3: require("../../Resources/HowItWorks/third.png"),
+    image3Width: "250px",
     image3Height: "150px",
-    title3: "Quality Chefs and Ingredients",
+    title3: "Match and Message.",
     description3:
-      "Across New Jersey, we are partnered with top rated kitchens.",
+      "If both candidates show that they're interested in each other, message away!",
   };
+  
+
+
   return (
     <>
       {/* <Banner /> */}
-      {/* Log In & Sign Up Button */}
+
+
       <Showcase />
 
-      {/* How you save time */}
-      <InformationGrid data={saveTime} />
+      {/* How It Works */}
+      <InformationGrid data={howItWorks} />
+
+      {/* The Ria way */}
+      <InformationGrid data={theRiaWay} />
 
       {/* Meal Plans */}
       <MealPlans />
 
-      {/* <MealsLookUp /> */}
-      {/* <Testimonials /> */}
 
       {/* FAQs */}
       <Question />
