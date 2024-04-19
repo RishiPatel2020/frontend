@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 
 const MealsLookUp = () => {
   return (
-    <section
-      className="bg-light"
-      style={{ fontFamily: "Signika", padding: "64px 32px" }}
-    >
+    <section className="bg-light" style={{ padding: "64px 32px" }}>
       <div className="container" style={{ marginLeft: "auto" }}>
         <div
           style={{
@@ -23,7 +20,6 @@ const MealsLookUp = () => {
             Fan Favorites
           </h1>
           <p className="text-center text-dark" style={{ marginTop: "5px" }}>
-            
             Each Mirchi Meal is made to sufficiently serve 1 person with our top
             quality and tastes.
           </p>

@@ -47,7 +47,7 @@ const Help = ({ scrollFAQ, setScrollFAQ }) => {
       </Helmet>
       <section
         className="mealPlans bg-primary"
-        style={{ fontFamily: "Signika", padding: "64px 32px" }}
+        style={{ padding: "64px 32px" }}
       >
         <div
           className="container text-center"

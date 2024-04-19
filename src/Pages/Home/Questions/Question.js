@@ -6,7 +6,6 @@ const Question = () => {
     <section
       id="questions"
       className="p-5 bg-dark"
-      style={{ fontFamily: "Signika" }}
     >
       <h2 className="text-center text-light mb-4" style={{ fontSize: "42px" }}>
         Frequently Asked Questions

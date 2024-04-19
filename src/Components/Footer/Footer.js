@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer
       className="p-5 bg-dark text-white text-center position-relative"
-      style={{ fontFamily: "Signika" }}
     >
       <div className="container">
         <p className="lead">Copyright &copy; 2022 MirchiMeals.com</p>

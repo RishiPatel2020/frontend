@@ -153,7 +153,7 @@ const ShoppingCart = ({
       setTitleEnough("Not Enough Meals selected!!");
       setBodyEnough(<p>Select at least {numMeals[0]} meals</p>);
       setDisplayEnoughPopUp(true);
-    } 
+    }
     // else if (
     //   !userSession.isLoggedIn() ||
     //   userSession.getUser().id === "improper"
@@ -208,7 +208,7 @@ const ShoppingCart = ({
     //   );
     //   (!userSession.isLoggedIn() || userSession.getUser().id === "improper") &&
     //     setDisplayPopUp(true);
-    // } 
+    // }
     else {
       // document.getElementById("hiddenPaymentButton").click();
       setDisplayPopUp(false);
@@ -246,7 +246,7 @@ const ShoppingCart = ({
           show={show}
           onHide={handleClose}
           placement="end"
-          style={{ fontFamily: "Signika", height: "46%" }}
+          style={{ height: "46%" }}
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title className="d-flex align-items-center justify-content-center">
@@ -379,7 +379,7 @@ const ShoppingCart = ({
           show={show}
           onHide={handleClose}
           placement="end"
-          style={{ fontFamily: "Signika", height: "30%" }}
+          style={{ height: "30%" }}
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title className="d-flex align-items-center justify-content-center">

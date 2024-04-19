@@ -3,10 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const MealPlans = () => {
   return (
-    <section
-      className="mealPlans bg-light"
-      style={{ fontFamily: "Signika", padding: "64px 32px" }}
-    >
+    <section className="mealPlans bg-light" style={{ padding: "64px 32px" }}>
       <div className="container text-center" style={{ marginLeft: "auto" }}>
         <div
           style={{
@@ -136,7 +133,7 @@ const MealPlans = () => {
             <Col>
               <div className="d-flex justify-content-center align-items-center">
                 {/* Link to order page */}
-                <Link to="/order">
+                <Link to="/register">
                   <Button
                     variant="dark"
                     className="text-light"

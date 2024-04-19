@@ -23,7 +23,6 @@ const UserProfile = ({ setDisplayAccountInfo, setLogIn }) => {
       setBody(
         <div
           className="container align-items-center d-flex justify-content-center"
-          style={{ fontFamily: "Signika" }}
         >
           <form style={{ padding: "20px" }} className="rounded">
             <Row className="">

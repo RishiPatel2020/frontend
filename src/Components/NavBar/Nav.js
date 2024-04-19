@@ -14,12 +14,12 @@ function NavBar() {
       variant="gold"
       className="fixed-top"
     >
-      <Container style={{ fontFamily: "Signika" }}>
+      <Container>
         {/* Mirchi Meals  */}
         <Navbar.Brand>
           <Nav.Link href="/#">
             <img
-              src={require("../../Resources/Logo/ria1.jpg")}
+              src={require("../../Resources/Logo/newLogo.png")}
               alt="MirchiMealsLogo"
               className="logoAdjustment"
             />

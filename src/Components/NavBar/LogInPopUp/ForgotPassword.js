@@ -102,7 +102,6 @@ const ForgotPassword = ({
     <Modal
       show={showForgotPassword}
       onHide={() => handleClose()}
-      style={{ fontFamily: "Signika" }}
     >
       <Modal.Header closeButton style={{ textAlign: "center" }}>
         <Modal.Title>{title}</Modal.Title>

@@ -1,19 +1,41 @@
 /* Galaxy Field */
 @media screen and (width<=280px) {
+  .imgAdjustments {
+    height: 150px !important;
+    width: 202px !important;
+  }
 }
 
 /* Small mobiles like iphone SE*/
 @media screen and (width>280px) and (width<=375px) {
+  .imgAdjustments {
+    height: 183px !important;
+    width: 237px !important;
+  }
 }
 
 /* for mobiles */
 @media screen and (width>376px) and (width<=420px) {
+  .imgAdjustments {
+    height: 179px !important;
+    width: 228px !important;
+  }
 }
 
 /* for tablets */
 @media screen and (width>420px) {
+  .imgAdjustments {
+    /* height: 175px !important;
+    width: 232px !important; */
+    height: 211px !important;
+    width: 269px !important;
+  }
 }
 
 /* for laptops */
 @media screen and (width>820px) {
+  .imgAdjustments {
+    height: 150px !important;
+    width: 202px !important;
+  }
 }

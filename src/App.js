@@ -8,6 +8,7 @@ import Nav from "./Components/NavBar/Nav";
 import { Route, Routes } from "react-router-dom";
 import ReactGA from "react-ga4";
 import { TRACKINGID } from "./Service/Constants";
+import Register from "./Pages/Register/Register";
 
 ReactGA.initialize(TRACKINGID);
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/" element={navAndFoot(<Home />)} />
         {/* About */}
         <Route exact path="/about" element={navAndFoot(<About />)} />
+        <Route exact path="/register" element={navAndFoot(<Register />)} />
         <Route path="*" element={navAndFoot(<Home />)} />
       </Routes>
     </>

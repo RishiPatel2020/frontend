@@ -10,7 +10,6 @@ const InformationGrid = ({ data }) => {
       className={
         "row align-items-center justify-content-between bg-" + data.backColor
       }
-      style={{ fontFamily: "Signika" }}
     >
       <Container style={{ padding: "64px 32px" }}>
         <div style={{ textAlign: "center" }}>
@@ -28,7 +27,7 @@ const InformationGrid = ({ data }) => {
             <div className="card-body text-center">
               {/* Vector Image */}
               <img
-                className="h1 mb-3"
+                className="h1 mb-3 imgAdjustments"
                 src={data.image1}
                 style={{ height: data.image1Height, width: data.image1Width }}
                 alt="lorem"
@@ -47,7 +46,7 @@ const InformationGrid = ({ data }) => {
           <Col sm>
             <div className="card-body text-center">
               <img
-                className="h1 mb-3"
+                className="h1 mb-3 imgAdjustments"
                 src={data.image2}
                 style={{ height: data.image2Height, width: data.image2Width }}
                 alt="lorem"
@@ -62,7 +61,7 @@ const InformationGrid = ({ data }) => {
           <Col sm>
             <div className="card-body text-center">
               <img
-                className="h1 mb-3"
+                className="h1 mb-3 imgAdjustments"
                 src={data.image3}
                 style={{ height: data.image3Height, width: data.image3Width }}
                 alt="lorem"

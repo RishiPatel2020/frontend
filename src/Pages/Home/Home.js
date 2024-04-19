@@ -10,33 +10,35 @@ import Contact from "./Contact/Contact";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import Banner from "./Banner/Banner";
 import MealPlans from "./MealPlans/MealPlans";
-import Testimonials from "./Testimonials/Testimonials";
 const Home = () => {
   useEffect(() => {}, []);
   const saveTime = {
     backColor: "primary",
     headingColor: "dark",
-    titleColor: "secondary",
-    textColor: "dark",
+    titleColor: "white",
+    textColor: "secondary",
 
-    heading: "How It Works",
-    image1: require("../../Resources/Vector/step1.png"),
+    heading: "The Ria Way",
+    image1: require("../../Resources/HowItWorks/first.png"),
     image1Height: "150px",
     image1Width: "250px",
-    title1: "Choose Your Meals and Plan",
-    description1: "Choose a minimum of 2 ready-to-eat meals",
+    title1: "Verified and Authentic Users.",
+    description1:
+      "Each user is manually verified by the Ria team to ensure a genuine experience. ",
 
-    image2: require("../../Resources/Vector/step2.png"),
+    image2: require("../../Resources/HowItWorks/second.png"),
     image2Width: "250px",
     image2Height: "150px",
-    title2: "Receive Your Delivery ",
-    description2: "All meals for the week are delivered straight to you.",
+    title2: "Curated Matches Made.",
+    description2:
+      "Hundreds of users are matched on the basis of their preferences and personality. ",
 
-    image3: require("../../Resources/Vector/step3.png"),
+    image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",
     image3Height: "150px",
-    title3: "Enjoy Your Meals",
-    description3: "Microwave meals throughout the week and enjoy right away!",
+    title3: "No Swiping or Scrolling Ever.",
+    description3:
+      "You’ll never scroll or swipe on another random person again. Ria works to directly send relevant candidates to your e-mail every month. ",
   };
 
   const stats = {
@@ -69,7 +71,7 @@ const Home = () => {
   };
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
       {/* Log In & Sign Up Button */}
       <Showcase />
 
@@ -81,7 +83,6 @@ const Home = () => {
 
       {/* <MealsLookUp /> */}
       {/* <Testimonials /> */}
-
 
       {/* FAQs */}
       <Question />

@@ -188,7 +188,6 @@ function LogInPopUP({ style, setLogIn }) {
       <Modal
         show={display}
         onHide={handleClose}
-        style={{ fontFamily: "Signika" }}
       >
         <Modal.Header closeButton style={{ textAlign: "center" }}>
           <Modal.Title>
