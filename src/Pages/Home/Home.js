@@ -31,7 +31,7 @@ const Home = () => {
     image2Height: "150px",
     title2: "Curated Matches Made.",
     description2:
-      "Hundreds of users are matched on the basis of their preferences and personality. ",
+      "Hundreds of users are matched on their unlimited preferences and filters from physicality to personality.",
 
     image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",
