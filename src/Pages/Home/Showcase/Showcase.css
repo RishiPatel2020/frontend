@@ -1,3 +1,30 @@
+.addShadow{
+  text-shadow: 5px 1.5px 0px rgba(0, 0, 0, 0.5);
+}
+.background-image-container {
+  position: relative;
+  background-image: url('../../../Resources/Background/betterQuality.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 70vh; /* Adjust the height as needed */
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Other styles for text overlay */
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .background-image-container {
+      height: 50vh; /* Adjust the height for smaller devices */
+  }
+}
+
 /* Galaxy Field */
 @media screen and (width<=280px) {
   .bigTexts {
@@ -28,7 +55,6 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-    
   }
 }
 
@@ -62,8 +88,6 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-
-    
   }
 }
 
@@ -97,8 +121,6 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-
-    
   }
 }
 
@@ -132,8 +154,6 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-
-    
   }
 }
 
@@ -154,7 +174,6 @@
   }
 
   .boxing {
-    
     /* background-color: rgb(247, 193, 68); */
     opacity: 1;
     padding-left: 25px;
@@ -168,7 +187,5 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-    
   }
-  
 }

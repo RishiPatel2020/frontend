@@ -30,7 +30,7 @@ function NavBar() {
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           style={{
-            backgroundColor: "rgb(227,178, 84)",
+            backgroundColor: "rgb(254,251,246)",
             boxShadow: "2px 1px 3px black",
             height: "36px",
             width: "48px",
