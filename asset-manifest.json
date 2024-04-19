@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.af617017.css",
-    "main.js": "/frontend/static/js/main.ff3579fe.js",
+    "main.css": "/frontend/static/css/main.f8a52046.css",
+    "main.js": "/frontend/static/js/main.d6eca66f.js",
     "static/js/488.9f5852af.chunk.js": "/frontend/static/js/488.9f5852af.chunk.js",
     "static/media/newCoupleBack1.png": "/frontend/static/media/newCoupleBack1.03be2d31bff605911517.png",
     "static/media/customers.png": "/frontend/static/media/customers.fd128c736d97eab3a55b.png",
@@ -16,12 +16,12 @@
     "static/media/first.png": "/frontend/static/media/first.2563801dc701f4cac444.png",
     "static/media/third.png": "/frontend/static/media/third.fec9aa861cfa4633f8c3.png",
     "index.html": "/frontend/index.html",
-    "main.af617017.css.map": "/frontend/static/css/main.af617017.css.map",
-    "main.ff3579fe.js.map": "/frontend/static/js/main.ff3579fe.js.map",
+    "main.f8a52046.css.map": "/frontend/static/css/main.f8a52046.css.map",
+    "main.d6eca66f.js.map": "/frontend/static/js/main.d6eca66f.js.map",
     "488.9f5852af.chunk.js.map": "/frontend/static/js/488.9f5852af.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.af617017.css",
-    "static/js/main.ff3579fe.js"
+    "static/css/main.f8a52046.css",
+    "static/js/main.d6eca66f.js"
   ]
 }
