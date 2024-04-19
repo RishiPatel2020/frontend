@@ -76,65 +76,10 @@ const Showcase = () => {
 
     <div class="background-image-container">
       <div class="overlay-text">
-         <div className="container">
-        <div className="align-items-center my-0.1 pb-4">
-          {/* Big Texts */}
-          <div className="bigTexts text-primary te" >
-            {/* Text 1 */}
-            <div>
-             <strong className="addShadow">Stop</strong>
-           </div>
-
-            {/* Text 2 */}
-           {/* <div className="text-primary">
-               <strong>All In One </strong>
-             </div> */}
-
-            <div>
-              <strong className="addShadow">Scrolling</strong>
-            </div>
-
-            {/* Text 3 */}
-            <div>
-              <strong className="addShadow">Endlessely</strong>
-            </div>
-          </div>
-
-          {/* Text 4,5,6 */}
-          <div className="smallTexts">
-           <span className="lead" style={{ fontSize: "1.7em" }}>
-             {/* <span className="text-primary">Freshly Cooked</span> */}
-             <span style={{ color: "rgb(237,12,60)" }}>Save your time</span>
-             <br></br>
-           </span>
-          </div>
-
-         {/* ONLY if user not logged in  */}
-
-           <Row className="my-2">
-            <Col>
-               <div className="justify-content-center align-items-center">
-               {/* Link to order page */}
-                <Link to="/register">
-                   <Button
-                    variant="primary"
-                    className="text-dark"
-                    style={{
-                      height: "50px",
-                      width: "150px",
-                      borderRadius: "15px",
-                      fontSize: "20px",
-                      boxShadow: "5px 8px 0px rgba(0, 0, 0, 0.5)"
-                    }}
-                  >
-                    Get Started
-                  </Button>
-                </Link>
-              </div>
-            </Col>
-          </Row>
-        </div>
-      </div>
+        <p>The No Swiping Desi Matchmaking Site.</p>
+        <p>Matches Right to Your Inbox. Every Month for Free.</p>
+        <button class="button text-dark bg-primary">Get Started</button>
+        <button class="button text-dark bg-primary">Log In</button>
       </div>
     </div>
   );

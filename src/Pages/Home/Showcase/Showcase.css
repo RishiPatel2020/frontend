@@ -1,9 +1,6 @@
-.addShadow{
-  text-shadow: 5px 1.5px 0px rgba(0, 0, 0, 0.5);
-}
 .background-image-container {
   position: relative;
-  background-image: url('../../../Resources/Background/betterQuality.jpg');
+  background-image: url("../../../Resources/Background/betterQuality.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -12,16 +9,75 @@
 
 .overlay-text {
   position: absolute;
-  top: 50%;
+  top: 69%; /* Default vertical position */
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Other styles for text overlay */
+  text-align: center;
+  color: white;
 }
 
-/* Media query for smaller devices */
-@media (max-width: 768px) {
-  .background-image-container {
-      height: 50vh; /* Adjust the height for smaller devices */
+.overlay-text p {
+  margin-bottom: 10px;
+  font-size: 16px; /* Default font size */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}
+
+.button {
+  background-color: #4caf50; /* Green background color */
+  border: none;
+  color: white; /* Text color */
+  padding: 15px 32px; /* Padding */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; /* Default font size */
+  margin: 4px; /* Adjust margin */
+  cursor: pointer;
+  border-radius: 8px; /* Border radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Box shadow with black color */
+}
+
+/* Add space between buttons */
+.button + .button {
+  margin-left: 10px;
+}
+
+/* Media query for MacBook 16-inch */
+@media (max-width: 3072px) {
+  .overlay-text {
+    top: 69%; /* Adjust the vertical position */
+  }
+  .overlay-text p {
+    font-size: 20px; /* Increase font size for larger screens */
+  }
+  .button {
+    font-size: 18px; /* Increase font size for larger screens */
+  }
+}
+
+/* Media query for MacBook 14-inch */
+@media (max-width: 2880px) {
+  .overlay-text {
+    top: 69%; /* Adjust the vertical position */
+  }
+  .overlay-text p {
+    font-size: 18px; /* Increase font size for larger screens */
+  }
+  .button {
+    font-size: 16px; /* Increase font size for larger screens */
+  }
+}
+
+/* Media query for iPhone 12, 13, 14 Pro, and all Pro Maxes */
+@media (max-width: 428px) {
+  .overlay-text {
+    top: 69%; /* Adjust the vertical position */
+  }
+  .overlay-text p {
+    font-size: 14px; /* Decrease font size for smaller screens */
+  }
+  .button {
+    font-size: 12px; /* Decrease font size for smaller screens */
   }
 }
 
