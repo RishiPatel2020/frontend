@@ -9,7 +9,7 @@
 
 .overlay-text {
   position: absolute;
-  top: 69%; /* Default vertical position */
+  top: 55%; /* Default vertical position */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -45,7 +45,7 @@
 /* Media query for MacBook 16-inch */
 @media (max-width: 3072px) {
   .overlay-text {
-    top: 69%; /* Adjust the vertical position */
+    top: 55%; /* Adjust the vertical position */
   }
   .overlay-text p {
     font-size: 20px; /* Increase font size for larger screens */
@@ -58,7 +58,7 @@
 /* Media query for MacBook 14-inch */
 @media (max-width: 2880px) {
   .overlay-text {
-    top: 69%; /* Adjust the vertical position */
+    top: 55%; /* Adjust the vertical position */
   }
   .overlay-text p {
     font-size: 18px; /* Increase font size for larger screens */
@@ -71,7 +71,7 @@
 /* Media query for iPhone 12, 13, 14 Pro, and all Pro Maxes */
 @media (max-width: 428px) {
   .overlay-text {
-    top: 69%; /* Adjust the vertical position */
+    top: 55%; /* Adjust the vertical position */
   }
   .overlay-text p {
     font-size: 14px; /* Decrease font size for smaller screens */
@@ -152,7 +152,7 @@
   .bigTexts {
     margin-bottom: -10px;
     padding-top: 10px;
-    font-size: 2.2em;
+    font-size: 1.2em;
   }
 
   .smallTexts {
@@ -183,9 +183,9 @@
 /* for tablets */
 @media screen and (width>420px) {
   .bigTexts {
-    margin-bottom: -10px;
-    padding-top: 10px;
-    font-size: 2.2em;
+    margin-bottom: 12px;
+    padding-top: 112px;
+    font-size: 30px;
   }
 
   .smallTexts {

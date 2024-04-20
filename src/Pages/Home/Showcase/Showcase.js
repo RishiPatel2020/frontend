@@ -74,11 +74,75 @@ const Showcase = () => {
     // </section>
 
     <div class="background-image-container">
-      <div class="overlay-text">
-        <p>The No Swiping Desi Matchmaking Site.</p>
+      <div class="overlay-text my-5">
+        {/* <p>The No Swiping Desi Matchmaking Site.</p>
         <p>Matches Right to Your Inbox. Every Month for Free.</p>
         <button class="button text-dark bg-primary">Get Started</button>
-        <button class="button text-dark bg-primary">Log In</button>
+        <button class="button text-dark bg-primary">Log In</button> */}
+        <div className="container">
+          <div className="align-items-center my-0.1 pb-4">
+            {/* Big Texts */}
+            <div className="bigTexts text-primary">
+              {/* Text 1 */}
+              <div style={{textShadow:"2px 2px 2px rgb(0,0,0)"}}>
+                <strong>Stop Endlessely</strong>
+              </div>
+
+              {/* Text 2 */}
+              {/* <div className="text-primary">
+                <strong>All In One </strong>
+              </div> */}
+
+              <div style={{textShadow:"2px 2px 2px rgb(0,0,0)"}}>
+                <strong>Swiping for love.</strong>
+              </div>
+
+              {/* Text 3 */}
+              {/* <div style={{textShadow:"2px 2px 4px rgb(0,0,0)"}}>
+                <strong>Endlessely!</strong>
+              </div> */}
+            </div>
+
+
+            {/* ONLY if user not logged in  */}
+
+            <Row className="my-2">
+              <Col>
+                <div className="justify-content-center align-items-center">
+                  {/* Link to order page */}
+                  <Link to="/register">
+                    <Button
+                      variant="dark"
+                      className="text-primary mt-3"
+                      style={{
+                        height: "50px",
+                        width: "150px",
+                        borderRadius: "15px",
+                        fontSize: "20px",
+                        boxShadow:"2px 2px 2px rgb(0,0,0)"
+                      }}
+                    >
+                      Get started
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="dark"
+                    className="text-primary mx-4 mt-3"
+                    style={{
+                      height: "50px",
+                      width: "150px",
+                      borderRadius: "15px",
+                      fontSize: "20px",
+                      boxShadow:"2px 2px 2px rgb(0,0,0)"
+                    }}
+                  >
+                    Log In
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </div>
       </div>
     </div>
   );

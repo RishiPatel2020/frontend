@@ -8,14 +8,12 @@ import Showcase from "./Showcase/Showcase";
 import Question from "./Questions/Question";
 import Contact from "./Contact/Contact";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
-import Banner from "./Banner/Banner";
-import MealPlans from "./MealPlans/MealPlans";
 const Home = () => {
   useEffect(() => {}, []);
   const theRiaWay = {
     backColor: "primary",
     headingColor: "dark",
-    titleColor: "white",
+    titleColor: "info",
     textColor: "secondary",
 
     heading: "The Ria Way",
@@ -44,7 +42,7 @@ const Home = () => {
   const howItWorks = {
     backColor: "light",
     headingColor: "dark",
-    titleColor: "white",
+    titleColor: "info",
     textColor: "secondary",
 
     heading: "How It Works",
@@ -53,7 +51,7 @@ const Home = () => {
     image1Width: "250px",
     title1: "Register.",
     description1:
-      "Let us know about yourself and what’s meaningful to you through your profile.",
+      "Let us know about yourself and what's meaningful to you through your profile.",
 
     image2: require("../../Resources/HowItWorks/second.png"),
     image2Width: "250px",
@@ -69,13 +67,10 @@ const Home = () => {
     description3:
       "If both candidates show that they're interested in each other, message away!",
   };
-  
-
 
   return (
     <>
       {/* <Banner /> */}
-
 
       <Showcase />
 
@@ -85,12 +80,8 @@ const Home = () => {
       {/* The Ria way */}
       <InformationGrid data={theRiaWay} />
 
-
       {/* FAQs */}
       <Question />
-
-      {/* Contact */}
-      <Contact />
     </>
   );
 };
