@@ -10,6 +10,43 @@ import Contact from "./Contact/Contact";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 const Home = () => {
   useEffect(() => {}, []);
+
+  const howItWorks = {
+    backColor: "light",
+    headingColor: "dark",
+    titleColor: "info",
+    textColor: "secondary",
+
+    heading: "How It Works",
+    image1: require("../../Resources/HowItWorks/first.png"),
+    image1Height: "150px",
+    image1Width: "250px",
+    title1: "Register.",
+    description1:
+      "Tell us about yourself and what's meaningful to you through your profile.",
+
+    image2: require("../../Resources/HowItWorks/second.png"),
+    image2Width: "250px",
+    image2Height: "150px",
+    title2: "Receive Relevant Candidates Monthly",
+    description2:
+      "Sit back and let our system discover matching profiles to send to you monthly via e-mail. ",
+
+    image3: require("../../Resources/HowItWorks/third.png"),
+    image3Width: "250px",
+    image3Height: "150px",
+    title3: "Send Interests to Connect.",
+    description3:
+      "Convey your interest and non-interest to connect with candidates.",
+
+    image4: require("../../Resources/HowItWorks/fourth.png"),
+    image4Width: "250px",
+    image4Height: "150px",
+    title4: "Match and Message.",
+    description4:
+      "If both candidates show that they're interested in each other, message away!",
+  };
+
   const theRiaWay = {
     backColor: "primary",
     headingColor: "dark",
@@ -29,43 +66,21 @@ const Home = () => {
     image2Height: "150px",
     title2: "Curated Matches Made.",
     description2:
-      "Hundreds of users are matched on their unlimited preferences and filters from physicality to personality.",
+      "Users are matched on the basis of their preferences and personality.",
 
     image3: require("../../Resources/TheRiaWay/third.png"),
     image3Width: "250px",
     image3Height: "150px",
     title3: "No Swiping or Scrolling Ever.",
     description3:
-      "You’ll never scroll or swipe on another random person again. Ria works to directly send relevant candidates to your e-mail every month. ",
-  };
+      "Stop endlessly scrolling to find the one. Ria works to directly send relevant candidates to your e-mail every month.",
 
-  const howItWorks = {
-    backColor: "light",
-    headingColor: "dark",
-    titleColor: "info",
-    textColor: "secondary",
-
-    heading: "How It Works",
-    image1: require("../../Resources/HowItWorks/first.png"),
-    image1Height: "150px",
-    image1Width: "250px",
-    title1: "Register.",
-    description1:
-      "Let us know about yourself and what's meaningful to you through your profile.",
-
-    image2: require("../../Resources/HowItWorks/second.png"),
-    image2Width: "250px",
-    image2Height: "150px",
-    title2: "Automatically Receive Matching Candidates Each Month.",
-    description2:
-      "Sit back and let our system discover matching profiles to send to you via e-mail every month.",
-
-    image3: require("../../Resources/HowItWorks/third.png"),
-    image3Width: "250px",
-    image3Height: "150px",
-    title3: "Match and Message.",
-    description3:
-      "If both candidates show that they're interested in each other, message away!",
+    image4: require("../../Resources/TheRiaWay/fourth.png"),
+    image4Width: "250px",
+    image4Height: "150px",
+    title4: "Serious Relationship Seekers.",
+    description4:
+      "Ria's hundreds of members are also looking for something long-term or dating-to-marry. ",
   };
 
   return (

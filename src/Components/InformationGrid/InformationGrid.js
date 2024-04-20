@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import './InformationGrid.css'; 
+import "./InformationGrid.css";
 
 const InformationGrid = ({ data }) => {
   return (
@@ -70,6 +70,22 @@ const InformationGrid = ({ data }) => {
               <h4 className={"text-" + data.titleColor}>{data.title3}</h4>
               <p className={"card-text text-" + data.textColor}>
                 {data.description3}
+              </p>
+            </div>
+          </Col>
+          
+          <Col sm>
+            <div className="card-body text-center">
+              <img
+                className="h1 mb-3 imgAdjustments"
+                src={data.image4}
+                style={{ height: data.image4Height, width: data.image4Width }}
+                alt="lorem"
+              />
+
+              <h4 className={"text-" + data.titleColor}>{data.title4}</h4>
+              <p className={"card-text text-" + data.textColor}>
+                {data.description4}
               </p>
             </div>
           </Col>
