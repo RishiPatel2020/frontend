@@ -5,9 +5,13 @@ import Values from "./Values/Values";
 import Mission from "./Mission/Misson";
 import Vision from "./Vision/Vision";
 import CallToAction from "./CallToAction/CallToAction";
-import './About.css'; 
-
+import "./About.css";
+import scrollToTop from "../../Service/ScrollTop";
+import { useEffect } from "react";
 const AboutPage = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <div
       className="about-container"
