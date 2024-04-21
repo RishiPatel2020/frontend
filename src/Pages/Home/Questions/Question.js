@@ -81,8 +81,6 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-    
-
         <Accordion.Item eventKey="8">
           <Accordion.Header>
             Did I miss the monthly e-mail of the matches?
