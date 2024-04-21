@@ -28,6 +28,14 @@ const Question = () => {
         </Accordion.Item>
 
         <Accordion.Item eventKey="2">
+          <Accordion.Header>What does Ria stand for?</Accordion.Header>
+          <Accordion.Body>
+            Rishta Interactions Assistant, read more about our origin story in
+            our About page.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="3">
           <Accordion.Header>
             How many South Asian communities are included?
           </Accordion.Header>
@@ -37,7 +45,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="3">
+        <Accordion.Item eventKey="4">
           <Accordion.Header>
             When can I expect to receive the e-mails of the matches?
           </Accordion.Header>
@@ -46,7 +54,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="4">
+        <Accordion.Item eventKey="5">
           <Accordion.Header>
             Once I get the e-mail of the candidates, what's next?
           </Accordion.Header>
@@ -58,7 +66,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="5">
+        <Accordion.Item eventKey="6">
           <Accordion.Header>
             How do I message the candidates in the profiles?
           </Accordion.Header>
@@ -68,7 +76,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="6">
+        <Accordion.Item eventKey="7">
           <Accordion.Header>
             Do I get the same profiles each month?
           </Accordion.Header>

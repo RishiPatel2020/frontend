@@ -60,7 +60,7 @@ const Home = () => {
     image1: require("../../Resources/TheRiaWay/first.png"),
     image1Height: "150px",
     image1Width: "250px",
-    title1: "Verified and Authentic Users.",
+    title1: "Verified Users.",
     description1:
       "Each user is manually verified by the Ria team to ensure a genuine experience. ",
 
@@ -74,14 +74,14 @@ const Home = () => {
     image3: require("../../Resources/TheRiaWay/third.png"),
     image3Width: "250px",
     image3Height: "150px",
-    title3: "No Swiping or Scrolling Ever.",
+    title3: "No Swiping Ever.",
     description3:
       "Stop endlessly scrolling to find the one. Ria works to directly send relevant candidates to your e-mail every month.",
 
-    image4: require("../../Resources/TheRiaWay/fourth.png"),
+    image4: require("../../Resources/TheRiaWay/fourth.jpg"),
     image4Width: "250px",
     image4Height: "150px",
-    title4: "Serious Relationship Seekers.",
+    title4: "Serious Seekers.",
     description4:
       "Ria's hundreds of members are also looking for something long-term or dating-to-marry. ",
   };

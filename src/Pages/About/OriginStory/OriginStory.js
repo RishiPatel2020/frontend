@@ -15,8 +15,8 @@ const OriginStory = () => {
         of engineers and relationship experts, the Ria team set out to create a
         dating site that uses advanced matching algorithms to bring people
         together based on deep compatibility, not just superficial traits. Thus,
-        RiaMatchMaking was born — a platform where every single connection has
-        potential.
+        Ria (Rishta Interactions Assistant) was born — a platform where every
+        single connection has potential.
       </p>
     </div>
   );
