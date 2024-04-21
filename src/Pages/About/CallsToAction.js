@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const CallToAction = () => {
+  const navigate = useNavigate();
   return (
     <div className="call-to-action bg-light">
       <h2>Ready to Find Love?</h2>
@@ -9,10 +10,12 @@ const CallToAction = () => {
         today and start your journey towards meaningful connections. No more
         swiping through endless profiles. No more matches that don’t match. Just
         real, deep connections tailored to you. Sign up now to explore a new era
-        of dating where we bring the candidates that matter to you. Let's make
-        dating meaningful again.
+        of dating. Let's make dating meaningful again.
       </p>
-      <button className="text-light bg-dark" onClick={() => (window.location.href = "/frontend")}>
+      <button
+        className="text-light bg-dark"
+        onClick={() => navigate("/frontend")}
+      >
         Join Ria
       </button>
     </div>

@@ -1,13 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import scrollToTop from "../../Service/ScrollTop";
 
 const Footer = () => {
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
   return (
     <footer className="p-5 bg-dark text-white text-center position-relative">
       <div className="container">
@@ -23,7 +18,7 @@ const Footer = () => {
           </Link>
         </p>
       </div>
-      <a onClick={scrollTop} class="position-absolute bottom-0 end-0 p-5">
+      <a onClick={scrollToTop} class="position-absolute bottom-0 end-0 p-5">
         <i class="bi bi-arrow-up-circle h1"></i>
       </a>
     </footer>

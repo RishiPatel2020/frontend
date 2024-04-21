@@ -19,14 +19,12 @@
 
 .dream-text {
   display: block;
-  font-family: 'Arial', sans-serif;
   font-style: italic;
   color: #E0E0E0;
 }
 
 .reality-text {
   display: block;
-  font-family: 'Helvetica', sans-serif;
   font-weight: bold;
   color: #FFFFFF;
   margin-left: 0;

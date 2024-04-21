@@ -8,8 +8,11 @@ import Showcase from "./Showcase/Showcase";
 import Question from "./Questions/Question";
 import Contact from "./Contact/Contact";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
+import scrollToTop from "../../Service/ScrollTop";
 const Home = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const howItWorks = {
     backColor: "light",
