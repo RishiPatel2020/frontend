@@ -28,9 +28,9 @@ const Home = () => {
     image2: require("../../Resources/HowItWorks/second.png"),
     image2Width: "250px",
     image2Height: "150px",
-    title2: "Receive Relevant Candidates Monthly",
+    title2: "Receive Candidates Monthly",
     description2:
-      "Sit back and let our system discover matching profiles to send to you monthly via e-mail. ",
+      "Our system discover matching profiles to send to you monthly via e-mail. ",
 
     image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",

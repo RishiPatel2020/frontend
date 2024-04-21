@@ -17,7 +17,7 @@ const Question = () => {
             wasting time with having to manually go through tons of profiles to
             check whether or not they fit your requirements. So, our systems do
             the hard work behind the scenes to bring you profiles of folks that
-            match you.
+            match your preferences.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
@@ -32,7 +32,7 @@ const Question = () => {
             How many South Asian communities are included?
           </Accordion.Header>
           <Accordion.Body>
-            As of right now, we're covering alot of the bases but if we're
+            As of right now, we're covering a lot of the bases but if we're
             missing any particularities, we'll be adding them in soon.
           </Accordion.Body>
         </Accordion.Item>
@@ -81,13 +81,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="7">
-          <Accordion.Header>How are users verified?</Accordion.Header>
-          <Accordion.Body>
-            As soon as the candidate also sends an interest to connect with you,
-            you'll be able to message one another!
-          </Accordion.Body>
-        </Accordion.Item>
+    
 
         <Accordion.Item eventKey="8">
           <Accordion.Header>

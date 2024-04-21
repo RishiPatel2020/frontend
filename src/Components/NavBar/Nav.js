@@ -17,7 +17,7 @@ function NavBar() {
       <Container>
         {/* Mirchi Meals  */}
         <Navbar.Brand>
-          <Nav.Link href="/#">
+          <Nav.Link href="/frontend">
             <img
               src={require("../../Resources/Logo/newLogo.png")}
               alt="MirchiMealsLogo"

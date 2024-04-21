@@ -1,0 +1,140 @@
+/* This ensures there is no padding or margin that affects the layout of the page's header image */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Prevents horizontal scroll due to full-width elements */
+}
+
+.about-container {
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* Added to ensure no unexpected overflow */
+}
+
+.mission-section,
+.vision-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .mission-section,
+  .vision-section {
+    padding: 20px;
+  }
+}
+
+/* Basic Styles */
+.about-container {
+  text-align: center;
+  padding: 20px;
+  color: #333;
+  background-color: #f4f4f4;
+  font-family: "Arial", sans-serif;
+}
+
+.origin-story,
+.values,
+.call-to-action {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.values ul {
+  text-align: left;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem; /* Responsive base font size */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styling */
+
+/* Base font size for different devices */
+html {
+  font-size: 14px; /* Default font size for mobile */
+}
+
+@media (min-width: 576px) {
+  html {
+    font-size: 15px; /* Slightly larger font for landscape phones */
+  }
+
+  .about-container {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px; /* Standard desktop font size */
+  }
+
+  .origin-story,
+  .values,
+  .call-to-action {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  html {
+    font-size: 17px; /* Larger font size for desktops */
+  }
+
+  .origin-story,
+  .values,
+  .call-to-action {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px; /* Larger font size for large desktops */
+  }
+
+  .origin-story,
+  .values,
+  .call-to-action {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 20px; /* Even larger font size for very large screens */
+  }
+
+  .about-container {
+    padding: 50px;
+  }
+
+  .origin-story,
+  .values,
+  .call-to-action {
+    padding: 30px;
+    max-width: 1320px;
+  }
+}

@@ -1,0 +1,50 @@
+.header-image {
+  width: 100vw;
+  height: 50vh;
+  background: url('../../Resources/About/couple.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 0;
+}
+
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.dream-text {
+  display: block;
+  font-family: 'Arial', sans-serif;
+  font-style: italic;
+  color: #E0E0E0;
+}
+
+.reality-text {
+  display: block;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .header-image {
+    height: 70vh;
+  }
+  .header-title {
+    font-size: 2.8rem;
+  }
+  .dream-text,
+  .reality-text {
+    display: inline;
+    margin-left: 10px;
+  }
+  .dream-text {
+    margin-left: 0;
+  }
+}
