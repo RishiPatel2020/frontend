@@ -1,10 +1,10 @@
 import React from "react";
-import HeaderImage from "./HeaderImage";
-import OriginStory from "./OriginStory";
-import Values from "./Values";
-import Mission from "./Misson";
-import Vision from "./Vision";
-import CallToAction from "./CallsToAction";
+import HeaderImage from "./HeaderImage/HeaderImage";
+import OriginStory from "./OriginStory/OriginStory";
+import Values from "./Values/Values";
+import Mission from "./Mission/Misson";
+import Vision from "./Vision/Vision";
+import CallToAction from "./CallToAction/CallToAction";
 import './About.css'; 
 
 const AboutPage = () => {

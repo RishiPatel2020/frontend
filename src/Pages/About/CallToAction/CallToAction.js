@@ -4,8 +4,8 @@ const CallToAction = () => {
   const navigate = useNavigate();
   return (
     <div className="call-to-action bg-light">
-      <h2>Ready to Find Love?</h2>
-      <p>
+      <h2 className="text-info">Ready to Find Love?</h2>
+      <p className="text-secondary">
         Are you ready to change the way you experience online dating? Join Ria
         today and start your journey towards meaningful connections. No more
         swiping through endless profiles. No more matches that don’t match. Just

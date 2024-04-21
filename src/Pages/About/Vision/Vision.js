@@ -3,8 +3,8 @@ import React from "react";
 const Vision = () => {
   return (
     <div className="vision-section bg-primary">
-      <h2 className="dark">Vision</h2>
-      <p>
+      <h2 className="text-info">Vision</h2>
+      <p className="text-secondary">
         A future where every person of the South Asian community has the
         opportunity to discover genuine connections with people that match their
         preferences. Through innovation, inclusivity, and integrity, we strive

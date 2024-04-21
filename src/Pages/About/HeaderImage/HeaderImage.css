@@ -1,7 +1,7 @@
 .header-image {
   width: 100vw;
   height: 50vh;
-  background: url('../../Resources/About/couple.jpg') no-repeat center center/cover;
+  background: url('../../../Resources/About/couple.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;

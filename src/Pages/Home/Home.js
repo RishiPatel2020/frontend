@@ -33,7 +33,7 @@ const Home = () => {
     image2Height: "150px",
     title2: "Receive Candidates Monthly",
     description2:
-      "Our system discover matching profiles to send to you monthly via e-mail. ",
+      "Our system discovers matching profiles to send to you monthly via e-mail. ",
 
     image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",

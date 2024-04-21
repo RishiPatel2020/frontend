@@ -62,16 +62,12 @@ button {
   font-size: 1rem; /* Responsive base font size */
 }
 
-button:hover {
-  background-color: #0056b3;
-}
+
 
 /* Responsive Styling */
 
 /* Base font size for different devices */
-html {
-  font-size: 14px; /* Default font size for mobile */
-}
+
 
 @media (min-width: 576px) {
   html {
