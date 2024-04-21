@@ -78,7 +78,7 @@ const Home = () => {
     description3:
       "Stop endlessly scrolling to find the one. Ria works to directly send relevant candidates to your e-mail every month.",
 
-    image4: require("../../Resources/TheRiaWay/fourth.jpg"),
+    image4: require("../../Resources/TheRiaWay/fourth.png"),
     image4Width: "250px",
     image4Height: "150px",
     title4: "Serious Seekers.",
