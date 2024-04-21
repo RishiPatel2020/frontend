@@ -94,7 +94,7 @@ const Showcase = () => {
               </div> */}
 
               <div style={{textShadow:"2px 2px 2px rgb(0,0,0)"}}>
-                <strong>Swiping for love.</strong>
+                <strong>Swiping for Love.</strong>
               </div>
 
               {/* Text 3 */}
@@ -122,7 +122,7 @@ const Showcase = () => {
                         boxShadow:"2px 2px 2px rgb(0,0,0)"
                       }}
                     >
-                      Get started
+                      Get Started
                     </Button>
                   </Link>
                   <Button
