@@ -5,9 +5,9 @@ import React from "react";
 import "./Terms.css"; // Importing CSS for styles
 import scrollToTop from "../../Service/ScrollTop";
 const Terms = () => {
-  // useEffect(() => {
-  //   scrollToTop();
-  // });
+  useEffect(() => {
+    scrollToTop();
+  });
   return (
     <div className="terms-conditions">
       <h1 className="text-center">Welcome to Ria</h1>
