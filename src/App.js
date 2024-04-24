@@ -9,6 +9,8 @@ import { Route, Routes } from "react-router-dom";
 import ReactGA from "react-ga4";
 import { TRACKINGID } from "./Service/Constants";
 import Register from "./Pages/Register/Register";
+import Terms from "./Pages/Terms/Terms";
+import Privacy from "./Pages/Privacy/Privacy";
 
 ReactGA.initialize(TRACKINGID);
 function App() {
@@ -34,6 +36,8 @@ function App() {
         {/* About */}
         <Route exact path="/about" element={navAndFoot(<About />)} />
         <Route exact path="/register" element={navAndFoot(<Register />)} />
+        <Route exact path="/privacy" element={navAndFoot(<Privacy />)} />
+        <Route exact path="/terms" element={navAndFoot(<Terms />)} />
         <Route path="*" element={navAndFoot(<Home />)} />
       </Routes>
     </>

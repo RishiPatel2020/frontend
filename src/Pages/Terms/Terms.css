@@ -1,0 +1,25 @@
+.terms-conditions {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .terms-conditions h1, .terms-conditions h2 {
+    color: #333;
+  }
+  
+  .terms-conditions p, .terms-conditions ul {
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .terms-conditions ul {
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .terms-conditions {
+      padding: 10px;
+    }
+  }
+  
