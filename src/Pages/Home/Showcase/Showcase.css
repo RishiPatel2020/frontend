@@ -28,7 +28,7 @@
 /* Responsive Font Size Adjustments */
 @media (max-width: 768px) {
   .bigTexts {
-    font-size: 5vw; /* Slightly larger on smaller screens to maintain readability */
+    font-size: 4vw; /* Slightly larger on smaller screens to maintain readability */
   }
 }
 

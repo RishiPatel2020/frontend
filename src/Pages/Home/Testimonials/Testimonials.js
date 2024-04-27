@@ -65,7 +65,7 @@ export default function Testimonial() {
           className="testimonials text-dark titleText"
           style={{ fontSize: "48px" }}
         >
-          Join Hundreds of Desis for Free
+          Join Hundreds
         </div>
         {/* <p className="testimonials-description">
           Don't take our word, see what our customers are saying
