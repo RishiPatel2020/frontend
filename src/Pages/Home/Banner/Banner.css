@@ -1,0 +1,29 @@
+.banner {
+    background-color: #f8f9fa; /* light gray background, assumed */
+    text-align: center;
+    padding: 8px 2px; /* reduced padding to maximize horizontal space */
+    white-space: nowrap; /* forces text to stay in one line */
+    overflow: hidden; /* hides text that overflows the element's box */
+    text-overflow: ellipsis; /* adds an ellipsis to indicate clipped text */
+    font-size: 4vw; /* starts with a viewport-width relative size */
+  }
+  
+  /* More aggressive adjustments specifically for the problematic viewport widths */
+  @media (max-width: 425px) {
+    .banner {
+      font-size: calc(8px + 4.5vw); /* Smaller base size with a significant viewport width component */
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .banner {
+      font-size: calc(8px + 5vw); /* Smallest screens get the smallest base plus a larger relative increase */
+    }
+  }
+  
+  @media (min-width: 426px) {
+    .banner {
+      font-size: calc(12px + 2vw); /* As the viewport width increases, reduce the reliance on the viewport width */
+    }
+  }
+  

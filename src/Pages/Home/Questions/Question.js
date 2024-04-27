@@ -3,7 +3,7 @@ import { Accordion } from "react-bootstrap";
 
 const Question = () => {
   return (
-    <section id="questions" className="p-5 bg-light">
+    <section id="questions" className="p-5 bg-primary">
       <h2 className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
         FAQs
       </h2>
@@ -22,9 +22,9 @@ const Question = () => {
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>
-            Is this a free matchmaking service?
+            Is this a free matchmaking site question to be?
           </Accordion.Header>
-          <Accordion.Body>Yup. There's no charge. At all.</Accordion.Body>
+          <Accordion.Body>Yup, there's no charge to join.</Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="2">
@@ -99,6 +99,11 @@ const Question = () => {
             the lookout however, our systems are working 24/7 to constantly
             check against any profile that is added on our site.
           </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="9">
+          <Accordion.Header>I need other help, where do I go?</Accordion.Header>
+          <Accordion.Body>support@riamatchmaking.com</Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </section>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -73,7 +75,7 @@ const InformationGrid = ({ data }) => {
               </p>
             </div>
           </Col>
-          
+
           <Col sm>
             <div className="card-body text-center">
               <img
@@ -87,6 +89,28 @@ const InformationGrid = ({ data }) => {
               <p className={"card-text text-" + data.textColor}>
                 {data.description4}
               </p>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <div className="justify-content-center align-items-center text-center">
+              {/* Link to order page */}
+              <Link to="/register">
+                <Button
+                  variant="dark"
+                  className="text-primary mt-3"
+                  style={{
+                    height: "50px",
+                    width: "163px",
+                    borderRadius: "15px",
+                    fontSize: "20px",
+                    boxShadow: "2px 2px 2px rgb(0,0,0)",
+                  }}
+                >
+                  Join for Free
+                </Button>
+              </Link>
             </div>
           </Col>
         </Row>

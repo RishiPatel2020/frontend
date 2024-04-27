@@ -123,19 +123,19 @@ const Terms = () => {
       </p>
 
       <div className="d-flex justify-content-center mb-3 text-center">
-        <Link to="/">
+        <Link to="/register">
           <Button
             variant="dark"
-            className="text-primary"
+            className="text-primary mt-3"
             style={{
-              height: "40px",
-              width: "107px",
-              borderRadius: "9px",
-              fontSize: "25px",
-              padding: "1px",
+              height: "50px",
+              width: "163px",
+              borderRadius: "15px",
+              fontSize: "20px",
+              boxShadow: "2px 2px 2px rgb(0,0,0)",
             }}
           >
-            Join Ria
+            Join for Free
           </Button>
         </Link>
       </div>

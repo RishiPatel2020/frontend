@@ -20,7 +20,6 @@
   flex-direction: column;
   align-items: center;
   max-width: 300px;
-  background-color: #fff;
   border-radius: 5px;
   margin: auto;
   margin-top: 15px;
@@ -75,11 +74,11 @@
 }
 
 li.alice-carousel__dots-item {
-  background-color: hsl(120, 73%, 85%) !important;
+  background-color: hsl(228, 71%, 68%) !important;
 }
 
 li.alice-carousel__dots-item.__active {
-  background-color: var(--primary) !important;
+  background-color: hsl(229, 75%, 14%) !important;
 }
 
 ul.alice-carousel__dots {

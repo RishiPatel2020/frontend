@@ -1,14 +1,15 @@
 /***
  * has 1 Nav bar, 2 Information Boxes, 1 Foot Bar
  */
-
 import { useEffect } from "react";
 import React from "react";
 import Showcase from "./Showcase/Showcase";
 import Question from "./Questions/Question";
-import Contact from "./Contact/Contact";
+import Banner from "./Banner/Banner";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import scrollToTop from "../../Service/ScrollTop";
+import TestimonialCard from "./Testimonials/TestimonialCard";
+import Testimonial from "./Testimonials/Testimonials";
 const Home = () => {
   useEffect(() => {
     scrollToTop();
@@ -31,14 +32,14 @@ const Home = () => {
     image2: require("../../Resources/HowItWorks/second.png"),
     image2Width: "250px",
     image2Height: "150px",
-    title2: "Receive Candidates Monthly",
+    title2: "Receive Profiles Monthly",
     description2:
       "Our system discovers matching profiles to send to you monthly via e-mail. ",
 
     image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",
     image3Height: "150px",
-    title3: "Send Interests to Connect.",
+    title3: "Send Interests.",
     description3:
       "Convey your interest and non-interest to connect with candidates.",
 
@@ -69,7 +70,7 @@ const Home = () => {
     image2Height: "150px",
     title2: "Curated Matches Made.",
     description2:
-      "Users are matched on the basis of their preferences and personality.",
+      " Users are matched on the basis of their preferences, personality, and passions.",
 
     image3: require("../../Resources/TheRiaWay/third.png"),
     image3Width: "250px",
@@ -88,7 +89,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <Banner /> */}
+      <Banner />
 
       <Showcase />
 
@@ -97,6 +98,8 @@ const Home = () => {
 
       {/* The Ria way */}
       <InformationGrid data={theRiaWay} />
+
+      <Testimonial />
 
       {/* FAQs */}
       <Question />

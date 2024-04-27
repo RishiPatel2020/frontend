@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
@@ -8,68 +8,45 @@ import "./Testimonials.css";
 
 const items = [
   <TestimonialCard
-    testimony="“I never thought Indian food could be so addicting, I'm a repeating customer!”"
-    image={require("../../../Resources/Users/Mary.png")}
-    name="Mary, 67"
-    work="Proud Grandmother"
+    image={require("../../../Resources/Users/Sravni.png")}
     data-value="1"
   />,
   <TestimonialCard
-    testimony="“Mirchi Meals is god-sent with my schedule! My boys love the meals too!”"
-    image={require("../../../Resources/Users/Pallavi.png")}
-    name="Pallavi, 43"
-    work="Senior Financial Analyst"
+    image={require("../../../Resources/Users/Rakesh.png")}
     data-value="2"
   />,
   <TestimonialCard
-    testimony="“As a busy professional, this is the service I didn’t know I needed.”"
-    image={require("../../../Resources/Users/Krish.png")}
-    name="Krish, 28"
-    work="Data ETL Engineer"
+    image={require("../../../Resources/Users/Poorvi.png")}
     data-value="3"
   />,
   <TestimonialCard
-    testimony="“I've started recommending Mirchi Meals to all my clients too, I can't get enough.”"
-    image={require("../../../Resources/Users/Cherry.png")}
-    name="Cherry, 38"
-    work="Caregiver"
+    image={require("../../../Resources/Users/Ramesh.png")}
     data-value="4"
   />,
   <TestimonialCard
-    testimony="“When my mother says its good, you know its good!”"
-    image={require("../../../Resources/Users/Uma.png")}
-    name="Uma, 55"
-    work="Fitness Trainer"
+    image={require("../../../Resources/Users/Meena.png")}
     data-value="5"
   />,
   <TestimonialCard
-    testimony="“Between my in-laws being over for a few months, my children’s after school activities, and errands, Mirchi Meals has been able to keep me calm.”"
-    image={require("../../../Resources/Users/Ankhi.png")}
-    name="Ankhi, 40"
-    work="Stay-at-Home Mom"
+    image={require("../../../Resources/Users/Guri.png")}
     data-value="6"
   />,
   <TestimonialCard
-    testimony="“The meals are fresh whenever I reheat them throughout the week, you can taste the quality and effort.”"
-    image={require("../../../Resources/Users/Anastasia.png")}
-    name="Anastasia, 35"
-    work="Waitress"
+    image={require("../../../Resources/Users/Sia.png")}
     data-value="7"
   />,
 
   <TestimonialCard
-    testimony="“As an international masters student studying in the states, I always miss my mom's cooking. Thank You for filling that gap!“"
-    image={require("../../../Resources/Users/Shreya.png")}
-    name="Shreya, 25"
-    work="Student of Designing"
+    image={require("../../../Resources/Users/Prachar.png")}
     data-value="8"
   />,
 
   <TestimonialCard
-    testimony="“These meals give me the power to get through my week, I'm a fan!”"
-    image={require("../../../Resources/Users/Maitri.png")}
-    name="Maitri, 31"
-    work="Human Resources Manager"
+    image={require("../../../Resources/Users/Mauji.png")}
+    data-value="9"
+  />,
+  <TestimonialCard
+    image={require("../../../Resources/Users/Sharmeela.png")}
     data-value="9"
   />,
 ];
@@ -80,16 +57,19 @@ const responsive = {
   1000: { items: 3 },
 };
 
-export default function App() {
+export default function Testimonial() {
   return (
     <>
-      <div className="testimonial-container bg-primary">
-        <div className="testimonials" style={{ fontSize: "48px" }}>
-          Customer Reviews
+      <div className="testimonial-container text-center bg-light">
+        <div
+          className="testimonials text-dark titleText"
+          style={{ fontSize: "48px" }}
+        >
+          Join Hundreds of Desis for Free
         </div>
-        <p className="testimonials-description">
+        {/* <p className="testimonials-description">
           Don't take our word, see what our customers are saying
-        </p>
+        </p> */}
         <AliceCarousel
           mouseTracking
           items={items}
@@ -98,21 +78,24 @@ export default function App() {
           infinite
           autoPlayInterval={1700}
           animationDuration={1700}
+          disableButtonsControls
         />
 
-        <div className="h-100 d-flex align-items-center justify-content-center">
-          <Link to="/order">
+        <div className="justify-content-center align-items-center text-center py-4">
+          {/* Link to order page */}
+          <Link to="/register">
             <Button
               variant="dark"
-              className="text-primary"
+              className="text-primary mt-3"
               style={{
                 height: "50px",
-                width: "150px",
-                borderRadius: "25px",
-                fontSize: "25px",
+                width: "163px",
+                borderRadius: "15px",
+                fontSize: "20px",
+                boxShadow: "2px 2px 2px rgb(0,0,0)",
               }}
             >
-              Order
+              Join for Free
             </Button>
           </Link>
         </div>
