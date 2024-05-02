@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/frontend/static/css/main.3507a6c2.css",
-    "main.js": "/frontend/static/js/main.e20bdea3.js",
+    "main.js": "/frontend/static/js/main.b3e1fc2e.js",
     "static/js/488.78208c42.chunk.js": "/frontend/static/js/488.78208c42.chunk.js",
     "static/media/showcaseImg.jpg": "/frontend/static/media/showcaseImg.fe3d4469629cb3a48824.jpg",
     "static/media/newCouple.jpg": "/frontend/static/media/newCouple.d49fc97480d795a3b3dc.jpg",
-    "static/media/newBack.png": "/frontend/static/media/newBack.2104e4480e9e7ebc0a2a.png",
     "static/media/newBack2.png": "/frontend/static/media/newBack2.383975a750d6e8f67994.png",
     "static/media/second.png": "/frontend/static/media/second.ba02f6e5561369d98caf.png",
+    "static/media/newBack3.png": "/frontend/static/media/newBack3.73fdd5aadaa4cb59020c.png",
     "static/media/third.png": "/frontend/static/media/third.f3693ef6e1dde4bccc4f.png",
     "static/media/Poorvi.png": "/frontend/static/media/Poorvi.82237ca2ff9ef8343c92.png",
     "static/media/Meena.png": "/frontend/static/media/Meena.8a37e93d1f5225fd4f2b.png",
@@ -23,11 +23,11 @@
     "static/media/first.png": "/frontend/static/media/first.b1cd5d2fac445a13320b.png",
     "index.html": "/frontend/index.html",
     "main.3507a6c2.css.map": "/frontend/static/css/main.3507a6c2.css.map",
-    "main.e20bdea3.js.map": "/frontend/static/js/main.e20bdea3.js.map",
+    "main.b3e1fc2e.js.map": "/frontend/static/js/main.b3e1fc2e.js.map",
     "488.78208c42.chunk.js.map": "/frontend/static/js/488.78208c42.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3507a6c2.css",
-    "static/js/main.e20bdea3.js"
+    "static/js/main.b3e1fc2e.js"
   ]
 }
