@@ -1,6 +1,6 @@
-/***
- * has 1 Nav bar, 2 Information Boxes, 1 Foot Bar
- */
+import { Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Row } from "react-bootstrap";
 import { useEffect } from "react";
 import React from "react";
 import Showcase from "./Showcase/Showcase";
@@ -10,9 +10,10 @@ import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import scrollToTop from "../../Service/ScrollTop";
 import TestimonialCard from "./Testimonials/TestimonialCard";
 import Testimonial from "./Testimonials/Testimonials";
+import JoinHundreds from "./JoinHundreds/JoinHundreds";
 const Home = () => {
   useEffect(() => {
-    scrollToTop();
+    // scrollToTop();
   }, []);
 
   const howItWorks = {
@@ -52,7 +53,7 @@ const Home = () => {
   };
 
   const theRiaWay = {
-    backColor: "primary",
+    backColor: "light",
     headingColor: "dark",
     titleColor: "info",
     textColor: "secondary",
@@ -95,11 +96,12 @@ const Home = () => {
 
       {/* How It Works */}
       <InformationGrid data={howItWorks} />
+      <JoinHundreds />
 
       {/* The Ria way */}
       <InformationGrid data={theRiaWay} />
 
-      <Testimonial />
+      {/* <Testimonial /> */}
 
       {/* FAQs */}
       <Question />

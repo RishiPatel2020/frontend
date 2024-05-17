@@ -1,0 +1,58 @@
+.onboarding-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content at the top */
+    height: 90vh;
+  }
+  
+  .progress-bar-container {
+    background-color: rgb(72, 39, 110);
+    width: 100%;
+    padding: 20px 0; /* Increase padding for larger nav section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .progress-bar {
+    width: calc(90% - 20px); /* Maintain previous width */
+    height: 8px;
+    border-radius: 4px;
+    background-color: #00FFFF;
+  }
+  
+  
+  .question-container {
+    margin-top: 100px; /* Add margin to push down the content */
+  }
+  
+  .question {
+    font-size: 24px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(72, 39, 110);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

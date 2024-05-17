@@ -1,7 +1,6 @@
 .testimonial-container {
   /* display: flex; */
   /* justify-content: center; */
-  margin: 15px;
   background-color: var(--white);
   padding-bottom: 0;
   text-align: center;
@@ -74,11 +73,11 @@
 }
 
 li.alice-carousel__dots-item {
-  background-color: rgb(244,239,244) !important;
+  background-color: rgb(244, 239, 244) !important;
 }
 
 li.alice-carousel__dots-item.__active {
-  background-color: rgb(244,239,244) !important;
+  background-color: rgb(244, 239, 244) !important;
 }
 
 ul.alice-carousel__dots {
@@ -103,9 +102,6 @@ ul.alice-carousel__dots {
   .testimonial-body {
     padding: 5px;
     font-size: 17px;
-  }
-  .testimonial-container {
-    margin: 15px;
   }
   .testimonial-image img {
     widows: 150px;
@@ -142,9 +138,6 @@ ul.alice-carousel__dots {
     padding: 24px;
     font-size: 20px;
   }
-  .testimonial-container {
-    margin: 15px;
-  }
   .testimonial-image img {
     widows: 150px;
     width: 220px;
@@ -168,9 +161,6 @@ ul.alice-carousel__dots {
     color: var(--dark);
     padding-bottom: 5px;
     font-size: 1.2em;
-  }
-  .testimonial-container {
-    margin: 15x;
   }
   .testimonials-title {
     text-transform: uppercase;
@@ -216,5 +206,46 @@ ul.alice-carousel__dots {
     font-size: 20px;
     font-style: bold;
     font-weight: 660;
+  }
+}
+
+.bigTexts {
+  font-size: 5vw; /* Adjust based on viewport width */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden; /* Keeps text from overflowing */
+  text-overflow: ellipsis; /* Adds an ellipsis if text is too long */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Enhances readability */
+  color: white; /* Ensuring text color is white for better visibility */
+}
+
+/* Responsive Font Size Adjustments */
+@media (max-width: 768px) {
+  .bigTexts {
+    font-size: 5vw; /* Slightly larger on smaller screens to maintain readability */
+  }
+}
+
+@media (min-width: 768px) {
+  .bigTexts {
+    font-size: 3.5vw; /* Slightly smaller on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .bigTexts {
+    font-size: 4vw; /* Smaller as the screens get larger */
+  }
+}
+
+@media (min-width: 1200px) {
+  .bigTexts {
+    font-size: 4.5vw; /* Minimum size cap for very large screens */
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .bigTexts {
+    font-size: 3vw; /* Avoid too large text on very large screens */
   }
 }

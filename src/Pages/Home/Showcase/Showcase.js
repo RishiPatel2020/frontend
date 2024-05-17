@@ -11,7 +11,7 @@ const Showcase = () => {
           <div className="align-items-center my-0.1 pb-4">
             <div className="bigTexts text-primary">
               <div style={{ textShadow: "2px 2px 2px rgb(0,0,0)" }}>
-                <strong>Stop Endlessely Swiping for Love.</strong>
+                <strong>Stop Endlessly Swiping for Love.</strong>
               </div>
             </div>
 
@@ -21,7 +21,7 @@ const Showcase = () => {
               <Col>
                 <div className="justify-content-center align-items-center">
                   {/* Link to order page */}
-                  <Link to="/register">
+                  <Link to="/onboard">
                     <Button
                       variant="dark"
                       className="text-primary mt-3"

@@ -60,10 +60,9 @@ const responsive = {
 export default function Testimonial() {
   return (
     <>
-      <div className="testimonial-container text-center bg-light">
+      <div className="testimonial-container text-center bg-primary">
         <div
-          className="testimonials text-dark titleText"
-          style={{ fontSize: "48px" }}
+          className="testimonials text-dark bigTexts"
         >
           Join Hundreds
         </div>
