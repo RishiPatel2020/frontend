@@ -1,5 +1,8 @@
+// PersonalBack.js
 import React, { useState } from "react";
+import Select from "react-select";
 import "./Onboard.css";
+
 const questions = [
   {
     text: "Community",
@@ -59,8 +62,8 @@ const questions = [
     ],
   },
   {
-    text: "Personality Traits",
-    type: "dropdown",
+    text: "Personality Traits (Select 3 max)",
+    type: "multi",
     options: [
       "Outgoing",
       "Introverted",
@@ -79,9 +82,10 @@ const questions = [
       "Assertive",
       "Thoughtful",
     ],
+    maxSelections: 3,
   },
   {
-    text: "Hobbies",
+    text: "Hobbies (Select 6 max)",
     type: "multi",
     options: [
       "Hiking",
@@ -126,6 +130,7 @@ const questions = [
       "Reiki/healing practices",
       "Herbalism/natural remedies",
     ],
+    maxSelections: 6,
   },
   {
     text: "Immigration Status",
@@ -160,6 +165,14 @@ function PersonalBack({ answers, handleChange }) {
     setResponses(newResponses);
   };
 
+  const handleMultiSelectChange = (index, selectedOptions, maxSelections) => {
+    if (selectedOptions.length <= maxSelections) {
+      const newResponses = [...responses];
+      newResponses[index] = selectedOptions.map((option) => option.value);
+      setResponses(newResponses);
+    }
+  };
+
   return (
     <div className="question-container">
       <h1>Personal Details</h1>
@@ -182,6 +195,26 @@ function PersonalBack({ answers, handleChange }) {
                   </option>
                 ))}
               </select>
+            ) : question.type === "multi" ? (
+              <Select
+                isMulti
+                id={`question-${index}`}
+                options={question.options.map((option) => ({
+                  value: option,
+                  label: option,
+                }))}
+                value={question.options
+                  .filter((option) => responses[index].includes(option))
+                  .map((option) => ({ value: option, label: option }))}
+                onChange={(selected) =>
+                  handleMultiSelectChange(
+                    index,
+                    selected,
+                    question.maxSelections
+                  )
+                }
+                placeholder="Select options..."
+              />
             ) : (
               <input
                 type={question.type}

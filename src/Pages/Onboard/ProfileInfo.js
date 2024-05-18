@@ -33,7 +33,7 @@ const questions = [
   },
 ];
 
-function ProfileInfo({answers, handleChange}) {
+function ProfileInfo({ answers, handleChange }) {
   const [responses, setResponses] = useState(Array(questions.length).fill(""));
 
   const handleInputChange = (index, value) => {
@@ -44,7 +44,7 @@ function ProfileInfo({answers, handleChange}) {
 
   return (
     <div className="question-container">
-      <h1>Tell Us About Yourself</h1>
+      <h1>Basic Info</h1>
       <form>
         {questions.map((question, index) => (
           <div key={index} className="question my-3">

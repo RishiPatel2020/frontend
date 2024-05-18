@@ -67,11 +67,14 @@ function Onboarding() {
       <StepComponent answers={answers} setAnswers={setAnswers} />
       <div className="button-container">
         <button
-          onClick={handlePrevious}
-          disabled={currentStep === 0}
+          onClick={
+            currentStep === 0
+              ? () => (window.location.href = "/frontend")
+              : handlePrevious
+          }
           className="button"
         >
-          Previous
+          {currentStep === 0 ? "Back" : "Previous"}
         </button>
         {currentStep === steps.length - 1 ? (
           <button onClick={handleSubmit} className="button mx-2">
