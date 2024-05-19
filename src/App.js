@@ -11,6 +11,8 @@ import { TRACKINGID } from "./Service/Constants";
 import Onboard from "./Pages/Onboard/Onboard";
 import Terms from "./Pages/Terms/Terms";
 import Privacy from "./Pages/Privacy/Privacy";
+import PostSignup from "./Pages/Onboard/PostSignup";
+import Congrats from "./Pages/Onboard/Congrats";
 
 ReactGA.initialize(TRACKINGID);
 function App() {
@@ -38,6 +40,8 @@ function App() {
         <Route exact path="/onboard" element={<Onboard />} />
         <Route exact path="/privacy" element={navAndFoot(<Privacy />)} />
         <Route exact path="/terms" element={navAndFoot(<Terms />)} />
+        <Route exact path="/afterSignUp" element={<PostSignup />} />
+        <Route exact path="/congrats" element={<Congrats />} />
         <Route path="*" element={navAndFoot(<Home />)} />
       </Routes>
     </>

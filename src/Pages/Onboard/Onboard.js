@@ -4,8 +4,10 @@ import "./Onboard.css"; // Import CSS file for styling
 import ProfileInfo from "./ProfileInfo";
 import Professional from "./Professional";
 import PersonalBack from "./PersonalBack";
-
+import SignUp from "./Signup";
+import { useNavigate } from "react-router-dom";
 function Onboarding() {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({
     name: "",
@@ -32,7 +34,7 @@ function Onboarding() {
 
   const handleSubmit = () => {
     // Handle submission of answers
-    window.location.href = "/frontend";
+    navigate("/congrats");
     console.log(answers);
   };
 
@@ -53,6 +55,10 @@ function Onboarding() {
       component: PictureUpload,
       props: { answers: answers, handleChange: handleChange },
     },
+    {
+      component: SignUp,
+      props: { answers: answers, handleChange: handleChange },
+    },
   ];
   const StepComponent = steps[currentStep].component;
   return (
@@ -69,7 +75,7 @@ function Onboarding() {
         <button
           onClick={
             currentStep === 0
-              ? () => (window.location.href = "/frontend")
+              ? () => (navigate("/"))
               : handlePrevious
           }
           className="button"
