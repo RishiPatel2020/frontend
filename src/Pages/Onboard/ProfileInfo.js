@@ -1,29 +1,36 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./Onboard.css";
+import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
+
 const questions = [
   {
+    id: "for",
     text: "Profile for",
     type: "dropdown",
     options: ["Myself", "My Child", "My Friend"],
   },
-  { text: "First Name", type: "text" },
-  { text: "Last Name", type: "text" },
+  { id: "firstName", text: "First Name", type: "text" },
+  { id: "lastName", text: "Last Name", type: "text" },
   {
+    id: "gender",
     text: "Gender",
     type: "dropdown",
     options: ["Male", "Female", "Binary"],
   },
   {
+    id: "age",
     text: "What is your age?",
     type: "dropdown",
     options: ["Under 18", "18-30", "31-50", "Over 50"],
   },
   {
+    id: "intention",
     text: "Intention of Profile",
     type: "dropdown",
     options: ["Marriage", "Long-term Relationship"],
   },
   {
+    id: "height",
     text: "Height",
     type: "dropdown",
     options: Array.from(
@@ -33,29 +40,28 @@ const questions = [
   },
 ];
 
-function ProfileInfo({ answers, handleChange }) {
-  const [responses, setResponses] = useState(Array(questions.length).fill(""));
+function ProfileInfo() {
+  const { answers, updateAnswer } = useContext(AnswersContext);
 
-  const handleInputChange = (index, value) => {
-    const newResponses = [...responses];
-    newResponses[index] = value;
-    setResponses(newResponses);
+  const handleInputChange = (id, value) => {
+    updateAnswer(id, value);
+    console.log(`data so far: ${JSON.stringify(answers)}`);
   };
 
   return (
     <div className="question-container">
       <h1>Basic Info</h1>
       <form>
-        {questions.map((question, index) => (
-          <div key={index} className="question my-3">
-            <label htmlFor={`question-${index}`} className="mx-2">
+        {questions.map((question) => (
+          <div key={question.id} className="question my-3">
+            <label htmlFor={question.id} className="mx-2">
               {question.text}
             </label>
             {question.type === "dropdown" ? (
               <select
-                id={`question-${index}`}
-                value={responses[index]}
-                onChange={(e) => handleInputChange(index, e.target.value)}
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -67,9 +73,9 @@ function ProfileInfo({ answers, handleChange }) {
             ) : (
               <input
                 type={question.type}
-                id={`question-${index}`}
-                value={responses[index]}
-                onChange={(e) => handleInputChange(index, e.target.value)}
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
               />
             )}
           </div>

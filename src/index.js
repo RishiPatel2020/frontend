@@ -4,10 +4,10 @@ import "./custom.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { HashRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./Components/AuthContext/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
   // Recomended for test mode
   // <React.StrictMode>
   //   <Router>
@@ -16,9 +16,11 @@ root.render(
 
   // </React.StrictMode>
 
-  <Router>
-    <App />
-  </Router>
+  <AuthProvider>
+    <Router>
+      <App />
+    </Router>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -13,6 +13,11 @@ import Terms from "./Pages/Terms/Terms";
 import Privacy from "./Pages/Privacy/Privacy";
 import PostSignup from "./Pages/Onboard/PostSignup";
 import Congrats from "./Pages/Onboard/Congrats";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import PremiumWait from "./Pages/Onboard/PremiumWait";
+import { AuthProvider } from "./Components/AuthContext/AuthContext";
+import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
+import Admin from "./Pages/Admin/Admin";
 
 ReactGA.initialize(TRACKINGID);
 function App() {
@@ -31,20 +36,34 @@ function App() {
   };
 
   return (
-    <>
-      <Routes>
-        {/* Home */}
-        <Route exact path="/" element={navAndFoot(<Home />)} />
-        {/* About */}
-        <Route exact path="/about" element={navAndFoot(<About />)} />
-        <Route exact path="/onboard" element={<Onboard />} />
-        <Route exact path="/privacy" element={navAndFoot(<Privacy />)} />
-        <Route exact path="/terms" element={navAndFoot(<Terms />)} />
-        <Route exact path="/afterSignUp" element={<PostSignup />} />
-        <Route exact path="/congrats" element={<Congrats />} />
-        <Route path="*" element={navAndFoot(<Home />)} />
-      </Routes>
-    </>
+    <Routes>
+      {/* Home */}
+      <Route exact path="/" element={navAndFoot(<Home />)} />
+      {/* About */}
+      <Route exact path="/about" element={navAndFoot(<About />)} />
+      <Route exact path="/dashboard" element={navAndFoot(<Dashboard />)} />
+      <Route
+        exact
+        path="/onboard"
+        element={
+          <AnswersProvider>
+            <Onboard />
+          </AnswersProvider>
+        }
+      />
+      <Route exact path="/privacy" element={navAndFoot(<Privacy />)} />
+      <Route exact path="/terms" element={navAndFoot(<Terms />)} />
+      <Route exact path="/afterSignUp" element={<PostSignup />} />
+      <Route exact path="/congrats" element={<Congrats />} />
+      <Route exact path="/admin" element={<Admin />} />
+      <Route
+        exact
+        path="/premiumWaiting"
+        element={navAndFoot(<PremiumWait />)}
+      />
+
+      <Route path="*" element={navAndFoot(<Home />)} />
+    </Routes>
   );
 }
 

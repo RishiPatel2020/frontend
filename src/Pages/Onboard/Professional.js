@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./Onboard.css";
+import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
+
 const questions = [
   {
+    id: "employment",
     text: "Employment",
     type: "dropdown",
     options: [
@@ -14,8 +17,9 @@ const questions = [
       "Other",
     ],
   },
-  { text: "Job Title", type: "text" },
+  { id: "jobTitle", text: "Job Title", type: "text" },
   {
+    id: "education",
     text: "Education",
     type: "dropdown",
     options: [
@@ -29,13 +33,11 @@ const questions = [
   },
 ];
 
-function Professional({ answers, handleChange }) {
-  const [responses, setResponses] = useState(Array(questions.length).fill(""));
+function Professional() {
+  const { answers, updateAnswer } = useContext(AnswersContext);
 
-  const handleInputChange = (index, value) => {
-    const newResponses = [...responses];
-    newResponses[index] = value;
-    setResponses(newResponses);
+  const handleInputChange = (id, value) => {
+    updateAnswer(id, value);
   };
 
   return (
@@ -44,14 +46,14 @@ function Professional({ answers, handleChange }) {
       <form>
         {questions.map((question, index) => (
           <div key={index} className="question my-3">
-            <label htmlFor={`question-${index}`} className="mx-2">
+            <label htmlFor={question.id} className="mx-2">
               {question.text}
             </label>
             {question.type === "dropdown" ? (
               <select
-                id={`question-${index}`}
-                value={responses[index]}
-                onChange={(e) => handleInputChange(index, e.target.value)}
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -63,9 +65,9 @@ function Professional({ answers, handleChange }) {
             ) : (
               <input
                 type={question.type}
-                id={`question-${index}`}
-                value={responses[index]}
-                onChange={(e) => handleInputChange(index, e.target.value)}
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
               />
             )}
           </div>

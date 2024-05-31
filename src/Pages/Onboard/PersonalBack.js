@@ -1,10 +1,11 @@
-// PersonalBack.js
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Select from "react-select";
 import "./Onboard.css";
+import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 
 const questions = [
   {
+    id: "community",
     text: "Community",
     type: "dropdown",
     options: [
@@ -27,6 +28,7 @@ const questions = [
     ],
   },
   {
+    id: "maritalStatus",
     text: "Marital Status",
     type: "dropdown",
     options: [
@@ -38,16 +40,19 @@ const questions = [
     ],
   },
   {
+    id: "drinks",
     text: "Drinking",
     type: "dropdown",
     options: ["yes", "no"],
   },
   {
+    id: "smokes",
     text: "Smoking",
     type: "dropdown",
     options: ["yes", "no"],
   },
   {
+    id: "religion",
     text: "Religion",
     type: "dropdown",
     options: [
@@ -62,6 +67,7 @@ const questions = [
     ],
   },
   {
+    id: "personality",
     text: "Personality Traits (Select 3 max)",
     type: "multi",
     options: [
@@ -85,6 +91,7 @@ const questions = [
     maxSelections: 3,
   },
   {
+    id: "hobbies",
     text: "Hobbies (Select 6 max)",
     type: "multi",
     options: [
@@ -133,6 +140,7 @@ const questions = [
     maxSelections: 6,
   },
   {
+    id: "immigration",
     text: "Immigration Status",
     type: "dropdown",
     options: [
@@ -144,6 +152,7 @@ const questions = [
     ],
   },
   {
+    id: "diet",
     text: "Dietary Practices:",
     type: "dropdown",
     options: [
@@ -156,20 +165,19 @@ const questions = [
   },
 ];
 
-function PersonalBack({ answers, handleChange }) {
-  const [responses, setResponses] = useState(Array(questions.length).fill(""));
+function PersonalBack() {
+  const { answers, updateAnswer } = useContext(AnswersContext);
 
-  const handleInputChange = (index, value) => {
-    const newResponses = [...responses];
-    newResponses[index] = value;
-    setResponses(newResponses);
+  const handleInputChange = (id, value) => {
+    updateAnswer(id, value);
   };
 
-  const handleMultiSelectChange = (index, selectedOptions, maxSelections) => {
+  const handleMultiSelectChange = (id, selectedOptions, maxSelections) => {
     if (selectedOptions.length <= maxSelections) {
-      const newResponses = [...responses];
-      newResponses[index] = selectedOptions.map((option) => option.value);
-      setResponses(newResponses);
+      updateAnswer(
+        id,
+        selectedOptions.map((option) => option.value)
+      );
     }
   };
 
@@ -177,16 +185,16 @@ function PersonalBack({ answers, handleChange }) {
     <div className="question-container">
       <h1>Personal Details</h1>
       <form>
-        {questions.map((question, index) => (
-          <div key={index} className="question my-3">
-            <label htmlFor={`question-${index}`} className="mx-2">
+        {questions.map((question) => (
+          <div key={question.id} className="question my-3">
+            <label htmlFor={question.id} className="mx-2">
               {question.text}
             </label>
             {question.type === "dropdown" ? (
               <select
-                id={`question-${index}`}
-                value={responses[index]}
-                onChange={(e) => handleInputChange(index, e.target.value)}
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -198,17 +206,17 @@ function PersonalBack({ answers, handleChange }) {
             ) : question.type === "multi" ? (
               <Select
                 isMulti
-                id={`question-${index}`}
+                id={question.id}
                 options={question.options.map((option) => ({
                   value: option,
                   label: option,
                 }))}
                 value={question.options
-                  .filter((option) => responses[index].includes(option))
+                  .filter((option) => answers[question.id]?.includes(option))
                   .map((option) => ({ value: option, label: option }))}
                 onChange={(selected) =>
                   handleMultiSelectChange(
-                    index,
+                    question.id,
                     selected,
                     question.maxSelections
                   )
@@ -218,9 +226,9 @@ function PersonalBack({ answers, handleChange }) {
             ) : (
               <input
                 type={question.type}
-                id={`question-${index}`}
-                value={responses[index]}
-                onChange={(e) => handleInputChange(index, e.target.value)}
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
               />
             )}
           </div>
