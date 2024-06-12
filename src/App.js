@@ -17,7 +17,6 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import PremiumWait from "./Pages/Onboard/PremiumWait";
 import { AuthProvider } from "./Components/AuthContext/AuthContext";
 import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
-import Admin from "./Pages/Admin/Admin";
 
 ReactGA.initialize(TRACKINGID);
 function App() {
@@ -55,7 +54,6 @@ function App() {
       <Route exact path="/terms" element={navAndFoot(<Terms />)} />
       <Route exact path="/afterSignUp" element={<PostSignup />} />
       <Route exact path="/congrats" element={<Congrats />} />
-      <Route exact path="/admin" element={<Admin />} />
       <Route
         exact
         path="/premiumWaiting"

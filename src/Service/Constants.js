@@ -4,7 +4,7 @@ export const STRIPE_KEY =
 // for cloud testing
 // export const BASE_URL = "https://mm-pure-backend-production.up.railway.app/api";
 export const BASE_URL = "https://purple-sparrow-tam.cyclic.app/api";
-export const BACKEND_BASE = "https://us-east-1.aws.data.mongodb-api.com/app/application-0-xinyfjf/endpoint/";
+export const BACKEND_BASE = "https://us-east-1.aws.data.mongodb-api.com/app/application-0-xinyfjf/endpoint";
 
 
 //// for local testing
