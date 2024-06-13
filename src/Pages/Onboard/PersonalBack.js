@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Select from "react-select";
 import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
@@ -165,7 +165,7 @@ const questions = [
   },
 ];
 
-function PersonalBack() {
+function PersonalBack({ setIsValid }) {
   const { answers, updateAnswer } = useContext(AnswersContext);
 
   const handleInputChange = (id, value) => {
@@ -180,6 +180,17 @@ function PersonalBack() {
       );
     }
   };
+
+  useEffect(() => {
+    // Validate inputs
+    const isValid = questions.every(question => {
+      if (question.type === "multi") {
+        return answers[question.id] && answers[question.id].length <= question.maxSelections;
+      }
+      return answers[question.id];
+    });
+    setIsValid(isValid);
+  }, [answers, setIsValid]);
 
   return (
     <div className="question-container">

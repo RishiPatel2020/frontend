@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+// ProfileInfo.js
+
+import React, { useContext, useEffect } from "react";
 import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 
@@ -40,13 +42,19 @@ const questions = [
   },
 ];
 
-function ProfileInfo() {
+function ProfileInfo({ setIsValid }) {
   const { answers, updateAnswer } = useContext(AnswersContext);
 
   const handleInputChange = (id, value) => {
     updateAnswer(id, value);
     console.log(`data so far: ${JSON.stringify(answers)}`);
   };
+
+  useEffect(() => {
+    // Validate inputs
+    const isValid = questions.every(question => answers[question.id]);
+    setIsValid(isValid);
+  }, [answers, setIsValid]);
 
   return (
     <div className="question-container">

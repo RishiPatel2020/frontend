@@ -1,3 +1,5 @@
+// Onboarding.js
+
 import React, { useContext, useState } from "react";
 import { getDownloadURL, getStorage, uploadBytes, ref } from "firebase/storage";
 import axios from "axios";
@@ -13,15 +15,18 @@ import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 import "./Onboard.css";
 
 function Onboarding() {
-  const { answers, updateAnswer } = useContext(AnswersContext);
+  const { answers } = useContext(AnswersContext);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
+  const [isValid, setIsValid] = useState(false);
 
   const handleNext = () => {
-    if (currentStep < steps.length - 1) {
+    if (currentStep < steps.length - 1 && isValid) {
       setCurrentStep(currentStep + 1);
+    } else {
+      alert("Please fill in all fields before proceeding.");
     }
   };
 
@@ -32,6 +37,10 @@ function Onboarding() {
   };
 
   const handleSubmit = async () => {
+    if (!isValid) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
     setLoading(true);
     try {
       const { pictures, email, ...otherAnswers } = answers;
@@ -102,7 +111,7 @@ function Onboarding() {
           className="progress-bar"
         />
       </div>
-      <StepComponent />
+      <StepComponent setIsValid={setIsValid} />
       <div className="button-container">
         <button
           onClick={currentStep === 0 ? () => navigate("/") : handlePrevious}
@@ -111,7 +120,11 @@ function Onboarding() {
           {currentStep === 0 ? "Back" : "Previous"}
         </button>
         {currentStep === steps.length - 1 ? (
-          <button onClick={handleSubmit} className="button mx-2">
+          <button
+            onClick={handleSubmit}
+            className="button mx-2"
+            disabled={loading ? true : false}
+          >
             {loading ? "Loading..." : "Submit"}
           </button>
         ) : (

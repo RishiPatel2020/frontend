@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 
-function PictureUpload() {
+function PictureUpload({ setIsValid }) {
   const [pictures, setPictures] = useState([]);
   const { answers, updateAnswer } = useContext(AnswersContext);
 
@@ -11,6 +11,12 @@ function PictureUpload() {
       setPictures(answers.pictures);
     }
   }, []); // Empty dependency array ensures this effect runs only once on component mount
+
+  useEffect(() => {
+    // Validate that at least one picture is uploaded
+    const isValid = pictures.length > 0;
+    setIsValid(isValid);
+  }, [pictures, setIsValid]);
 
   const generateUniqueId = () => {
     // Generate a unique ID using the current timestamp

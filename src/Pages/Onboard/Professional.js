@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 
@@ -33,12 +33,18 @@ const questions = [
   },
 ];
 
-function Professional() {
+function Professional({ setIsValid }) {
   const { answers, updateAnswer } = useContext(AnswersContext);
 
   const handleInputChange = (id, value) => {
     updateAnswer(id, value);
   };
+
+  useEffect(() => {
+    // Validate inputs
+    const isValid = questions.every(question => answers[question.id]);
+    setIsValid(isValid);
+  }, [answers, setIsValid]);
 
   return (
     <div className="question-container">
