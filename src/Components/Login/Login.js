@@ -27,7 +27,7 @@ function Login() {
   const handleSubmit = async () => {
     setLoading(true);
     const response = await axios
-      .post(`${BACKEND_BASE}login`, {
+      .post(`${BACKEND_BASE}/login`, {
         email,
         password,
       })
