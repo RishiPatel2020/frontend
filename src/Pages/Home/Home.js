@@ -33,23 +33,23 @@ const Home = () => {
     image2: require("../../Resources/HowItWorks/second.png"),
     image2Width: "250px",
     image2Height: "150px",
-    title2: "Receive Profiles Monthly",
+    title2: "Receive Profiles",
     description2:
-      "Our system discovers matching profiles to send to you monthly via e-mail. ",
+      "Our team actively searches for candidates that meet your preferences",
 
     image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",
     image3Height: "150px",
     title3: "Send Interests.",
     description3:
-      "Convey your interest and non-interest to connect with candidates.",
+      "We send you profiles of users that match your requirements and you tell us which candidates you're interested in.",
 
     image4: require("../../Resources/HowItWorks/fourth.png"),
     image4Width: "250px",
     image4Height: "150px",
-    title4: "Match and Message.",
+    title4: "Meet Matches",
     description4:
-      "If both candidates show that they're interested in each other, message away!",
+      "Meet your matches in-person and let us know how it went so we can further refine our search.",
   };
 
   const theRiaWay = {

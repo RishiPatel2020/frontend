@@ -1,10 +1,10 @@
-import './Banner.css'
+import "./Banner.css";
 import React from "react";
 
 const Banner = () => {
   return (
     <div className="text-center py-1 bg-light titlecss">
-      The Most Convenient & Compatible Desi Match Making Site
+      The Most Compatible South Asian Matchmaker in America
     </div>
   );
 };
