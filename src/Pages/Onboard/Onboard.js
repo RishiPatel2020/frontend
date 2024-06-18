@@ -1,5 +1,3 @@
-// Onboarding.js
-
 import React, { useContext, useState } from "react";
 import { getDownloadURL, getStorage, uploadBytes, ref } from "firebase/storage";
 import axios from "axios";
@@ -12,10 +10,12 @@ import PersonalBack from "./PersonalBack";
 import PictureUpload from "./PictureUpload";
 import SignUp from "./Signup";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
+import AuthContext from "../../Components/AuthContext/AuthContext";
 import "./Onboard.css";
 
 function Onboarding() {
   const { answers } = useContext(AnswersContext);
+  const { login } = useContext(AuthContext); // Access the login function from context
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
@@ -81,14 +81,17 @@ function Onboarding() {
         }
       );
 
-      setLoading(false);
+      const token = response.data.token; // Extract the token from the response
+      login(token); // Use the login function to store the token and set authentication state
 
+      setLoading(false);
       console.log(`Response: ${JSON.stringify(response.data)}`);
       navigate("/congrats");
     } catch (error) {
       setError("Email already exists");
       console.error("Error uploading images or submitting data:", error);
       alert("An error occurred. Please try again.");
+      setLoading(false); // Ensure to reset loading state on error
     }
   };
 

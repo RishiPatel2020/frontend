@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Footer from "./Components/Footer/Footer";
@@ -15,19 +16,18 @@ import PostSignup from "./Pages/Onboard/PostSignup";
 import Congrats from "./Pages/Onboard/Congrats";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import PremiumWait from "./Pages/Onboard/PremiumWait";
-import { AuthProvider } from "./Components/AuthContext/AuthContext";
 import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import AuthContext from "./Components/AuthContext/AuthContext";
+import PublicRoute from "./Components/PublicRoute/PublicRoute";
 
-ReactGA.initialize(TRACKINGID);
 function App() {
+  const { isAuthenticated } = useContext(AuthContext);
   const navAndFoot = (element) => {
     return (
       <>
         <Nav />
-
-        {/* to make nav sticked to top */}
         <section className="stickNavBarAdjustments"></section>
-        {/* About, Home, Help,... */}
         {element}
         <Footer />
       </>
@@ -36,30 +36,44 @@ function App() {
 
   return (
     <Routes>
-      {/* Home */}
       <Route exact path="/" element={navAndFoot(<Home />)} />
-      {/* About */}
       <Route exact path="/about" element={navAndFoot(<About />)} />
-      <Route exact path="/dashboard" element={navAndFoot(<Dashboard />)} />
+      <Route
+        exact
+        path="/dashboard"
+        element={<PrivateRoute element={navAndFoot(<Dashboard />)} />}
+      />
+
       <Route
         exact
         path="/onboard"
         element={
-          <AnswersProvider>
-            <Onboard />
-          </AnswersProvider>
+          <PublicRoute
+            element={
+              <AnswersProvider>
+                <Onboard />
+              </AnswersProvider>
+            }
+          />
         }
       />
       <Route exact path="/privacy" element={navAndFoot(<Privacy />)} />
       <Route exact path="/terms" element={navAndFoot(<Terms />)} />
-      <Route exact path="/afterSignUp" element={<PostSignup />} />
-      <Route exact path="/congrats" element={<Congrats />} />
+      <Route
+        exact
+        path="/afterSignUp"
+        element={<PrivateRoute element={<PostSignup />} />}
+      />
+      <Route
+        exact
+        path="/congrats"
+        element={<PrivateRoute element={<Congrats />} />}
+      />
       <Route
         exact
         path="/premiumWaiting"
-        element={navAndFoot(<PremiumWait />)}
+        element={<PrivateRoute element={navAndFoot(<PremiumWait />)} />}
       />
-
       <Route path="*" element={navAndFoot(<Home />)} />
     </Routes>
   );

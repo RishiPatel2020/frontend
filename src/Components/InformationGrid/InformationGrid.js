@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import React from "react";
@@ -5,8 +6,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./InformationGrid.css";
+import AuthContext from "../AuthContext/AuthContext";
 
 const InformationGrid = ({ data }) => {
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <section
       className={
@@ -96,21 +99,23 @@ const InformationGrid = ({ data }) => {
           <Col>
             <div className="justify-content-center align-items-center text-center">
               {/* Link to order page */}
-              <Link to="/register">
-                <Button
-                  variant="dark"
-                  className="text-primary mt-3"
-                  style={{
-                    height: "50px",
-                    width: "163px",
-                    borderRadius: "15px",
-                    fontSize: "20px",
-                    boxShadow: "2px 2px 2px rgb(0,0,0)",
-                  }}
-                >
-                  Join for Free
-                </Button>
-              </Link>
+              {!isAuthenticated && (
+                <Link to="/onboard">
+                  <Button
+                    variant="dark"
+                    className="text-primary mt-3"
+                    style={{
+                      height: "50px",
+                      width: "163px",
+                      borderRadius: "15px",
+                      fontSize: "20px",
+                      boxShadow: "2px 2px 2px rgb(0,0,0)",
+                    }}
+                  >
+                    Join for Free
+                  </Button>
+                </Link>
+              )}
             </div>
           </Col>
         </Row>

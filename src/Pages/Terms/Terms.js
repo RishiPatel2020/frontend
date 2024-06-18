@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import AuthContext from "../../Components/AuthContext/AuthContext";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useEffect } from "react";
@@ -5,6 +7,7 @@ import React from "react";
 import "./Terms.css"; // Importing CSS for styles
 import scrollToTop from "../../Service/ScrollTop";
 const Terms = () => {
+  const { isAuthenticated } = useContext(AuthContext);
   useEffect(() => {
     scrollToTop();
   });
@@ -123,21 +126,23 @@ const Terms = () => {
       </p>
 
       <div className="d-flex justify-content-center mb-3 text-center">
-        <Link to="/register">
-          <Button
-            variant="dark"
-            className="text-primary mt-3"
-            style={{
-              height: "50px",
-              width: "163px",
-              borderRadius: "15px",
-              fontSize: "20px",
-              boxShadow: "2px 2px 2px rgb(0,0,0)",
-            }}
-          >
-            Join for Free
-          </Button>
-        </Link>
+        {!isAuthenticated && (
+          <Link to="/onboard">
+            <Button
+              variant="dark"
+              className="text-primary mt-3"
+              style={{
+                height: "50px",
+                width: "163px",
+                borderRadius: "15px",
+                fontSize: "20px",
+                boxShadow: "2px 2px 2px rgb(0,0,0)",
+              }}
+            >
+              Join for Free
+            </Button>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import UserProfile from "../UserProfile/UserProfile";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import "./Nav.css";
@@ -26,6 +27,8 @@ function NavBar() {
             {/* 1618 791 */}
           </Nav.Link>
         </Navbar.Brand>
+        {/* user Profile */}
+        <UserProfile />
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
@@ -40,14 +43,6 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* About, Order, Help Links */}
           <Nav className="me-auto" defaultActiveKey="/home">
-            <Nav.Link href="#/order">
-              <span
-                className="fontAdjustment text-primary"
-                style={{ marginRight: "40px" }}
-              >
-                Order
-              </span>
-            </Nav.Link>
             <Nav.Link className="text-primary mx-1">
               <span
                 className="fontAdjustment text-primary"

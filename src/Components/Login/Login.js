@@ -1,14 +1,16 @@
 import ForgotPassword from "./ForgotPassword";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import { BACKEND_BASE } from "../../Service/Constants";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../AuthContext/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext); // Access the login function from context
   const [showDialog, setShowDialog] = useState(false);
   const [invalid, setInvalid] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -26,20 +28,21 @@ function Login() {
 
   const handleSubmit = async () => {
     setLoading(true);
-    const response = await axios
-      .post(`${BACKEND_BASE}/login`, {
+    try {
+      const response = await axios.post(`${BACKEND_BASE}/login`, {
         email,
         password,
-      })
-      .then((res) => {
-        navigate("/dashboard");
-        handleClose();
-        setLoading(false);
-      })
-      .catch((error) => {
-        setInvalid(true);
-        setLoading(false);
       });
+
+      const token = response.data.token;
+      login(token); // Use login function from context to set token and authentication state
+      navigate("/dashboard");
+      handleClose();
+      setLoading(false);
+    } catch (error) {
+      setInvalid(true);
+      setLoading(false);
+    }
   };
 
   return (
@@ -109,9 +112,6 @@ function Login() {
           >
             Forgot Password
           </Link>
-          {/* <Button variant="dark" onClick={handleClose}>
-            Close
-          </Button> */}
           <Button variant="dark" onClick={handleSubmit}>
             {loading ? "Loading..." : "Submit"}
           </Button>

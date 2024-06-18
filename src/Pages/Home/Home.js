@@ -1,15 +1,9 @@
-import { Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Row } from "react-bootstrap";
 import { useEffect } from "react";
 import React from "react";
 import Showcase from "./Showcase/Showcase";
 import Question from "./Questions/Question";
 import Banner from "./Banner/Banner";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
-import scrollToTop from "../../Service/ScrollTop";
-import TestimonialCard from "./Testimonials/TestimonialCard";
-import Testimonial from "./Testimonials/Testimonials";
 import JoinHundreds from "./JoinHundreds/JoinHundreds";
 const Home = () => {
   useEffect(() => {

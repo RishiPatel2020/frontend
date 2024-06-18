@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import AuthContext from "../../../Components/AuthContext/AuthContext";
 import { Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import React from "react";
@@ -58,14 +60,11 @@ const responsive = {
 };
 
 export default function Testimonial() {
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <>
       <div className="testimonial-container text-center bg-primary">
-        <div
-          className="testimonials text-dark bigTexts"
-        >
-          Join Hundreds
-        </div>
+        <div className="testimonials text-dark bigTexts">Join Hundreds</div>
         {/* <p className="testimonials-description">
           Don't take our word, see what our customers are saying
         </p> */}
@@ -82,21 +81,23 @@ export default function Testimonial() {
 
         <div className="justify-content-center align-items-center text-center py-4">
           {/* Link to order page */}
-          <Link to="/register">
-            <Button
-              variant="dark"
-              className="text-primary mt-3"
-              style={{
-                height: "50px",
-                width: "163px",
-                borderRadius: "15px",
-                fontSize: "20px",
-                boxShadow: "2px 2px 2px rgb(0,0,0)",
-              }}
-            >
-              Join for Free
-            </Button>
-          </Link>
+          {!isAuthenticated && (
+            <Link to="/onboard">
+              <Button
+                variant="dark"
+                className="text-primary mt-3"
+                style={{
+                  height: "50px",
+                  width: "163px",
+                  borderRadius: "15px",
+                  fontSize: "20px",
+                  boxShadow: "2px 2px 2px rgb(0,0,0)",
+                }}
+              >
+                Join for Free
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </>
