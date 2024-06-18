@@ -1,33 +1,23 @@
 {
   "files": {
-    "main.css": "/frontend/static/css/main.08442998.css",
-    "main.js": "/frontend/static/js/main.810072ba.js",
-    "static/js/488.78208c42.chunk.js": "/frontend/static/js/488.78208c42.chunk.js",
+    "main.css": "/frontend/static/css/main.7178d6f1.css",
+    "main.js": "/frontend/static/js/main.0d99b9df.js",
+    "static/js/488.9f5852af.chunk.js": "/frontend/static/js/488.9f5852af.chunk.js",
     "static/media/showcaseImg.jpg": "/frontend/static/media/showcaseImg.fe3d4469629cb3a48824.jpg",
     "static/media/newCouple.jpg": "/frontend/static/media/newCouple.d49fc97480d795a3b3dc.jpg",
     "static/media/newBack2.png": "/frontend/static/media/newBack2.383975a750d6e8f67994.png",
     "static/media/second.png": "/frontend/static/media/second.ba02f6e5561369d98caf.png",
     "static/media/newBack3.png": "/frontend/static/media/newBack3.73fdd5aadaa4cb59020c.png",
     "static/media/third.png": "/frontend/static/media/third.f3693ef6e1dde4bccc4f.png",
-    "static/media/Poorvi.png": "/frontend/static/media/Poorvi.82237ca2ff9ef8343c92.png",
-    "static/media/Meena.png": "/frontend/static/media/Meena.8a37e93d1f5225fd4f2b.png",
-    "static/media/Mauji.png": "/frontend/static/media/Mauji.754329d3fa39518e3518.png",
-    "static/media/Ramesh.png": "/frontend/static/media/Ramesh.20db1a63ed51504ffbd3.png",
-    "static/media/Guri.png": "/frontend/static/media/Guri.6b37d33764dc517a33ae.png",
-    "static/media/Sravni.png": "/frontend/static/media/Sravni.95981c12f3cb96798492.png",
-    "static/media/Sharmeela.png": "/frontend/static/media/Sharmeela.f534dc9426e9a34fabcd.png",
-    "static/media/Sia.png": "/frontend/static/media/Sia.195a55b20dfefdf72e3a.png",
-    "static/media/Prachar.png": "/frontend/static/media/Prachar.7b1931cc99458b3014f8.png",
-    "static/media/Rakesh.png": "/frontend/static/media/Rakesh.0f345445cd48d9e59214.png",
     "static/media/fourth.png": "/frontend/static/media/fourth.9321c79fa9b651dec884.png",
     "static/media/first.png": "/frontend/static/media/first.b1cd5d2fac445a13320b.png",
     "index.html": "/frontend/index.html",
-    "main.08442998.css.map": "/frontend/static/css/main.08442998.css.map",
-    "main.810072ba.js.map": "/frontend/static/js/main.810072ba.js.map",
-    "488.78208c42.chunk.js.map": "/frontend/static/js/488.78208c42.chunk.js.map"
+    "main.7178d6f1.css.map": "/frontend/static/css/main.7178d6f1.css.map",
+    "main.0d99b9df.js.map": "/frontend/static/js/main.0d99b9df.js.map",
+    "488.9f5852af.chunk.js.map": "/frontend/static/js/488.9f5852af.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.08442998.css",
-    "static/js/main.810072ba.js"
+    "static/css/main.7178d6f1.css",
+    "static/js/main.0d99b9df.js"
   ]
 }
