@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext/AuthContext";
 
 function Login() {
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [display, setDisplay] = useState(false);
   const navigate = useNavigate();
   const { login } = useContext(AuthContext); // Access the login function from context
   const [showDialog, setShowDialog] = useState(false);
@@ -24,6 +26,12 @@ function Login() {
     setInvalid(false);
     setShowDialog(false);
     setLoading(false);
+    setDisplay(false);
+  };
+
+  const handleDisplay = (e) => {
+    e.preventDefault();
+    setDisplay(true);
   };
 
   const handleSubmit = async () => {
@@ -107,8 +115,11 @@ function Login() {
         <Modal.Footer>
           <Link
             to=""
-            style={{ color: "blue", marginRight: "1px" }}
-            onClick={() => {}}
+            style={{ color: "blue", marginRight: "6px" }}
+            onClick={() => {
+              setDisplay(false);
+              setShowForgotPassword(true);
+            }}
           >
             Forgot Password
           </Link>
@@ -118,9 +129,9 @@ function Login() {
         </Modal.Footer>
       </Modal>
       <ForgotPassword
-        showDialog={showDialog}
-        setShowDialog={setShowDialog}
-        setDisplay={() => {}}
+        showForgotPassword={showForgotPassword}
+        setShowForgotPassword={setShowForgotPassword}
+        setDisplay={setDisplay}
       />
     </>
   );
