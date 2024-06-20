@@ -139,7 +139,7 @@ const Terms = () => {
                 boxShadow: "2px 2px 2px rgb(0,0,0)",
               }}
             >
-              Join for Free
+              Join Ria
             </Button>
           </Link>
         )}

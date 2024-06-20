@@ -23,7 +23,7 @@ const questions = [
     id: "age",
     text: "What is your age?",
     type: "dropdown",
-    options: ["Under 18", "18-30", "31-50", "Over 50"],
+    options: Array.from({ length: 99 - 21 + 1 }, (_, i) => i + 21),
   },
   {
     id: "intention",

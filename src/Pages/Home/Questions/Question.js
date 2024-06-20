@@ -15,19 +15,12 @@ const Question = () => {
           <Accordion.Body>
             None. Zilch. Zero. Nil. Hard to believe, but true. We believe in not
             wasting time with having to manually go through tons of profiles to
-            check whether or not they fit your requirements. So, our systems do
-            the hard work behind the scenes to bring you profiles of folks that
+            check whether or not they fit your requirements. So, our team does
+            the hard work behind the scenes to bring you candidates that only
             match your preferences.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>
-            Is this a free matchmaking site question to be?
-          </Accordion.Header>
-          <Accordion.Body>Yup, there's no charge to join.</Accordion.Body>
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="2">
           <Accordion.Header>What does Ria stand for?</Accordion.Header>
           <Accordion.Body>
             Rishta Interactions Assistant, read more about our origin story in
@@ -35,7 +28,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="3">
+        <Accordion.Item eventKey="2">
           <Accordion.Header>
             How many South Asian communities are included?
           </Accordion.Header>
@@ -45,16 +38,19 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="4">
+        <Accordion.Item eventKey="3">
           <Accordion.Header>
-            When can I expect to receive the e-mails of the matches?
+            When can I expect to receive matches?
           </Accordion.Header>
           <Accordion.Body>
-            We send out the e-mails at the end of each month. Be on the lookout!
+            Depending on your requirements for a match and the membership you've
+            chosen, timing can vary. Premium members are matched faster as they
+            can be paired with both free members and paying members. Free
+            members on the other hand, are only matched with paying members.
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="5">
+        <Accordion.Item eventKey="4">
           <Accordion.Header>
             Once I get the e-mail of the candidates, what's next?
           </Accordion.Header>
@@ -66,7 +62,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="6">
+        <Accordion.Item eventKey="5">
           <Accordion.Header>
             How do I message the candidates in the profiles?
           </Accordion.Header>
@@ -76,7 +72,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="7">
+        <Accordion.Item eventKey="6">
           <Accordion.Header>
             Do I get the same profiles each month?
           </Accordion.Header>
@@ -89,19 +85,43 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="8">
+        <Accordion.Item eventKey="7">
           <Accordion.Header>
-            Did I miss the monthly e-mail of the matches?
+            I applied for a premium membership, how are premium members
+            selected?
           </Accordion.Header>
           <Accordion.Body>
-            If there's no profiles that match your preferences in our system for
-            a particular month, you won't be recieving an e-mail from us. Be on
-            the lookout however, our systems are working 24/7 to constantly
-            check against any profile that is added on our site.
+            Depending on the authenticity of your profile and the number of
+            available seats at the time of your application, we decided whether
+            or not to include you in the premium matching pool.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="8">
+          <Accordion.Header>
+            After my premium membership application, how long before I hear
+            back?
+          </Accordion.Header>
+          <Accordion.Body>
+            Our team will take 2-4 days to analyze your profile and the number
+            of available memberships left, to get back to you.
           </Accordion.Body>
         </Accordion.Item>
 
         <Accordion.Item eventKey="9">
+          <Accordion.Header>
+            I was waitlisted for the premium membership, how long before seats
+            open up?
+          </Accordion.Header>
+          <Accordion.Body>
+            As our premium members are either exiting after finding a match they
+            feel confident about or their membership expires, we routinely open
+            seats. You will receive an email to join the premium pool as soon as
+            a seat is available.
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="10">
           <Accordion.Header>I need other help, where do I go?</Accordion.Header>
           <Accordion.Body>support@riamatchmaking.com</Accordion.Body>
         </Accordion.Item>

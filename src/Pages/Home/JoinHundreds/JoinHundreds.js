@@ -7,6 +7,21 @@ const JoinHundreds = () => {
   const { isAuthenticated } = useContext(AuthContext);
   return (
     <section className="text-center bg-primary mt-4">
+      <div style={{ textAlign: "center" }}>
+        {/* Main Title eg. "How you Save Time"  */}
+        <h1
+          style={{ margin: "0px 0px 10px", fontSize: "48px" }}
+          className="text-dark"
+        >
+          Quality Over Quantity
+        </h1>
+        <h2
+          style={{ margin: "0px 0px 10px", fontSize: "34px" }}
+          className="text-info"
+        >
+          Tons of Singles
+        </h2>
+      </div>
       {/* Desktop image (hidden on xs to md screens) */}
       <img
         src={require("../../../Resources/Background/newBack3.png")}
@@ -23,8 +38,9 @@ const JoinHundreds = () => {
       {/* Common Content for desktop and mobile */}
       <div className="mt-3 py-4">
         <p>
-          Connect with hundreds of Indians, Pakistani, Bangladeshi, Nepali,
-          Gyanese, and more singles.
+          Our matchmakers work with hundreds of Indian, Pakistani, Bangladeshi,
+          Sri Lankan, Nepali, Guyanese, and more singles to find their perfect
+          match.
         </p>
         {!isAuthenticated && (
           <Link to="/onboard">

@@ -20,9 +20,9 @@ const Home = () => {
     image1: require("../../Resources/HowItWorks/first.png"),
     image1Height: "150px",
     image1Width: "250px",
-    title1: "Register.",
+    title1: "Register",
     description1:
-      "Tell us about yourself and what's meaningful to you through your profile.",
+      "Tell us about yourself and what's meaningful to you through your profile",
 
     image2: require("../../Resources/HowItWorks/second.png"),
     image2Width: "250px",
@@ -34,16 +34,16 @@ const Home = () => {
     image3: require("../../Resources/HowItWorks/third.png"),
     image3Width: "250px",
     image3Height: "150px",
-    title3: "Send Interests.",
+    title3: "Send Interests",
     description3:
-      "We send you profiles of users that match your requirements and you tell us which candidates you're interested in.",
+      "We send you profiles of users that match your requirements and you tell us which candidates you're interested in",
 
     image4: require("../../Resources/HowItWorks/fourth.png"),
     image4Width: "250px",
     image4Height: "150px",
     title4: "Meet Matches",
     description4:
-      "Meet your matches in-person and let us know how it went so we can further refine our search.",
+      "Meet your matches in-person and let us know how it went so we can further refine our search",
   };
 
   const theRiaWay = {
@@ -53,33 +53,34 @@ const Home = () => {
     textColor: "secondary",
 
     heading: "The Ria Way",
-    image1: require("../../Resources/TheRiaWay/first.png"),
-    image1Height: "150px",
+
+    image1: require("../../Resources/TheRiaWay/third.png"),
     image1Width: "250px",
-    title1: "Verified Users.",
+    image1Height: "150px",
+    title1: "No Swiping Ever",
     description1:
-      "Each user is manually verified by the Ria team to ensure a genuine experience. ",
+      "No more time wasted on endlessly scrolling, swiping, and liking to find the right one.",
 
     image2: require("../../Resources/TheRiaWay/second.png"),
     image2Width: "250px",
     image2Height: "150px",
-    title2: "Curated Matches Made.",
+    title2: "Curated Matches Made",
     description2:
-      " Users are matched on the basis of their preferences, personality, and passions.",
+      " Users are matched on the basis of their preferences, personality, and passions",
 
-    image3: require("../../Resources/TheRiaWay/third.png"),
-    image3Width: "250px",
+    image3: require("../../Resources/TheRiaWay/first.png"),
     image3Height: "150px",
-    title3: "No Swiping Ever.",
+    image3Width: "250px",
+    title3: "Verified Users",
     description3:
-      "Stop endlessly scrolling to find the one. Ria works to directly send relevant candidates to your e-mail every month.",
+      "Each user is manually verified by the Ria team to ensure a genuine experience",
 
     image4: require("../../Resources/TheRiaWay/fourth.png"),
     image4Width: "250px",
     image4Height: "150px",
-    title4: "Serious Seekers.",
+    title4: "Serious Seekers",
     description4:
-      "Ria's hundreds of members are also looking for something long-term or dating-to-marry. ",
+      "Ria's hundreds of members are also looking for something long-term or dating-to-marry",
   };
 
   return (
@@ -90,6 +91,8 @@ const Home = () => {
 
       {/* How It Works */}
       <InformationGrid data={howItWorks} />
+      
+      {/* Couples pictures */}
       <JoinHundreds />
 
       {/* The Ria way */}
