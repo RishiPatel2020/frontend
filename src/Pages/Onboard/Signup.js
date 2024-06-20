@@ -54,6 +54,7 @@ function SignUp({ setIsValid }) {
               id={`question-${index}`}
               value={answers[question.id] || ""}
               onChange={(e) => handleInputChange(question.id, e.target.value)}
+              style={{ border: "none", backgroundColor: "rgb(243,243,243)" }}
             />
           </div>
         ))}
@@ -66,6 +67,7 @@ function SignUp({ setIsValid }) {
             id="confirm-password"
             value={confirmPassword}
             onChange={(e) => handleConfirmPasswordChange(e.target.value)}
+            style={{ border: "none", backgroundColor: "rgb(243,243,243)" }}
           />
           {passwordMatchError && (
             <p style={{ color: "red" }}>Passwords do not match!</p>

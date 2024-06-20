@@ -44,7 +44,7 @@ function PictureUpload({ setIsValid }) {
 
   return (
     <div>
-      <h2 className="my-5">Upload Pictures</h2>
+      <h1 className="my-5">Upload Pictures</h1>
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {pictures.map((picture) => (
           <div
@@ -59,7 +59,7 @@ function PictureUpload({ setIsValid }) {
               src={picture.url}
               alt={`Uploaded ${picture.id}`}
               style={{
-                width: "200px",
+                width: "271px",
                 height: "200px",
                 margin: "5px",
                 objectFit: "cover",
@@ -82,7 +82,7 @@ function PictureUpload({ setIsValid }) {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              width: "200px",
+              width: "271px",
               height: "200px",
               border: "2px dashed gray",
               borderRadius: "5px",

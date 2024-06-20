@@ -8,7 +8,6 @@
 }
 
 .progress-bar-container {
-  background-color: rgb(72, 39, 110);
   width: 100%;
   padding: 20px 0; /* Increase padding for larger nav section */
   display: flex;
@@ -23,7 +22,16 @@
   width: calc(90% - 20px); /* Maintain previous width */
   height: 8px;
   border-radius: 4px;
-  background-color: #00ffff;
+  /* background-color: #00ffff; */
+  background-color: transparent;
+  appearance: none;
+}
+.progress-bar::-webkit-progress-bar {
+  background-color: rgb(243, 243, 243); /* Lighter grey */
+}
+/* Customize the progress bar itself (gold color) */
+.progress-bar::-webkit-progress-value {
+  background-color: rgb(190, 156, 92); /* Gold color */
 }
 
 .question-container {

@@ -60,6 +60,7 @@ function Professional({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
+                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -74,6 +75,7 @@ function Professional({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
+                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
               />
             )}
           </div>

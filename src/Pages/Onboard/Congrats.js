@@ -10,7 +10,7 @@ const Congrats = () => {
   return (
     <div className="congrats-container">
       <div className="congrats-card">
-        <h1>Congrats!</h1>
+        <h1>Application Submitted!</h1>
         <p>
           You’ve been added to the Ria database to be matched with premium members!
         </p>
