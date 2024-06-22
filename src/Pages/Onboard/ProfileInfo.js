@@ -61,8 +61,8 @@ function ProfileInfo({ setIsValid }) {
       <h1>Basic Info</h1>
       <form>
         {questions.map((question) => (
-          <div key={question.id} className="question my-3">
-            <label htmlFor={question.id} className="mx-2">
+          <div key={question.id} className="question">
+            <label htmlFor={question.id}>
               {question.text}
             </label>
             {question.type === "dropdown" ? (
@@ -70,7 +70,6 @@ function ProfileInfo({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
-                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -85,7 +84,6 @@ function ProfileInfo({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
-                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
               />
             )}
           </div>

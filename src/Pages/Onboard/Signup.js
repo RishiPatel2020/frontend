@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
-
+import "./Onboard.css"; // Ensure this is imported for styling
 const questions = [
   { id: "email", text: "Email", type: "email" },
   { id: "password", text: "Password", type: "password" },
