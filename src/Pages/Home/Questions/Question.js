@@ -62,30 +62,8 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
+
         <Accordion.Item eventKey="5">
-          <Accordion.Header>
-            How do I message the candidates in the profiles?
-          </Accordion.Header>
-          <Accordion.Body>
-            As soon as the candidate also sends an interest to connect with you,
-            you'll be able to message one another!
-          </Accordion.Body>
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="6">
-          <Accordion.Header>
-            Do I get the same profiles each month?
-          </Accordion.Header>
-          <Accordion.Body>
-            Unless you've not selected interested or not interested on the
-            profiles sent for a particular month, we won't send reoccurring
-            profiles as an excuse to not work harder for you. The systems at Ria
-            work around the clock to measure your profile with others as soon as
-            they enter our systems.
-          </Accordion.Body>
-        </Accordion.Item>
-
-        <Accordion.Item eventKey="7">
           <Accordion.Header>
             I applied for a premium membership, how are premium members
             selected?
@@ -97,7 +75,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="8">
+        <Accordion.Item eventKey="6">
           <Accordion.Header>
             After my premium membership application, how long before I hear
             back?
@@ -108,7 +86,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="9">
+        <Accordion.Item eventKey="7">
           <Accordion.Header>
             I was waitlisted for the premium membership, how long before seats
             open up?
@@ -121,7 +99,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="10">
+        <Accordion.Item eventKey="8">
           <Accordion.Header>I need other help, where do I go?</Accordion.Header>
           <Accordion.Body>support@riamatchmaking.com</Accordion.Body>
         </Accordion.Item>

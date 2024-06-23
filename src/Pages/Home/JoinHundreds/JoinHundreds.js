@@ -15,12 +15,12 @@ const JoinHundreds = () => {
         >
           Quality Over Quantity
         </h1>
-        <h2
+        {/* <h2
           style={{ margin: "0px 0px 10px", fontSize: "34px" }}
           className="text-info"
         >
           Tons of Singles
-        </h2>
+        </h2> */}
       </div>
       {/* Desktop image (hidden on xs to md screens) */}
       <img
@@ -34,30 +34,38 @@ const JoinHundreds = () => {
         alt="Mobile View"
         className="img-fluid d-block d-md-none"
       />
-
+      <h2
+        style={{ margin: "0px 0px 10px", fontSize: "34px" }}
+        className="text-info"
+      >
+        Tons of Singles
+      </h2>
       {/* Common Content for desktop and mobile */}
-      <div className="mt-3 py-4">
+      <div>
         <p>
           Our matchmakers work with hundreds of Indian, Pakistani, Bangladeshi,
           Sri Lankan, Nepali, Guyanese, and more singles to find their perfect
-          match.
+          match
         </p>
+
         {!isAuthenticated && (
-          <Link to="/onboard">
-            <Button
-              variant="dark"
-              className="text-primary"
-              style={{
-                height: "50px",
-                width: "163px",
-                borderRadius: "15px",
-                fontSize: "20px",
-                boxShadow: "2px 2px 2px rgb(0,0,0)",
-              }}
-            >
-              Join for Free
-            </Button>
-          </Link>
+          <div className="mb-4 py-4">
+            <Link to="/onboard">
+              <Button
+                variant="dark"
+                className="text-primary"
+                style={{
+                  height: "50px",
+                  width: "163px",
+                  borderRadius: "15px",
+                  fontSize: "20px",
+                  boxShadow: "2px 2px 2px rgb(0,0,0)",
+                }}
+              >
+                Join for Free
+              </Button>
+            </Link>
+          </div>
         )}
       </div>
     </section>

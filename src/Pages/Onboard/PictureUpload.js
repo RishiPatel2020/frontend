@@ -44,8 +44,15 @@ function PictureUpload({ setIsValid }) {
 
   return (
     <div>
-      <h1 className="my-5">Upload Pictures</h1>
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <h1 className="my-5 text-dark text-center">Upload Profile Picture</h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+        }}
+      >
         {pictures.map((picture) => (
           <div
             key={picture.id}
@@ -83,13 +90,17 @@ function PictureUpload({ setIsValid }) {
               justifyContent: "center",
               alignItems: "center",
               width: "271px",
-              height: "200px",
+              height: "70px", // Adjusted height to be smaller
               border: "2px dashed gray",
               borderRadius: "5px",
               cursor: "pointer",
+              textAlign: "center",
+              padding: "10px", // Added padding for better appearance
             }}
           >
-            <span style={{ marginBottom: "5px" }}>Click to upload</span>
+            <span style={{ marginBottom: "5px", display: "block" }}>
+              Click to upload
+            </span>
             <input
               id="fileInput"
               type="file"
@@ -100,6 +111,16 @@ function PictureUpload({ setIsValid }) {
             />
           </label>
         )}
+        <p
+          style={{
+            fontStyle: "italic",
+            marginTop: "10px",
+            textAlign: "center",
+          }}
+        >
+          Please submit a clear picture with no sunglasses, hats, filters, or
+          edits. Users using fake or unclear photos will be denied.
+        </p>
       </div>
     </div>
   );

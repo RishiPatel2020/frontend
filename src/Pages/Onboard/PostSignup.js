@@ -5,7 +5,15 @@ import React from "react";
 const PostSignup = () => {
   const navigate = useNavigate();
   const onSelectPlan = (plan) => {
-    plan === "free" ? navigate("/dashboard") : navigate("/premiumWaiting");
+    // Determine description based on plan selection
+    const description =
+      plan === "free"
+        ? "You've successfully chosen the Free Plan!"
+        : "You've successfully applied for the Premium Plan!";
+    const title = plan === "free" ? "Congrats!" : "Application Submitted!";
+
+    // Navigate to Congrats component with the description
+    navigate("/congrats", { state: { description, title } });
   };
 
   return (
@@ -15,13 +23,11 @@ const PostSignup = () => {
         exclusive matchmaking experience!
       </h5>
       <div className="subscription-container">
-        <div
-          className="subscription-card premium-plan"
-          onClick={() => onSelectPlan("premium")}
-        >
-          <h2>Premium Plan</h2>
-          <p className="price">$499 (one time)</p>
+        <div className="subscription-card premium-plan text-secondary">
+          <h2>Premium</h2>
+          <p className="price">$499.99/year</p>
           <ul>
+            <li>10 Seats available</li>
             <li>
               Can be matched with free and paying customers in the Ria database
             </li>
@@ -40,21 +46,24 @@ const PostSignup = () => {
             <li>Body Language, Confidence, and Date Etiquette Manual</li>
             <li>2024 Outfits & Styling Ideas E-Book</li>
             <li>Post-Date Feedback</li>
-            <li>25 Seats available</li>
           </ul>
-          <button className="select-button">Apply</button>
+          <button className="select-button" onClick={() => onSelectPlan("")}>
+            Apply
+          </button>
         </div>
-        <div
-          className="subscription-card free-plan"
-          onClick={() => onSelectPlan("free")}
-        >
+        <div className="subscription-card free-plan">
           <h2>Free Member</h2>
           <p className="price">$0/year</p>
           <ul>
             <li>Can only be matched with paying members</li>
             <li>Unlimited # of Potential Matches</li>
           </ul>
-          <button className="select-button">Choose Free Plan</button>
+          <button
+            className="select-button"
+            onClick={() => onSelectPlan("free")}
+          >
+            Choose Free Plan
+          </button>
         </div>
       </div>
     </div>

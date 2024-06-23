@@ -1,5 +1,3 @@
-// ProfileInfo.js
-
 import React, { useContext, useEffect } from "react";
 import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
@@ -16,8 +14,8 @@ const questions = [
   {
     id: "gender",
     text: "Gender",
-    type: "dropdown",
-    options: ["Male", "Female", "Binary"],
+    type: "buttons",
+    options: ["Male", "Female", "Other"],
   },
   {
     id: "age",
@@ -52,19 +50,17 @@ function ProfileInfo({ setIsValid }) {
 
   useEffect(() => {
     // Validate inputs
-    const isValid = questions.every(question => answers[question.id]);
+    const isValid = questions.every((question) => answers[question.id]);
     setIsValid(isValid);
   }, [answers, setIsValid]);
 
   return (
     <div className="question-container">
-      <h1>Basic Info</h1>
+      <h1 className="text-dark">Basic Info</h1>
       <form>
         {questions.map((question) => (
           <div key={question.id} className="question">
-            <label htmlFor={question.id}>
-              {question.text}
-            </label>
+            <label htmlFor={question.id}>{question.text}</label>
             {question.type === "dropdown" ? (
               <select
                 id={question.id}
@@ -78,6 +74,21 @@ function ProfileInfo({ setIsValid }) {
                   </option>
                 ))}
               </select>
+            ) : question.type === "buttons" ? (
+              <div className="button-group">
+                {question.options.map((option, optionIndex) => (
+                  <button
+                    key={optionIndex}
+                    type="button"
+                    className={`option-button ${
+                      answers[question.id] === option ? "active" : ""
+                    }`}
+                    onClick={() => handleInputChange(question.id, option)}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
             ) : (
               <input
                 type={question.type}

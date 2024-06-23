@@ -59,7 +59,7 @@ const Home = () => {
     image1Height: "150px",
     title1: "No Swiping Ever",
     description1:
-      "No more time wasted on endlessly scrolling, swiping, and liking to find the right one.",
+      "No more time wasted on endlessly scrolling, swiping, and liking to find the right one",
 
     image2: require("../../Resources/TheRiaWay/second.png"),
     image2Width: "250px",

@@ -48,7 +48,7 @@ function Professional({ setIsValid }) {
 
   return (
     <div className="question-container">
-      <h1>Employment and Education</h1>
+      <h1 className="text-dark">Employment and Education</h1>
       <form>
         {questions.map((question, index) => (
           <div key={index} className="question my-3">

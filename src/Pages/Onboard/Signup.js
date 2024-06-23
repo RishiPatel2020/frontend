@@ -42,7 +42,7 @@ function SignUp({ setIsValid }) {
 
   return (
     <div className="question-container">
-      <h1>Sign Up</h1>
+      <h1 className="text-dark">Sign Up</h1>
       <form>
         {questions.map((question, index) => (
           <div key={index} className="question my-3">
