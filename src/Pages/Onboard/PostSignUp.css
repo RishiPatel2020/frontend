@@ -79,6 +79,8 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+
+  box-shadow: 4px 4px 4px rgb(123, 120, 120);
 }
 
 .select-button:hover {
@@ -122,6 +124,8 @@
 
   .select-button {
     font-size: 1.25rem;
+
+    box-shadow: 4px 4px 4px rgb(123, 120, 120);
   }
 }
 
