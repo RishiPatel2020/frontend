@@ -66,6 +66,7 @@ function ProfileInfo({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
+                className="border-0 border-bottom rounded-1"
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -95,6 +96,7 @@ function ProfileInfo({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
+                className="border-0 border-bottom rounded-1"
               />
             )}
           </div>

@@ -7,7 +7,11 @@ import AuthContext from "../../../Components/AuthContext/AuthContext";
 import Login from "../../../Components/Login/Login";
 
 const Showcase = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout();
+  };
   return (
     <div class="background-image-container">
       <div class="overlay-text my-5">
@@ -20,13 +24,11 @@ const Showcase = () => {
             </div>
 
             {/* ONLY if user not logged in  */}
-
-            {!isAuthenticated && (
-              <Row className="my-2">
-                <Col>
-                  <div className="justify-content-center align-items-center">
-                    {/* Link to order page */}
-                    {!isAuthenticated && (
+            <Row className="my-2">
+              <Col>
+                <div className="justify-content-center align-items-center">
+                  {!isAuthenticated ? (
+                    <>
                       <Link to="/onboard">
                         <Button
                           variant="dark"
@@ -42,12 +44,44 @@ const Showcase = () => {
                           Join for Free
                         </Button>
                       </Link>
-                    )}
-                    <Login />
-                  </div>
-                </Col>
-              </Row>
-            )}
+                      <Login />
+                    </>
+                  ) : (
+                    <>
+                      <Link to="/dashboard">
+                        <Button
+                          variant="dark"
+                          className="text-primary mt-3"
+                          style={{
+                            height: "50px",
+                            width: "163px",
+                            borderRadius: "15px",
+                            fontSize: "20px",
+                            boxShadow: "2px 2px 2px rgb(0,0,0)",
+                          }}
+                        >
+                          Dashboard
+                        </Button>
+                      </Link>
+                      <Button
+                        onClick={() => logout()}
+                        variant="dark"
+                        className="text-primary mx-4 mt-3"
+                        style={{
+                          height: "50px",
+                          width: "150px",
+                          borderRadius: "15px",
+                          fontSize: "20px",
+                          boxShadow: "2px 2px 2px rgb(0,0,0)",
+                        }}
+                      >
+                        Log Out
+                      </Button>
+                    </>
+                  )}
+                </div>
+              </Col>
+            </Row>
           </div>
         </div>
       </div>

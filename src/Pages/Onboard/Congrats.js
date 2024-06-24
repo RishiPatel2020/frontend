@@ -9,7 +9,7 @@ const Congrats = () => {
   const description =
     location.state?.description ||
     "You've been added to the Ria database to be matched with premium members!"; // Default description if state is undefined
-
+  const nextLocation = location.state?.nextPage || "/dashboard";
   return (
     <div className="congrats-container">
       <div className="congrats-card">
@@ -18,7 +18,7 @@ const Congrats = () => {
         <button
           className="next-button"
           onClick={() => {
-            navigate("/dashboard");
+            navigate(nextLocation);
           }}
         >
           Next

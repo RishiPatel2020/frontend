@@ -86,7 +86,7 @@ function Onboarding() {
 
       setLoading(false);
       console.log(`Response: ${JSON.stringify(response.data)}`);
-      navigate("/congrats");
+      navigate("/congrats", { state: { nextPage: "/afterSignUp" } });
     } catch (error) {
       setError("Email already exists");
       console.error("Error uploading images or submitting data:", error);

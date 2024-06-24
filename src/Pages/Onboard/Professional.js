@@ -42,7 +42,7 @@ function Professional({ setIsValid }) {
 
   useEffect(() => {
     // Validate inputs
-    const isValid = questions.every(question => answers[question.id]);
+    const isValid = questions.every((question) => answers[question.id]);
     setIsValid(isValid);
   }, [answers, setIsValid]);
 
@@ -60,7 +60,8 @@ function Professional({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
-                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
+                style={{ border: "none", backgroundColor: "rgb(243,243,243)" }}
+                className="border-0 border-bottom rounded-1"
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -75,7 +76,8 @@ function Professional({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
-                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
+                style={{ border: "none", backgroundColor: "rgb(243,243,243)" }}
+                className="border-0 border-bottom rounded-1"
               />
             )}
           </div>

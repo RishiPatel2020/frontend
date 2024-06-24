@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import scrollToTop from "../../Service/ScrollTop";
+import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 
 const Footer = () => {
   return (

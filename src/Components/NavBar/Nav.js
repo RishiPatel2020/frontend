@@ -4,8 +4,15 @@ import Container from "react-bootstrap/Container";
 import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { scrollToFAQ } from "../../Service/Scroll/ScrollFAQ";
 function NavBar() {
   // might cause error in PRODUCTION due to paths and hashes "#/"
+  const navigate = useNavigate();
+
+  const handleFAQClick = () => {
+    scrollToFAQ(navigate);
+  };
 
   return (
     <Navbar
@@ -43,7 +50,10 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* About, Order, Help Links */}
           <Nav className="me-auto" defaultActiveKey="/home">
-            <Nav.Link className="text-primary mx-1">
+            <Nav.Link
+              className="text-primary mx-1"
+              onClick={(e) => handleFAQClick()}
+            >
               <span
                 className="fontAdjustment text-primary"
                 style={{ marginRight: "40px" }}

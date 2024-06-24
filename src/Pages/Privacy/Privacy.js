@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { useEffect } from "react";
 import React from "react";
 import "./Privacy.css"; // Importing CSS for styles
-import scrollToTop from "../../Service/ScrollTop";
+import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 
 const Privacy = () => {
   const { isAuthenticated } = useContext(AuthContext);

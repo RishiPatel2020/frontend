@@ -6,7 +6,7 @@ import Mission from "./Mission/Misson";
 import Vision from "./Vision/Vision";
 import CallToAction from "./CallToAction/CallToAction";
 import "./About.css";
-import scrollToTop from "../../Service/ScrollTop";
+import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import { useEffect } from "react";
 const AboutPage = () => {
   useEffect(() => {

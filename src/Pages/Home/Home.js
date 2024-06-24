@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import React from "react";
 import Showcase from "./Showcase/Showcase";
@@ -5,10 +6,21 @@ import Question from "./Questions/Question";
 import Banner from "./Banner/Banner";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import JoinHundreds from "./JoinHundreds/JoinHundreds";
+import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 const Home = () => {
+  const location = useLocation();
   useEffect(() => {
-    // scrollToTop();
-  }, []);
+    if (location.state?.scrollToFAQ) {
+      const faqSection = document.getElementById("questions");
+      if (faqSection) {
+        faqSection.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    } else {
+      scrollToTop();
+    }
+  }, [location]);
 
   const howItWorks = {
     backColor: "light",
@@ -91,7 +103,7 @@ const Home = () => {
 
       {/* How It Works */}
       <InformationGrid data={howItWorks} />
-      
+
       {/* Couples pictures */}
       <JoinHundreds />
 

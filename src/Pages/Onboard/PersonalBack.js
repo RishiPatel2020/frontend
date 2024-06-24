@@ -207,6 +207,7 @@ function PersonalBack({ setIsValid }) {
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
                 style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
+                className="border-0 border-bottom rounded-1"
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -242,6 +243,7 @@ function PersonalBack({ setIsValid }) {
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
                 style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
+                className="border-0 border-bottom rounded-1"
               />
             )}
           </div>

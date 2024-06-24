@@ -2,7 +2,7 @@ import React from "react";
 import "./PremiumWait.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import scrollToTop from "../../Service/ScrollTop";
+import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 
 const PremiumWait = () => {
   useEffect(() => {
