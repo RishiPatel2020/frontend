@@ -1,3 +1,5 @@
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { useContext } from "react";
 import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
@@ -7,8 +9,6 @@ import "./index.css";
 import "./App.css";
 import Nav from "./Components/NavBar/Nav";
 import { Route, Routes } from "react-router-dom";
-import ReactGA from "react-ga4";
-import { TRACKINGID } from "./Service/Constants";
 import Onboard from "./Pages/Onboard/Onboard";
 import Terms from "./Pages/Terms/Terms";
 import Privacy from "./Pages/Privacy/Privacy";
@@ -22,7 +22,6 @@ import AuthContext from "./Components/AuthContext/AuthContext";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
 
 function App() {
-  const { isAuthenticated } = useContext(AuthContext);
   const navAndFoot = (element) => {
     return (
       <>

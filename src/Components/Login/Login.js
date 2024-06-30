@@ -58,7 +58,7 @@ function Login() {
       <Button
         onClick={() => setShowDialog(true)}
         variant="dark"
-        className="text-primary mx-4 mt-3"
+        className="text-primary mx-4 mt-3 bold"
         style={{
           height: "50px",
           width: "150px",
@@ -74,9 +74,9 @@ function Login() {
         <Modal.Header closeButton style={{ textAlign: "center" }}>
           <Modal.Title>
             {invalid ? (
-              <span style={{ color: "red" }}>Invalid credentials</span>
+              <span style={{ color: "red" }} className="bold">Invalid credentials</span>
             ) : (
-              <span>Log In</span>
+              <span className="bold">Log In</span>
             )}
           </Modal.Title>
         </Modal.Header>
@@ -85,7 +85,7 @@ function Login() {
           <p className="lead">Enter email and password</p>
           <form>
             <div className="mb-3">
-              <label htmlFor="email" className="col-form-label">
+              <label htmlFor="email" className="col-form-label light">
                 Enter Email<span style={{ color: "red" }}>*</span>
               </label>
               <input
@@ -98,7 +98,7 @@ function Login() {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="userPassword" className="col-form-label">
+              <label htmlFor="userPassword" className="col-form-label light">
                 Enter Password <span style={{ color: "red" }}>*</span>
               </label>
               <input
@@ -123,7 +123,7 @@ function Login() {
           >
             Forgot Password
           </Link>
-          <Button variant="dark" onClick={handleSubmit}>
+          <Button variant="dark" onClick={handleSubmit} className="bold">
             {loading ? "Loading..." : "Submit"}
           </Button>
         </Modal.Footer>

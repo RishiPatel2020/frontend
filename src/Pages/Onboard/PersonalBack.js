@@ -197,7 +197,7 @@ function PersonalBack({ setIsValid }) {
 
   return (
     <div className="question-container">
-      <h1 className="text-dark">Personal Details</h1>
+      <h1 className="text-dark" style={{fontWeight:"bold"}}>Personal Details</h1>
       <form>
         {questions.map((question) => (
           <div key={question.id} className="question my-3">

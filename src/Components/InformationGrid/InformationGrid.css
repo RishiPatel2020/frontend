@@ -39,3 +39,6 @@
     width: 202px !important;
   }
 }
+p,h1,h4{
+  font-weight: bold;
+}

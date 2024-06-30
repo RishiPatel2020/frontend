@@ -118,20 +118,20 @@ function Onboarding() {
       <div className="button-container">
         <button
           onClick={currentStep === 0 ? () => navigate("/") : handlePrevious}
-          className="button"
+          className="button bold"
         >
           {currentStep === 0 ? "Back" : "Previous"}
         </button>
         {currentStep === steps.length - 1 ? (
           <button
             onClick={handleSubmit}
-            className="button mx-2"
+            className="button mx-2 bold"
             disabled={loading ? true : false}
           >
             {loading ? "Loading..." : "Submit"}
           </button>
         ) : (
-          <button onClick={handleNext} className="button mx-2">
+          <button onClick={handleNext} className="button mx-2 bold">
             Next
           </button>
         )}

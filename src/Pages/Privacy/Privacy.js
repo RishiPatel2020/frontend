@@ -14,7 +14,7 @@ const Privacy = () => {
   });
   return (
     <div className="privacy-policy">
-      <h1 className="text-center">Welcome to Ria</h1>
+      <h1 className="text-center bold">Welcome to Ria</h1>
       <p>
         The premier South Asian match-making platform. Protecting your privacy
         is paramount to us. This Privacy Policy outlines how we collect, use,
@@ -136,7 +136,7 @@ const Privacy = () => {
           <Link to="/onboard">
             <Button
               variant="dark"
-              className="text-primary mt-3"
+              className="text-primary mt-3 bold"
               style={{
                 height: "50px",
                 width: "163px",

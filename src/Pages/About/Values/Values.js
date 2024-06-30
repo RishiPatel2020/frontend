@@ -3,8 +3,8 @@ import React from "react";
 const Values = () => {
   return (
     <div className="values bg-primary text-secondary">
-      <h2 className="text-info">Our Values and Philosophy</h2>
-      <h4>At Ria, we are guided by three core values:</h4>
+      <h2 className="text-info bold">Our Values and Philosophy</h2>
+      <h4 className="bold">At Ria, we are guided by three core values:</h4>
       <ul>
         <li>
           <strong className="text-info">Respect for Time:</strong> We believe

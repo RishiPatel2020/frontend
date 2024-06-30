@@ -1,0 +1,60 @@
+.review-carousel {
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+  }
+  
+  .review-slider .slick-slide {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .review-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
+    text-align: center;
+    margin: 0 10px; /* Added margin for spacing between reviews */
+  }
+  
+  .review-text {
+    font-size: 18px;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .review-author {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+  }
+  
+  .slick-dots {
+    bottom: 20px; /* Adjusted bottom position of dots */
+  }
+  
+  .slick-dots li button:before {
+    color: #bbb;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #717171;
+  }
+  
+  .row {
+    margin-top: 20px; /* Added margin-top for spacing above the button */
+  }
+  
+  /* Optional: Add responsiveness */
+  @media (max-width: 768px) {
+    .review-text {
+      font-size: 16px;
+    }
+  
+    .review-author {
+      font-size: 14px;
+    }
+  }
+  

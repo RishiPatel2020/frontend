@@ -5,13 +5,19 @@ import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { scrollToFAQ } from "../../Service/Scroll/ScrollFAQ";
+import { scrollToFAQ, scrollToReviews } from "../../Service/Scroll/ScrollFAQ";
+import { useContext } from "react";
+import AuthContext from "../AuthContext/AuthContext";
 function NavBar() {
+  const { isAuthenticated } = useContext(AuthContext);
   // might cause error in PRODUCTION due to paths and hashes "#/"
   const navigate = useNavigate();
 
   const handleFAQClick = () => {
     scrollToFAQ(navigate);
+  };
+  const handleReviewsClick = () => {
+    scrollToReviews(navigate);
   };
 
   return (
@@ -50,6 +56,26 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* About, Order, Help Links */}
           <Nav className="me-auto" defaultActiveKey="/home">
+            <Nav.Link href="#/about">
+              {/* adjust marginRight Based on screens */}
+              <span
+                className="fontAdjustment text-primary"
+                style={{ marginLeft: "0px", marginRight: "40px" }}
+              >
+                About
+              </span>
+            </Nav.Link>
+            <Nav.Link
+              className="text-primary mx-1"
+              onClick={(e) => handleReviewsClick()}
+            >
+              <span
+                className="fontAdjustment text-primary"
+                style={{ marginRight: "40px" }}
+              >
+                Review
+              </span>
+            </Nav.Link>
             <Nav.Link
               className="text-primary mx-1"
               onClick={(e) => handleFAQClick()}
@@ -61,23 +87,17 @@ function NavBar() {
                 FAQ
               </span>
             </Nav.Link>
-            <Nav.Link href="#/about">
-              {/* adjust marginRight Based on screens */}
-              <span
-                className="fontAdjustment text-primary"
-                style={{ marginLeft: "0px", marginRight: "40px" }}
-              >
-                About
-              </span>
-            </Nav.Link>
-            <Nav.Link href="#/help">
-              <span
-                className="fontAdjustment text-primary"
-                style={{ marginRight: "40px" }}
-              >
-                Help
-              </span>
-            </Nav.Link>
+            {isAuthenticated && (
+              <Nav.Link href="#/dashboard">
+                {/* adjust marginRight Based on screens */}
+                <span
+                  className="fontAdjustment text-primary"
+                  style={{ marginLeft: "0px", marginRight: "40px" }}
+                >
+                  Dashboard
+                </span>
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

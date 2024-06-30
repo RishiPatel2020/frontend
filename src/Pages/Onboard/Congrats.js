@@ -14,9 +14,9 @@ const Congrats = () => {
     <div className="congrats-container">
       <div className="congrats-card">
         <h1>{header}</h1>
-        <p>{description}</p>
+        <p className="light">{description}</p>
         <button
-          className="next-button"
+          className="next-button bold"
           onClick={() => {
             navigate(nextLocation);
           }}

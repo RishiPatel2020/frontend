@@ -3,14 +3,16 @@ import { Accordion } from "react-bootstrap";
 
 const Question = () => {
   return (
-    <section id="questions" className="p-5 bg-primary">
-      <h2 className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
+    <section className="p-5 bg-light">
+      <h2 id = "questions" className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
         FAQs
       </h2>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
-            So there's no liking, swiping, or scrolling at all?
+            <span className="bold">
+              So there's no liking, swiping, or scrolling at all?
+            </span>
           </Accordion.Header>
           <Accordion.Body>
             None. Zilch. Zero. Nil. Hard to believe, but true. We believe in not
@@ -21,7 +23,9 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>What does Ria stand for?</Accordion.Header>
+          <Accordion.Header>
+            <span className="bold">What does Ria stand for?</span>
+          </Accordion.Header>
           <Accordion.Body>
             Rishta Interactions Assistant, read more about our origin story in
             our About page.
@@ -30,7 +34,9 @@ const Question = () => {
 
         <Accordion.Item eventKey="2">
           <Accordion.Header>
-            How many South Asian communities are included?
+            <span className="bold">
+              How many South Asian communities are included?
+            </span>
           </Accordion.Header>
           <Accordion.Body>
             As of right now, we're covering a lot of the bases but if we're
@@ -40,7 +46,7 @@ const Question = () => {
 
         <Accordion.Item eventKey="3">
           <Accordion.Header>
-            When can I expect to receive matches?
+            <span className="bold">When can I expect to receive matches?</span>
           </Accordion.Header>
           <Accordion.Body>
             Depending on your requirements for a match and the membership you've
@@ -52,7 +58,9 @@ const Question = () => {
 
         <Accordion.Item eventKey="4">
           <Accordion.Header>
-            Once I get the e-mail of the candidates, what's next?
+            <span className="bold">
+              Once I get the e-mail of the candidates, what's next?
+            </span>
           </Accordion.Header>
           <Accordion.Body>
             You'll be able to send interests for any of the candidates in the
@@ -62,11 +70,12 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-
         <Accordion.Item eventKey="5">
           <Accordion.Header>
-            I applied for a premium membership, how are premium members
-            selected?
+            <span className="bold">
+              I applied for a premium membership, how are premium members
+              selected?
+            </span>
           </Accordion.Header>
           <Accordion.Body>
             Depending on the authenticity of your profile and the number of
@@ -77,8 +86,10 @@ const Question = () => {
 
         <Accordion.Item eventKey="6">
           <Accordion.Header>
-            After my premium membership application, how long before I hear
-            back?
+            <span className="bold">
+              After my premium membership application, how long before I hear
+              back?
+            </span>
           </Accordion.Header>
           <Accordion.Body>
             Our team will take 2-4 days to analyze your profile and the number
@@ -88,8 +99,10 @@ const Question = () => {
 
         <Accordion.Item eventKey="7">
           <Accordion.Header>
-            I was waitlisted for the premium membership, how long before seats
-            open up?
+            <span className="bold">
+              I was waitlisted for the premium membership, how long before seats
+              open up?
+            </span>
           </Accordion.Header>
           <Accordion.Body>
             As our premium members are either exiting after finding a match they
@@ -100,7 +113,9 @@ const Question = () => {
         </Accordion.Item>
 
         <Accordion.Item eventKey="8">
-          <Accordion.Header>I need other help, where do I go?</Accordion.Header>
+          <Accordion.Header>
+            <span className="bold">I need other help, where do I go?</span>
+          </Accordion.Header>
           <Accordion.Body>support@riamatchmaking.com</Accordion.Body>
         </Accordion.Item>
       </Accordion>

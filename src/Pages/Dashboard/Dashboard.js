@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("P");
   const navigate = useNavigate();
+  useEffect(() => {
+    scrollToTop();
+  });
 
   const onNext = () => {
     navigate("/afterSignUp");
@@ -15,13 +20,13 @@ const Dashboard = () => {
       <div className="text-center">
         <div className="p-2">
           <button
-            className={`tab-button ${tab === "P" ? "active" : ""}`}
+            className={`tab-button ${tab === "P" ? "active" : ""} bold`}
             onClick={() => setTab("P")}
           >
             Profiles
           </button>
           <button
-            className={`tab-button ${tab === "M" ? "active" : ""}`}
+            className={`tab-button ${tab === "M" ? "active" : ""} bold`}
             onClick={() => setTab("M")}
           >
             Matches
@@ -29,7 +34,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div>
-        <h3 className="text-center text-dark">
+        <h3 className="text-center text-dark bold">
           {tab === "P" ? "Your Matches for August" : "Message Your Matches Now"}
         </h3>
         <p className="text-center p-2">

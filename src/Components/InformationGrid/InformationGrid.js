@@ -103,7 +103,7 @@ const InformationGrid = ({ data }) => {
                 <Link to="/onboard">
                   <Button
                     variant="dark"
-                    className="text-primary mt-3"
+                    className="text-primary mt-3 bold"
                     style={{
                       height: "50px",
                       width: "163px",

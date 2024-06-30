@@ -44,7 +44,7 @@ function PictureUpload({ setIsValid }) {
 
   return (
     <div>
-      <h1 className="my-5 text-dark text-center">Upload Profile Picture</h1>
+      <h1 className="my-5 text-dark text-center" style={{fontWeight:"bold"}}>Upload Profile Picture</h1>
       <div
         style={{
           display: "flex",

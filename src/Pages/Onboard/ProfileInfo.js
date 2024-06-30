@@ -56,7 +56,7 @@ function ProfileInfo({ setIsValid }) {
 
   return (
     <div className="question-container">
-      <h1 className="text-dark">Basic Info</h1>
+      <h1 className="text-dark bold">Basic Info</h1>
       <form>
         {questions.map((question) => (
           <div key={question.id} className="question">

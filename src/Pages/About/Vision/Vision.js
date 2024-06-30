@@ -3,7 +3,7 @@ import React from "react";
 const Vision = () => {
   return (
     <div className="vision-section bg-primary">
-      <h2 className="text-info">Vision</h2>
+      <h2 className="text-info bold">Vision</h2>
       <p className="text-secondary">
         A future where every person of the South Asian community has the
         opportunity to discover genuine connections with people that match their

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="p-5 bg-dark text-white text-center position-relative">
       <div className="container">
-        <p className="lead">Copyright &copy; 2022 Riamatchmaking.com</p>
+        <p className="lead bold">Copyright &copy; 2022 Riamatchmaking.com</p>
         <p>
           <Link to="/terms" className="text-light">
             Terms and Conditions

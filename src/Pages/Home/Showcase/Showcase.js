@@ -28,7 +28,7 @@ const Showcase = () => {
                       <Link to="/onboard">
                         <Button
                           variant="dark"
-                          className="text-primary mt-3"
+                          className="text-primary mt-3 bold"
                           style={{
                             height: "50px",
                             width: "163px",
@@ -47,7 +47,7 @@ const Showcase = () => {
                       <Link to="/dashboard">
                         <Button
                           variant="dark"
-                          className="text-primary mt-3"
+                          className="text-primary mt-3 bold"
                           style={{
                             height: "50px",
                             width: "163px",
@@ -62,7 +62,7 @@ const Showcase = () => {
                       <Button
                         onClick={() => logout()}
                         variant="dark"
-                        className="text-primary mx-4 mt-3"
+                        className="text-primary mx-4 mt-3 bold"
                         style={{
                           height: "50px",
                           width: "150px",

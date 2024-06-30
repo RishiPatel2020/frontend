@@ -7,6 +7,7 @@ import Banner from "./Banner/Banner";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import JoinHundreds from "./JoinHundreds/JoinHundreds";
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
+import Reviews from "./Reviews/Reviews";
 const Home = () => {
   const location = useLocation();
   useEffect(() => {
@@ -14,6 +15,13 @@ const Home = () => {
       const faqSection = document.getElementById("questions");
       if (faqSection) {
         faqSection.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    } else if (location.state?.scrollToReviews) {
+      const reviews = document.getElementById("reviews");
+      if (reviews) {
+        reviews.scrollIntoView({
           behavior: "smooth",
         });
       }
@@ -110,7 +118,7 @@ const Home = () => {
       {/* The Ria way */}
       <InformationGrid data={theRiaWay} />
 
-      {/* <Testimonial /> */}
+      <Reviews />
 
       {/* FAQs */}
       <Question />

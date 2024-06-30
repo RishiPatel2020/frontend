@@ -76,12 +76,12 @@ const ForgotPassword = ({
   return (
     <Modal show={showForgotPassword} onHide={() => handleClose()}>
       <Modal.Header closeButton style={{ textAlign: "center" }}>
-        <Modal.Title>{title}</Modal.Title>
+        <Modal.Title><span className="bold">{title}</span></Modal.Title>
       </Modal.Header>
 
       <Modal.Body>
         <form>
-          <div className="mb-3">
+          <div className="mb-3 light">
             {emailLabel}
             <input
               type="text"
@@ -96,11 +96,11 @@ const ForgotPassword = ({
 
       <Modal.Footer>
         <Button variant="dark" onClick={getCredentials}>
-          <span className="text-white">{status}</span>
+          <span className="text-white bold">{status}</span>
         </Button>
 
         <Button variant="dark" onClick={handleClose}>
-          <span className="text-white">Close</span>
+          <span className="text-white bold">Close</span>
         </Button>
       </Modal.Footer>
     </Modal>

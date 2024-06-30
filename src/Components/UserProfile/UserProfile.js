@@ -23,9 +23,9 @@ const UserProfile = () => {
       {isAuthenticated && (
         <Dropdown.Menu>
           <Dropdown.Item as={Link} to="/dashboard">
-            Dashboard
+            <span className="bold">Dashboard</span>
           </Dropdown.Item>
-          <Dropdown.Item onClick={handleLogOut}>Log Out</Dropdown.Item>
+          <Dropdown.Item onClick={handleLogOut}><span className="bold">Log Out</span></Dropdown.Item>
         </Dropdown.Menu>
       )}
     </Dropdown>

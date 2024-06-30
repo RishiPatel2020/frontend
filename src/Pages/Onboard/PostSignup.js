@@ -9,7 +9,7 @@ const PostSignup = () => {
     const description =
       plan === "free"
         ? "You've successfully chosen the Free Plan!"
-        : "You've successfully applied for the Premium Plan!";
+        : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox.";
     const title = plan === "free" ? "Congrats!" : "Application Submitted!";
 
     // Navigate to Congrats component with the description
@@ -18,14 +18,14 @@ const PostSignup = () => {
 
   return (
     <div className="App my-1">
-      <h5>
+      <h5 className="bold">
         Consider applying to be a premium member for an active, faster, and
         exclusive matchmaking experience!
       </h5>
       <div className="subscription-container">
         <div className="subscription-card premium-plan text-secondary">
           <h2>Premium</h2>
-          <p className="price">$499.99/year</p>
+          <p className="price light">$499.99/year</p>
           <ul>
             <li>10 Seats available</li>
             <li>
@@ -47,19 +47,22 @@ const PostSignup = () => {
             <li>2024 Outfits & Styling Ideas E-Book</li>
             <li>Post-Date Feedback</li>
           </ul>
-          <button className="select-button" onClick={() => onSelectPlan("")}>
+          <button
+            className="select-button bold"
+            onClick={() => onSelectPlan("")}
+          >
             Apply
           </button>
         </div>
         <div className="subscription-card free-plan">
           <h2>Free Member</h2>
-          <p className="price">$0/year</p>
+          <p className="price light">$0/year</p>
           <ul>
             <li>Can only be matched with paying members</li>
             <li>Unlimited # of Potential Matches</li>
           </ul>
           <button
-            className="select-button"
+            className="select-button bold"
             onClick={() => onSelectPlan("free")}
           >
             Choose Free Plan

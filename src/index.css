@@ -11,6 +11,14 @@ code {
     monospace;
 }
 
+.bold{
+  font-weight: bold;
+}
+.light{
+  font-weight: 200;
+}
+
+
 html,
 body {
   overflow-x: hidden;

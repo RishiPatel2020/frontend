@@ -53,7 +53,7 @@ const JoinHundreds = () => {
             <Link to="/onboard">
               <Button
                 variant="dark"
-                className="text-primary"
+                className="text-primary bold"
                 style={{
                   height: "50px",
                   width: "163px",

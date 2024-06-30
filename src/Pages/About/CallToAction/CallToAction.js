@@ -4,7 +4,7 @@ const CallToAction = () => {
   const navigate = useNavigate();
   return (
     <div className="call-to-action bg-light">
-      <h2 className="text-info">Ready to Find Love?</h2>
+      <h2 className="text-info bold">Ready to Find Love?</h2>
       <p className="text-secondary">
         Are you ready to change the way you experience online dating? Join Ria
         today and start your journey towards meaningful connections. No more
@@ -13,7 +13,7 @@ const CallToAction = () => {
         of dating. Let's make dating meaningful again.
       </p>
       <button
-        className="text-light bg-dark"
+        className="text-light bg-dark bold"
         onClick={() => navigate("/frontend")}
       >
         Join Ria

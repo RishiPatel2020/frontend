@@ -3,7 +3,7 @@ import React from "react";
 const OriginStory = () => {
   return (
     <div className="origin-story bg-light">
-      <h2 className="text-info">Our Origin Story</h2>
+      <h2 className="text-info bold">Our Origin Story</h2>
       <p className="text-secondary">
         After witnessing countless friends and family members navigate the
         frustrating world of online dating — spending hours swiping left and
