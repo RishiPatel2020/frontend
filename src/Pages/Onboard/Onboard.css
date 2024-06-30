@@ -84,8 +84,7 @@
   background-color: rgb(72, 39, 110);
   color: white;
   cursor: pointer;
-  /* box-shadow: 4px 4px 2px rgba(41, 18, 63, 0.6); */
-  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
 .button:disabled {
@@ -108,8 +107,7 @@
   .button {
     width: 100%; /* Make buttons full width */
     margin-bottom: 10px; /* Add margin between buttons */
-    /* box-shadow: 4px 4px 2px rgba(41, 18, 63, 0.6); */
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
   }
 }
 
@@ -152,8 +150,6 @@
   /* border-color: rgb(72, 39, 110); */
   border-color: rgb(190, 156, 92);
 }
-
-
 
 /* Additional existing styles */
 .onboarding-container {
@@ -236,8 +232,7 @@
   background-color: rgb(72, 39, 110);
   color: white;
   cursor: pointer;
-  /* box-shadow: 4px 4px 2px rgba(41, 18, 63, 0.6); */
-  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 2px rgb(0,0,0);
 }
 
 .button:disabled {
@@ -265,8 +260,7 @@
   .button {
     width: 100%; /* Make buttons full width */
     margin-bottom: 10px; /* Add margin between buttons */
-    /* box-shadow: 4px 4px 2px rgba(41, 18, 63, 0.6); */
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px rgb(0,0,0);
   }
 }
 

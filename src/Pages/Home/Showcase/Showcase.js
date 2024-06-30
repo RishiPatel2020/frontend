@@ -8,10 +8,6 @@ import Login from "../../../Components/Login/Login";
 
 const Showcase = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
-
-  const handleLogOut = () => {
-    logout();
-  };
   return (
     <div class="background-image-container">
       <div class="overlay-text my-5">

@@ -18,7 +18,7 @@
 .subscription-card {
   background: var(--primary);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   width: 80%;
   max-width: 300px;
   padding: 20px;
@@ -28,16 +28,16 @@
 }
 
 .subscription-card:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .free-plan {
-  border: 2px solid var(--secondary);
+  /* border: 2px solid var(--secondary); */
   color: var(--secondary);
 }
 
 .premium-plan {
-  border: 2px solid var(--dark);
+  /* border: 2px solid var(--dark); */
   background: var(--light);
   color: var(--dark);
 }
