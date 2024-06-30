@@ -1,7 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import Select from "react-select";
+import Select, { components } from "react-select";
 import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
+
+// Custom Input component to disable typing
+const CustomInput = (props) => <components.Input {...props} readOnly />;
 
 const questions = [
   {
@@ -206,8 +209,7 @@ function PersonalBack({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
-                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
-                className="border-0 border-bottom rounded-1"
+                className="question-input"
               >
                 <option value="">Select an option</option>
                 {question.options.map((option, optionIndex) => (
@@ -234,7 +236,34 @@ function PersonalBack({ setIsValid }) {
                     question.maxSelections
                   )
                 }
-                placeholder="Select options..."
+                placeholder="Select options"
+                components={{ Input: CustomInput }}
+                styles={{
+                  control: (base) => ({
+                    ...base,
+                    cursor: 'pointer',
+                    border: '1px solid #ccc',
+                    boxShadow: 'none',
+                    backgroundColor: 'rgb(243, 243, 243)',
+                  }),
+                  dropdownIndicator: (base) => ({
+                    ...base,
+                    cursor: 'pointer',
+                  }),
+                  input: (base) => ({
+                    ...base,
+                    pointerEvents: 'none', // Disable typing
+                  }),
+                  menu: (base) => ({
+                    ...base,
+                    backgroundColor: 'rgb(243, 243, 243)',
+                  }),
+                  option: (base, state) => ({
+                    ...base,
+                    backgroundColor: state.isSelected ? 'rgb(190, 156, 92)' : 'rgb(243, 243, 243)',
+                    color: state.isSelected ? 'white' : 'black',
+                  }),
+                }}
               />
             ) : (
               <input
@@ -242,8 +271,7 @@ function PersonalBack({ setIsValid }) {
                 id={question.id}
                 value={answers[question.id] || ""}
                 onChange={(e) => handleInputChange(question.id, e.target.value)}
-                style={{border:'none', backgroundColor:"rgb(243,243,243)"}}
-                className="border-0 border-bottom rounded-1"
+                className="question-input"
               />
             )}
           </div>
