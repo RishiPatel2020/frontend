@@ -3,8 +3,8 @@ import { Accordion } from "react-bootstrap";
 
 const Question = () => {
   return (
-    <section className="p-5 bg-light">
-      <h2 id = "questions" className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
+    <section className="p-5 bg-light" id = "questions">
+      <h2  className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
         FAQs
       </h2>
       <Accordion>

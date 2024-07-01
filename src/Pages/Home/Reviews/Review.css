@@ -7,6 +7,7 @@
   .review-slider .slick-slide {
     display: flex;
     justify-content: center;
+    padding: 0 15px; /* Added padding around the slider for extra space */
   }
   
   .review-card {
@@ -15,7 +16,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
     text-align: center;
-    margin: 0 10px; /* Added margin for spacing between reviews */
+    margin: 0 10px; /* Increased margin for more spacing between reviews */
   }
   
   .review-text {

@@ -8,8 +8,11 @@ import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import JoinHundreds from "./JoinHundreds/JoinHundreds";
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import Reviews from "./Reviews/Reviews";
+import { useNavigate } from "react-router-dom";
 const Home = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (location.state?.scrollToFAQ) {
       const faqSection = document.getElementById("questions");
@@ -19,16 +22,16 @@ const Home = () => {
         });
       }
     } else if (location.state?.scrollToReviews) {
-      const reviews = document.getElementById("reviews");
-      if (reviews) {
-        reviews.scrollIntoView({
+      const reviewsSection = document.getElementById("reviews");
+      if (reviewsSection) {
+        reviewsSection.scrollIntoView({
           behavior: "smooth",
         });
       }
     } else {
       scrollToTop();
     }
-  }, [location]);
+  }, [location, navigate]);
 
   const howItWorks = {
     backColor: "light",
