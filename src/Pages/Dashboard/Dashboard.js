@@ -39,13 +39,13 @@ const Dashboard = () => {
         </h3>
         <p className="text-center p-2">
           {tab === "P" ? (
-            <p>
-              Hold on tight, we’re working to get matching profiles ready for
-              you. We’ll send you an email when ready. Be on the lookout at the
-              end of the month!
+            <p className="light">
+              Sit tight, we’re actively working with premium members to get them
+              paired. We’ll let you know if you’re a match via e-mail. Keep an
+              eye on your inbox, best of luck!
             </p>
           ) : (
-            <p>
+            <p className="light">
               You’re definitely someone’s type. We’re working to get you
               matched! Keep sending those interests!
             </p>

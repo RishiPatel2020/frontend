@@ -1,13 +1,10 @@
-import ForgotPassword from "./ForgotPassword";
-import { Link } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import axios from "axios";
-import { BACKEND_BASE } from "../../Service/Constants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext/AuthContext";
-
+import ForgotPassword from "./ForgotPassword";
+import { loginUser } from "../../Service/Api";
 function Login() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [display, setDisplay] = useState(false);
@@ -37,12 +34,8 @@ function Login() {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const response = await axios.post(`${BACKEND_BASE}/login`, {
-        email,
-        password,
-      });
-
-      const token = response.data.token;
+      const data = await loginUser(email, password);
+      const token = data.token;
       login(token); // Use login function from context to set token and authentication state
       navigate("/dashboard");
       handleClose();
@@ -74,7 +67,9 @@ function Login() {
         <Modal.Header closeButton style={{ textAlign: "center" }}>
           <Modal.Title>
             {invalid ? (
-              <span style={{ color: "red" }} className="bold">Invalid credentials</span>
+              <span style={{ color: "red" }} className="bold">
+                Invalid credentials
+              </span>
             ) : (
               <span className="bold">Log In</span>
             )}
