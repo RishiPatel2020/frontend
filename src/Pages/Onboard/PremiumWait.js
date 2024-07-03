@@ -10,7 +10,7 @@ const PremiumWait = () => {
   }, []);
   const navigate = useNavigate();
   const onNext = () => {
-    navigate("/afterSignUp");
+    navigate("/premium");
   };
   return (
     <div className="congrats-container">

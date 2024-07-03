@@ -1,9 +1,5 @@
 import React, { useContext, useState } from "react";
-import { getDownloadURL, getStorage, uploadBytes, ref } from "firebase/storage";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import firebaseApp from "../../Service/firebase"; // Ensure this is correctly pointing to your Firebase config
-import { BACKEND_BASE } from "../../Service/Constants"; // Define your backend base URL here
 import ProfileInfo from "./ProfileInfo";
 import Professional from "./Professional";
 import PersonalBack from "./PersonalBack";
@@ -11,6 +7,8 @@ import PictureUpload from "./PictureUpload";
 import SignUp from "./Signup";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 import AuthContext from "../../Components/AuthContext/AuthContext";
+import { uploadImages } from "../../Service/Api";
+import { signUpUser } from "../../Service/Api";
 import "./Onboard.css";
 
 function Onboarding() {
@@ -54,15 +52,7 @@ function Onboarding() {
         return;
       }
 
-      const storage = getStorage(firebaseApp);
-      const uploadedUrls = await Promise.all(
-        pictures.map(async (picture) => {
-          const storageRef = ref(storage, `images/${picture.file.name}`);
-          await uploadBytes(storageRef, picture.file);
-          const downloadURL = await getDownloadURL(storageRef);
-          return downloadURL;
-        })
-      );
+      const uploadedUrls = await uploadImages(pictures);
 
       const dataToSubmit = {
         ...otherAnswers,
@@ -71,22 +61,14 @@ function Onboarding() {
       };
       console.log("Data to submit:", JSON.stringify(dataToSubmit, null, 2));
 
-      const response = await axios.post(
-        `${BACKEND_BASE}/signup`,
-        JSON.stringify(dataToSubmit),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const data = await signUpUser(dataToSubmit);
 
-      const token = response.data.token; // Extract the token from the response
+      const token = data.token; // Extract the token from the response
       login(token); // Use the login function to store the token and set authentication state
 
       setLoading(false);
-      console.log(`Response: ${JSON.stringify(response.data)}`);
-      navigate("/congrats", { state: { nextPage: "/afterSignUp" } });
+      console.log(`Response: ${JSON.stringify(data)}`);
+      navigate("/congrats", { state: { nextPage: "/premium" } });
     } catch (error) {
       setError("Email already exists");
       console.error("Error uploading images or submitting data:", error);

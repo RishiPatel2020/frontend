@@ -12,7 +12,7 @@ const Dashboard = () => {
   });
 
   const onNext = () => {
-    navigate("/afterSignUp");
+    navigate("/premium");
   };
 
   return (
