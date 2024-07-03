@@ -10,29 +10,6 @@ import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import Reviews from "./Reviews/Reviews";
 import { useNavigate } from "react-router-dom";
 const Home = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (location.state?.scrollToFAQ) {
-      const faqSection = document.getElementById("questions");
-      if (faqSection) {
-        faqSection.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    } else if (location.state?.scrollToReviews) {
-      const reviewsSection = document.getElementById("reviews");
-      if (reviewsSection) {
-        reviewsSection.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
-    } else {
-      scrollToTop();
-    }
-  }, [location, navigate]);
-
   const howItWorks = {
     backColor: "light",
     headingColor: "dark",
@@ -59,7 +36,7 @@ const Home = () => {
     image3Height: "150px",
     title3: "Send Interests",
     description3:
-      "We send you profiles of users that match your requirements and you tell us which candidates you're interested in",
+      "Tell us which candidates you're interested in getting to know",
 
     image4: require("../../Resources/HowItWorks/fourth.png"),
     image4Width: "250px",

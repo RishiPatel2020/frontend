@@ -34,15 +34,15 @@ const JoinHundreds = () => {
         alt="Mobile View"
         className="img-fluid d-block d-md-none"
       />
-      <h2
+      {/* <h2
         style={{ margin: "0px 0px 10px", fontSize: "34px" }}
         className="text-info"
       >
         Tons of Singles
-      </h2>
+      </h2> */}
       {/* Common Content for desktop and mobile */}
       <div>
-        <p>
+        <p className="text-secondary">
           Our matchmakers work with hundreds of Indian, Pakistani, Bangladeshi,
           Sri Lankan, Nepali, Guyanese, and more singles to find their perfect
           match

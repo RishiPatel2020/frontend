@@ -11,13 +11,12 @@ import AuthContext from "../AuthContext/AuthContext";
 function NavBar() {
   const { isAuthenticated } = useContext(AuthContext);
   // might cause error in PRODUCTION due to paths and hashes "#/"
-  const navigate = useNavigate();
 
   const handleFAQClick = () => {
-    scrollToFAQ(navigate);
+    scrollToFAQ();
   };
   const handleReviewsClick = () => {
-    scrollToReviews(navigate);
+    scrollToReviews();
   };
 
   return (
@@ -66,6 +65,7 @@ function NavBar() {
               </span>
             </Nav.Link>
             <Nav.Link
+             href="#/"
               className="text-primary mx-1"
               onClick={(e) => handleReviewsClick()}
             >
@@ -73,11 +73,12 @@ function NavBar() {
                 className="fontAdjustment text-primary"
                 style={{ marginRight: "40px" }}
               >
-                Review
+                Reviews
               </span>
             </Nav.Link>
             <Nav.Link
               className="text-primary mx-1"
+              href="#/"
               onClick={(e) => handleFAQClick()}
             >
               <span

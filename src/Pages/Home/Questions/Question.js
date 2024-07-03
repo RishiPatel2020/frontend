@@ -3,8 +3,8 @@ import { Accordion } from "react-bootstrap";
 
 const Question = () => {
   return (
-    <section className="p-5 bg-light" id = "questions">
-      <h2  className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
+    <section className="p-5 bg-light" id="questions">
+      <h2 className="text-center text-dark mb-4" style={{ fontSize: "42px" }}>
         FAQs
       </h2>
       <Accordion>
@@ -15,11 +15,13 @@ const Question = () => {
             </span>
           </Accordion.Header>
           <Accordion.Body>
-            None. Zilch. Zero. Nil. Hard to believe, but true. We believe in not
-            wasting time with having to manually go through tons of profiles to
-            check whether or not they fit your requirements. So, our team does
-            the hard work behind the scenes to bring you candidates that only
-            match your preferences.
+            <span className="light">
+              None. Zilch. Zero. Nil. Hard to believe, but true. We believe in
+              not wasting time with having to manually go through tons of
+              profiles to check whether or not they fit your requirements. So,
+              our team does the hard work behind the scenes to bring you
+              candidates that only match your preferences.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
@@ -27,8 +29,10 @@ const Question = () => {
             <span className="bold">What does Ria stand for?</span>
           </Accordion.Header>
           <Accordion.Body>
-            Rishta Interactions Assistant, read more about our origin story in
-            our About page.
+            <span className="light">
+              Rishta Interactions Assistant, read more about our origin story in
+              our About page.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -39,8 +43,10 @@ const Question = () => {
             </span>
           </Accordion.Header>
           <Accordion.Body>
-            As of right now, we're covering a lot of the bases but if we're
-            missing any particularities, we'll be adding them in soon.
+            <span className="light">
+              As of right now, we're covering a lot of the bases but if we're
+              missing any particularities, we'll be adding them in soon.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -49,10 +55,13 @@ const Question = () => {
             <span className="bold">When can I expect to receive matches?</span>
           </Accordion.Header>
           <Accordion.Body>
-            Depending on your requirements for a match and the membership you've
-            chosen, timing can vary. Premium members are matched faster as they
-            can be paired with both free members and paying members. Free
-            members on the other hand, are only matched with paying members.
+            <span className="light">
+              Depending on your requirements for a match and the membership
+              you've chosen, timing can vary. Premium members are matched faster
+              as they can be paired with both free members and paying members.
+              Free members on the other hand, are only matched with paying
+              members.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -63,10 +72,12 @@ const Question = () => {
             </span>
           </Accordion.Header>
           <Accordion.Body>
-            You'll be able to send interests for any of the candidates in the
-            profiles and if they also do the same, you'll be invited to chat
-            with each other! Make sure you also submit the profiles you're not
-            interested in so that they don't roll over into the next cycle!
+            <span className="light">
+              You'll be able to send interests for any of the candidates in the
+              profiles and if they also do the same, you'll be invited to chat
+              with each other! Make sure you also submit the profiles you're not
+              interested in so that they don't roll over into the next cycle!
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -78,9 +89,11 @@ const Question = () => {
             </span>
           </Accordion.Header>
           <Accordion.Body>
-            Depending on the authenticity of your profile and the number of
-            available seats at the time of your application, we decided whether
-            or not to include you in the premium matching pool.
+            <span className="light">
+              Depending on the authenticity of your profile and the number of
+              available seats at the time of your application, we decided
+              whether or not to include you in the premium matching pool.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -92,8 +105,10 @@ const Question = () => {
             </span>
           </Accordion.Header>
           <Accordion.Body>
-            Our team will take 2-4 days to analyze your profile and the number
-            of available memberships left, to get back to you.
+            <span className="light">
+              Our team will take 2-4 days to analyze your profile and the number
+              of available memberships left, to get back to you.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -105,10 +120,12 @@ const Question = () => {
             </span>
           </Accordion.Header>
           <Accordion.Body>
-            As our premium members are either exiting after finding a match they
-            feel confident about or their membership expires, we routinely open
-            seats. You will receive an email to join the premium pool as soon as
-            a seat is available.
+            <span className="light">
+              As our premium members are either exiting after finding a match
+              they feel confident about or their membership expires, we
+              routinely open seats. You will receive an email to join the
+              premium pool as soon as a seat is available.
+            </span>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -116,7 +133,10 @@ const Question = () => {
           <Accordion.Header>
             <span className="bold">I need other help, where do I go?</span>
           </Accordion.Header>
-          <Accordion.Body>support@riamatchmaking.com</Accordion.Body>
+
+          <Accordion.Body>
+            <span className="light">support@riamatchmaking.com</span>
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </section>
