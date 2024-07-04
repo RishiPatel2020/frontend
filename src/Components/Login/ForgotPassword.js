@@ -1,8 +1,6 @@
-import axios from "axios";
-import { BACKEND_BASE } from "../../Service/Constants";
+import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
-import { useState } from "react";
-import React from "react";
+import { forgotPassword } from "../../Service/Api";
 
 const ForgotPassword = ({
   showForgotPassword,
@@ -33,7 +31,6 @@ const ForgotPassword = ({
   };
 
   const getCredentials = async () => {
-    // emailForgotPassword is empty
     if (emailForgotPassword.length === 0) {
       setEmailLabel(
         <label htmlFor="emailForgotPassword" className="col-form-label">
@@ -51,9 +48,7 @@ const ForgotPassword = ({
       );
 
       try {
-        const response = await axios.post(`${BACKEND_BASE}/forgotPassword`, {
-          email: emailForgotPassword,
-        });
+        await forgotPassword(emailForgotPassword);
         setTitle(
           <span style={{ color: "green" }}>
             Check your email and log in again!
@@ -67,14 +62,15 @@ const ForgotPassword = ({
         setStatus("Submit");
         setTitle(
           <span style={{ color: "red" }}>
-            Error while sending email create a new account or contact admin
+            Error while sending email. Create a new account or contact admin.
           </span>
         );
       }
     }
   };
+
   return (
-    <Modal show={showForgotPassword} onHide={() => handleClose()}>
+    <Modal show={showForgotPassword} onHide={handleClose}>
       <Modal.Header closeButton style={{ textAlign: "center" }}>
         <Modal.Title><span className="bold">{title}</span></Modal.Title>
       </Modal.Header>

@@ -53,19 +53,12 @@ const PostSignup = () => {
           >
             Apply
           </button>
-        </div>
-        <div className="subscription-card free-plan">
-          <h2>Free Member</h2>
-          <p className="price light">$0/year</p>
-          <ul>
-            <li>Can only be matched with paying members</li>
-            <li>Unlimited # of Potential Matches</li>
-          </ul>
+          <br></br>
           <button
-            className="select-button bold"
-            onClick={() => onSelectPlan("free")}
+            className="select-button bold my-1"
+            onClick={() => onSelectPlan("")}
           >
-            Choose Free Plan
+            No, Thanks!
           </button>
         </div>
       </div>

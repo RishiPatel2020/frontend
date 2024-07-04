@@ -37,3 +37,9 @@ export const uploadImages = async (pictures) => {
     );
     return response.data;
   };
+  export const forgotPassword = async (email) => {
+    const response = await axios.post(`${BACKEND_BASE}/forgotPassword`, {
+      email,
+    });
+    return response.data;
+  };
