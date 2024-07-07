@@ -1,3 +1,32 @@
+.congrats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--primary);
+  padding: 20px;
+}
+.congrats-card {
+  background: var(--light);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.congrats-card h1 {
+  margin-top: 0;
+  color: var(--dark);
+  font-size: 2rem;
+}
+
+.congrats-card p {
+  color: var(--secondary);
+  font-size: 1.25rem;
+  margin: 20px 0;
+}
 .subscription-container {
   display: flex;
   flex-direction: column;
@@ -129,4 +158,31 @@ h5 {
   .subscription-card {
     width: 30%;
   }
+}
+@media (max-width: 768px) {
+  .congrats-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .congrats-card p {
+    font-size: 1rem;
+  }
+
+  .next-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+.next-button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+.next-button:hover {
+  background-color: var(--secondary);
 }

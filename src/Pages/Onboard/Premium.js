@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import "./Premium.css";
 import React from "react";
 import { useState } from "react";
-
 const Premium = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
@@ -10,7 +9,7 @@ const Premium = () => {
   const displayConfirmation = () => {
     return (
       <div className="congrats-container">
-        <div className="congrats-card">
+        <div className="congrats-card bg-light">
           <h1>Application Submitted!</h1>
           <p className="light">
             Thanks, our team will get back to you in 2-4 days after reviewing
@@ -18,7 +17,7 @@ const Premium = () => {
             eye on your e-mail inbox.
           </p>
           <button
-            className="next-button bold"
+            className="next-button bold bg-dark"
             onClick={() => {
               navigate("/dashboard");
             }}
