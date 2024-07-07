@@ -17,6 +17,15 @@
   "@emotion/styled": "^11.11.5",
   
     
+  "@fortawesome/fontawesome-svg-core": "^6.5.2",
+  
+    
+  "@fortawesome/free-solid-svg-icons": "^6.5.2",
+  
+    
+  "@fortawesome/react-fontawesome": "^0.2.2",
+  
+    
   "@mui/material": "^5.15.17",
   
     
@@ -63,6 +72,9 @@
   
     
   "react-dom": "^18.2.0",
+  
+    
+  "react-fontawesome": "^1.7.1",
   
     
   "react-ga4": "^2.1.0",

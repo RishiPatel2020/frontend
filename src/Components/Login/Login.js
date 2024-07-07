@@ -33,10 +33,11 @@ function Login() {
 
   const handleSubmit = async () => {
     setLoading(true);
+    setInvalid(false);
     try {
       const data = await loginUser(email, password);
       const token = data.token;
-      login(token); // Use login function from context to set token and authentication state
+      login(token, email); 
       navigate("/dashboard");
       handleClose();
       setLoading(false);

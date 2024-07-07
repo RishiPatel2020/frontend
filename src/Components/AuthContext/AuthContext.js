@@ -11,17 +11,20 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(true);
     } else {
       localStorage.removeItem("token");
+      localStorage.removeItem("emailAddress");
       setIsAuthenticated(false);
     }
   }, []);
 
-  const login = (token) => {
+  const login = (token, email) => {
     localStorage.setItem("token", token);
+    localStorage.setItem("emailAddress", email);
     setIsAuthenticated(true);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("emailAddress");
     setIsAuthenticated(false);
   };
 

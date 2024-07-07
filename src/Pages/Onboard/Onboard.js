@@ -64,7 +64,7 @@ function Onboarding() {
       const data = await signUpUser(dataToSubmit);
 
       const token = data.token; // Extract the token from the response
-      login(token); // Use the login function to store the token and set authentication state
+      login(token,email); // Use the login function to store the token and set authentication state
 
       setLoading(false);
       console.log(`Response: ${JSON.stringify(data)}`);
