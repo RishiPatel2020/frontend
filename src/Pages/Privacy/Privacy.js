@@ -139,7 +139,7 @@ const Privacy = () => {
               className="text-primary mt-3 bold"
               style={{
                 height: "50px",
-                width: "163px",
+                width: "171px",
                 borderRadius: "15px",
                 fontSize: "20px",
                 boxShadow: "2px 2px 2px rgb(0,0,0)",
