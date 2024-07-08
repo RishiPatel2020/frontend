@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import "./Premium.css";
 import React, { useState } from "react";
-import { getLocalStorageItem } from "../../Service/Session";
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from "../../Service/Session";
 import { applyPremium } from "../../Service/Api";
 const Premium = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -20,6 +23,7 @@ const Premium = () => {
 
     try {
       await applyPremium(token);
+      setLocalStorageItem("Premium", "Q");
       setShowConfirmation(true);
     } catch (error) {
       setMessage(
@@ -87,7 +91,7 @@ const Premium = () => {
       <div className="subscription-container">
         <div className="subscription-card premium-plan text-secondary bg-light">
           <h2>Premium</h2>
-          <p className="price light">$499.99/year</p>
+          <p className="price light">$1000/year</p>
           <ul>
             <li>10 Seats available</li>
             <li>

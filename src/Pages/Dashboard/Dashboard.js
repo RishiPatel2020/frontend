@@ -168,21 +168,28 @@ const Dashboard = () => {
       </div>
       <div>
         <h3 className="text-center text-dark bold">
-          {tab === "P" ? "Apply for Premium" : "Edit your Profile"}
+          {tab === "P"
+            ? getLocalStorageItem("Premium").length===0
+              ? "Apply for Premium"
+              : "Application Submitted!"
+            : "Edit your Profile"}
         </h3>
         <div className="text-center p-2">
           {tab === "P" ? (
             <>
               <p className="light">
-                Consider applying to be a premium member for an active, faster,
-                and exclusive matchmaking experience!
+                {getLocalStorageItem("Premium").length===0
+                  ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
+                  : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox."}
               </p>
-              <button
-                className="select-button bold bg-dark"
-                onClick={() => navigate("/premium")}
-              >
-                Apply
-              </button>
+              {getLocalStorageItem("Premium").length===0 && (
+                <button
+                  className="select-button bold bg-dark"
+                  onClick={() => navigate("/premium")}
+                >
+                  Apply
+                </button>
+              )}
             </>
           ) : (
             editProfile()

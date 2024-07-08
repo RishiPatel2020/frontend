@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import "./Nav.css";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { scrollToFAQ, scrollToReviews } from "../../Service/Scroll/ScrollFAQ";
 import { useContext } from "react";
 import AuthContext from "../AuthContext/AuthContext";
