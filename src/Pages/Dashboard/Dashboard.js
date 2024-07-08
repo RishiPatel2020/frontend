@@ -1,3 +1,4 @@
+// src/components/Dashboard.js
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
@@ -18,6 +19,7 @@ const Dashboard = () => {
     newPassword: false,
   });
   const [error, setError] = useState(""); // State to hold error message
+  const [success, setSuccess] = useState(""); // State to hold success message
   const [loading, setLoading] = useState(false); // State to manage loading status
 
   const navigate = useNavigate();
@@ -45,13 +47,13 @@ const Dashboard = () => {
     if (isValid) {
       setLoading(true);
       setError(""); // Reset error message before making API call
+      setSuccess(""); // Reset success message before making API call
 
       try {
-        // Call the updatePassword function from api.js
         await updatePassword(currentPassword, newPassword);
 
         // If no error is thrown, assume the password update was successful
-        alert("Password updated successfully!");
+        setSuccess("Password updated successfully!");
         setCurrentPassword("");
         setNewPassword("");
       } catch (err) {
@@ -122,8 +124,6 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      {error && <div className="error-message">{error}</div>}{" "}
-      {/* Display error message */}
       <button
         onClick={handleSave}
         className="btn btn-success mt-2"
@@ -132,14 +132,19 @@ const Dashboard = () => {
         {loading ? "Saving..." : "Save"}
       </button>
       <button
-        onClick={()=>{
+        onClick={() => {
           setCurrentPassword("");
           setNewPassword("");
+          setSuccess("");
+          setError("");
         }}
         className="btn bg-dark text-primary mt-2 mx-2"
       >
         Clear
       </button>
+      <div className={`message ${success ? "success" : error ? "error" : ""}`}>
+        {success || error}
+      </div>
     </div>
   );
 

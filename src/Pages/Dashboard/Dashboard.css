@@ -177,4 +177,22 @@
   }
 }
 
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
+.success {
+  color: green;
+  background-color: #e8f5e9; /* Light green background for success */
+  border: 1px solid #c8e6c9; /* Darker green border for success */
+}
+
+.error {
+  color: red;
+  background-color: #ffebee; /* Light red background for error */
+  border: 1px solid #ffcdd2; /* Darker red border for error */
+}
