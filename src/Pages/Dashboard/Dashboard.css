@@ -140,7 +140,7 @@
   cursor: pointer;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: var(--dark);
   color: var(--white);
 }
@@ -148,12 +148,12 @@
 .btn-success {
   background-color: var(--info);
   color: var(--white);
-}
+} */
 
-.btn-primary:hover,
+/* .btn-primary:hover,
 .btn-success:hover {
   opacity: 0.8;
-}
+} */
 
 .password-input-container {
   position: relative;

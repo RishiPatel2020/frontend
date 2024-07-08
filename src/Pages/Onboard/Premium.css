@@ -186,3 +186,50 @@ h5 {
 .next-button:hover {
   background-color: var(--secondary);
 }
+/* src/components/Premium.css */
+.congrats-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+}
+
+.congrats-card,
+.error-card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.congrats-card {
+  background-color: #e8f5e9; /* Light green background for success */
+}
+
+.error-card {
+  background-color: #ffebee; /* Light red background for error */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.next-button,
+.retry-button,
+.dashboard-button {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.next-button {
+  background-color: #388e3c; /* Darker green for success */
+}
+
+.retry-button {
+  background-color: #d32f2f; /* Darker red for error */
+}
+
+.dashboard-button {
+  background-color: #37474f; /* Darker gray for navigation */
+}

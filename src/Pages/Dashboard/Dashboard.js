@@ -126,7 +126,7 @@ const Dashboard = () => {
       </div>
       <button
         onClick={handleSave}
-        className="btn btn-success mt-2"
+        className="btn btn-success mt-2 bg-info text-white"
         disabled={loading}
       >
         {loading ? "Saving..." : "Save"}

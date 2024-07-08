@@ -45,20 +45,19 @@ export const forgotPassword = async (email) => {
   return response.data;
 };
 
-const applyPremium = async (token) => {
-  try {
-    const response = await axios.patch(`${BACKEND_BASE}/applyPremium`, null, {
+export const applyPremium = async () => {
+  const token = getLocalStorageItem("token"); // Retrieve token from local storage
+
+  const response = await axios.post(
+    `${BACKEND_BASE}/applyPremium`,
+    null, // No request body needed for this endpoint
+    {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: token, // Include token in Authorization header
       },
-    });
-    console.log("User upgraded to Premium:", response.data);
-  } catch (error) {
-    console.error(
-      "Error upgrading to Premium:",
-      error.response ? error.response.data : error.message
-    );
-  }
+    }
+  );
+  return response.data;
 };
 
 export const updatePassword = async (currentPassword, newPassword) => {
