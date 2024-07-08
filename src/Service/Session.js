@@ -4,7 +4,7 @@ export function setLocalStorageItem(key, value) {
 
 export function getLocalStorageItem(key) {
   const item = localStorage.getItem(key);
-  return item ? JSON.parse(item) : null;
+  return typeof item === "string" ? item : ""; // Ensure the value is always a string
 }
 
 export function removeLocalStorageItem(key) {

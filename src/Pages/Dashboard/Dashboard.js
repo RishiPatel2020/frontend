@@ -4,22 +4,29 @@ import { useNavigate } from "react-router-dom";
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { getLocalStorageItem } from "../../Service/Session";
+import { updatePassword } from "../../Service/Api";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("P");
-  const [email] = useState("user@example.com"); // Example email
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
-  const [validation, setValidation] = useState({ currentPassword: false, newPassword: false });
+  const [validation, setValidation] = useState({
+    currentPassword: false,
+    newPassword: false,
+  });
+  const [error, setError] = useState(""); // State to hold error message
+  const [loading, setLoading] = useState(false); // State to manage loading status
 
   const navigate = useNavigate();
+
   useEffect(() => {
     scrollToTop();
   }, []);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     let isValid = true;
     let newValidation = { currentPassword: false, newPassword: false };
 
@@ -36,12 +43,27 @@ const Dashboard = () => {
     setValidation(newValidation);
 
     if (isValid) {
-      // Implement password change logic here
-      console.log("Current Password:", currentPassword);
-      console.log("New Password:", newPassword);
-      // Reset the form fields
-      setCurrentPassword("");
-      setNewPassword("");
+      setLoading(true);
+      setError(""); // Reset error message before making API call
+
+      try {
+        // Call the updatePassword function from api.js
+        await updatePassword(currentPassword, newPassword);
+
+        // If no error is thrown, assume the password update was successful
+        alert("Password updated successfully!");
+        setCurrentPassword("");
+        setNewPassword("");
+      } catch (err) {
+        // Handle error scenarios
+        setError(
+          err.response && err.response.data
+            ? err.response.data.error
+            : "An unexpected error occurred. Please try again."
+        );
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -57,10 +79,15 @@ const Dashboard = () => {
     <div className="form-container">
       <div className="form-group">
         <label>Email</label>
-        <input type="email" value={email} disabled className="form-control" />
+        <input
+          type="email"
+          value={getLocalStorageItem("emailAddress")}
+          disabled
+          className="form-control"
+        />
       </div>
       <div className="form-group">
-        <label style={{color:validation.currentPassword ? "red" : ""}}>
+        <label style={{ color: validation.currentPassword ? "red" : "" }}>
           Current Password {validation.currentPassword && "**"}
         </label>
         <div className="password-input-container">
@@ -78,7 +105,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="form-group">
-        <label style={{color:validation.newPassword ? "red" : ""}}>
+        <label style={{ color: validation.newPassword ? "red" : "" }}>
           New Password {validation.newPassword && "**"}
         </label>
         <div className="password-input-container">
@@ -95,8 +122,23 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <button onClick={handleSave} className="btn btn-success mt-2">
-        Save
+      {error && <div className="error-message">{error}</div>}{" "}
+      {/* Display error message */}
+      <button
+        onClick={handleSave}
+        className="btn btn-success mt-2"
+        disabled={loading}
+      >
+        {loading ? "Saving..." : "Save"}
+      </button>
+      <button
+        onClick={()=>{
+          setCurrentPassword("");
+          setNewPassword("");
+        }}
+        className="btn bg-dark text-primary mt-2 mx-2"
+      >
+        Clear
       </button>
     </div>
   );
