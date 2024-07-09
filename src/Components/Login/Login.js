@@ -37,7 +37,8 @@ function Login() {
     try {
       const data = await loginUser(email, password);
       const token = data.token;
-      login(token, email); 
+      const premium = data.Premium;
+      login(token, email, premium);
       navigate("/dashboard");
       handleClose();
       setLoading(false);
