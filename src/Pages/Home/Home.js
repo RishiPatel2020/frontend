@@ -9,7 +9,11 @@ import JoinHundreds from "./JoinHundreds/JoinHundreds";
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import Reviews from "./Reviews/Reviews";
 import { useNavigate } from "react-router-dom";
+import { sendAnalytics } from "../../Service/Api";
 const Home = () => {
+  useEffect(() => {
+    sendAnalytics("Home Page", "View"); // Send analytics event on component mount
+  }, []);
   const howItWorks = {
     backColor: "light",
     headingColor: "dark",

@@ -1,13 +1,11 @@
+import React, { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Home from "./Pages/Home/Home";
 import About from "./Pages/About/About";
 import Footer from "./Components/Footer/Footer";
-import React from "react";
-import "./index.css";
-import "./App.css";
 import Nav from "./Components/NavBar/Nav";
-import { Route, Routes } from "react-router-dom";
 import Onboard from "./Pages/Onboard/Onboard";
 import Terms from "./Pages/Terms/Terms";
 import Privacy from "./Pages/Privacy/Privacy";
@@ -16,18 +14,39 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
+import { getLocalStorageItem, setLocalStorageItem } from "./Service/Session";
+import { getProfileId } from "./Service/Api";
+
+import "./index.css";
+import "./App.css";
 
 function App() {
-  const navAndFoot = (element) => {
-    return (
-      <>
-        <Nav />
-        <section className="stickNavBarAdjustments"></section>
-        {element}
-        <Footer />
-      </>
-    );
-  };
+  useEffect(() => {
+    const fetchProfileId = async () => {
+      const existingProfileID = getLocalStorageItem("PID");
+      if (!existingProfileID || existingProfileID === "Unknown") {
+        try {
+          const profileID = await getProfileId();
+          setLocalStorageItem("PID", profileID);
+        } catch (error) {
+          console.error("Error fetching profile ID:", error);
+          setLocalStorageItem("PID", "Unknown");
+        }
+      }
+    };
+
+    // Fetch the profile ID in the background
+    fetchProfileId();
+  }, []);
+
+  const navAndFoot = (element) => (
+    <>
+      <Nav />
+      <section className="stickNavBarAdjustments"></section>
+      {element}
+      <Footer />
+    </>
+  );
 
   return (
     <Routes>
@@ -38,7 +57,6 @@ function App() {
         path="/dashboard"
         element={<PrivateRoute element={navAndFoot(<Dashboard />)} />}
       />
-
       <Route
         exact
         path="/onboard"
@@ -59,7 +77,6 @@ function App() {
         path="/premium"
         element={<PrivateRoute element={<Premium />} />}
       />
-
       <Route path="*" element={navAndFoot(<Home />)} />
     </Routes>
   );

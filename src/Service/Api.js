@@ -2,7 +2,7 @@ import axios from "axios";
 import { BACKEND_BASE } from "../Service/Constants";
 import { getDownloadURL, getStorage, uploadBytes, ref } from "firebase/storage";
 import firebaseApp from "../Service/firebase"; // Ensure this is correctly pointing to your Firebase config
-import { getLocalStorageItem } from "./Session";
+import { setLocalStorageItem, getLocalStorageItem } from "./Session";
 
 export const loginUser = async (email, password) => {
   const response = await axios.post(`${BACKEND_BASE}/login`, {
@@ -75,4 +75,64 @@ export const updatePassword = async (currentPassword, newPassword) => {
     }
   );
   return response.data;
+};
+
+// Function to get profile ID
+export const getProfileId = async () => {
+  try {
+    // Check if profile ID is already in local storage
+    const existingProfileID = getLocalStorageItem("PID");
+
+    if (existingProfileID && existingProfileID !== "Unknown") {
+      // Return existing profile ID if available
+      return existingProfileID;
+    }
+
+    // If profile ID is not in local storage, fetch from the backend
+    const response = await axios.get(`${BACKEND_BASE}/getProfileId`);
+    const { nextProfileID } = response.data;
+
+    if (nextProfileID) {
+      // Store the new profile ID in local storage
+      const profileIDString = nextProfileID.toString();
+      setLocalStorageItem("PID", profileIDString);
+      return nextProfileID;
+    }
+
+    // Return "Unknown" if no profile ID is found
+    setLocalStorageItem("PID", "Unknown");
+    return "Unknown";
+  } catch (error) {
+    console.error("Error fetching profile ID:", error);
+    setLocalStorageItem("PID", "Unknown");
+    return "Unknown";
+  }
+};
+
+// Function to register an analytics event
+export const sendAnalytics = async (screenId, action) => {
+  try {
+    // Ensure profile ID is available
+    const profileID = getLocalStorageItem("PID") || "Unknown";
+
+    // Create the event data object
+    const eventData = {
+      screenId,
+      action,
+      profileID,
+    };
+
+    // Send the event data to the backend without waiting for a response
+    axios
+      .post(`${BACKEND_BASE}/analytics`, eventData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .catch((error) => {
+        console.error("Error registering analytics event:", error);
+      });
+  } catch (error) {
+    console.error("Error preparing analytics event:", error);
+  }
 };
