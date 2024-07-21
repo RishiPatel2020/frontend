@@ -6,10 +6,12 @@ import { useEffect } from "react";
 import React from "react";
 import "./Terms.css"; // Importing CSS for styles
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
+import { sendAnalytics } from "../../Service/Api";
 const Terms = () => {
   const { isAuthenticated } = useContext(AuthContext);
   useEffect(() => {
     scrollToTop();
+    sendAnalytics("Terms Page", "View"); // Send analytics event on component mount
   });
   return (
     <div className="terms-conditions">

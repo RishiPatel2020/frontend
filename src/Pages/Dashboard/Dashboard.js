@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { getLocalStorageItem } from "../../Service/Session";
 import { updatePassword } from "../../Service/Api";
+import { sendAnalytics } from "../../Service/Api";
 
 const Dashboard = () => {
   const [tab, setTab] = useState("P");
@@ -26,6 +27,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     scrollToTop();
+    sendAnalytics("Dashboard Page", "View"); // Send analytics event on component mount
   }, []);
 
   const handleSave = async () => {

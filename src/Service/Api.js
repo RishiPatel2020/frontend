@@ -80,30 +80,21 @@ export const updatePassword = async (currentPassword, newPassword) => {
 // Function to get profile ID
 export const getProfileId = async () => {
   try {
-    // Check if profile ID is already in local storage
-    const existingProfileID = getLocalStorageItem("PID");
-
-    if (existingProfileID && existingProfileID !== "Unknown") {
-      // Return existing profile ID if available
-      return existingProfileID;
-    }
-
-    // If profile ID is not in local storage, fetch from the backend
+    // Fetch profile ID from the backend
     const response = await axios.get(`${BACKEND_BASE}/getProfileId`);
     const { nextProfileID } = response.data;
 
-    if (nextProfileID) {
-      // Store the new profile ID in local storage
-      const profileIDString = nextProfileID.toString();
-      setLocalStorageItem("PID", profileIDString);
-      return nextProfileID;
-    }
+    // Ensure the profile ID is stored as a string
+    const profileIDString =
+      nextProfileID !== undefined && nextProfileID !== null
+        ? nextProfileID.toString()
+        : "Unknown";
+    setLocalStorageItem("PID", profileIDString);
 
-    // Return "Unknown" if no profile ID is found
-    setLocalStorageItem("PID", "Unknown");
-    return "Unknown";
+    return profileIDString;
   } catch (error) {
     console.error("Error fetching profile ID:", error);
+    // Store "Unknown" in case of an error
     setLocalStorageItem("PID", "Unknown");
     return "Unknown";
   }
@@ -113,7 +104,10 @@ export const getProfileId = async () => {
 export const sendAnalytics = async (screenId, action) => {
   try {
     // Ensure profile ID is available
-    const profileID = getLocalStorageItem("PID") || "Unknown";
+    const profileID = getLocalStorageItem("PID");
+    if (!profileID || profileID === "Unknown") {
+      return;
+    }
 
     // Create the event data object
     const eventData = {

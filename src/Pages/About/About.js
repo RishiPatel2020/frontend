@@ -8,9 +8,11 @@ import CallToAction from "./CallToAction/CallToAction";
 import "./About.css";
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import { useEffect } from "react";
+import { sendAnalytics } from "../../Service/Api";
 const AboutPage = () => {
   useEffect(() => {
     scrollToTop();
+    sendAnalytics("About Page", "View"); // Send analytics event on component mount
   }, []);
   return (
     <div

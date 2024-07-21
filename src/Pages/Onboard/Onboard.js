@@ -10,8 +10,13 @@ import AuthContext from "../../Components/AuthContext/AuthContext";
 import { uploadImages } from "../../Service/Api";
 import { signUpUser } from "../../Service/Api";
 import "./Onboard.css";
+import { useEffect } from "react";
+import { sendAnalytics } from "../../Service/Api";
 
 function Onboarding() {
+  useEffect(() => {
+    sendAnalytics("Onboard Page", "View"); // Send analytics event on component mount
+  }, []);
   const { answers } = useContext(AnswersContext);
   const { login } = useContext(AuthContext); // Access the login function from context
   const [error, setError] = useState(null);
@@ -64,7 +69,7 @@ function Onboarding() {
       const data = await signUpUser(dataToSubmit);
 
       const token = data.token; // Extract the token from the response
-      login(token,email); // Use the login function to store the token and set authentication state
+      login(token, email); // Use the login function to store the token and set authentication state
 
       setLoading(false);
       console.log(`Response: ${JSON.stringify(data)}`);

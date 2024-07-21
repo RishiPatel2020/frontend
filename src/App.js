@@ -15,7 +15,7 @@ import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
 import { getLocalStorageItem, setLocalStorageItem } from "./Service/Session";
-import { getProfileId } from "./Service/Api";
+import { getProfileId, sendAnalytics } from "./Service/Api";
 
 import "./index.css";
 import "./App.css";
@@ -25,14 +25,9 @@ function App() {
     const fetchProfileId = async () => {
       const existingProfileID = getLocalStorageItem("PID");
       if (!existingProfileID || existingProfileID === "Unknown") {
-        try {
-          const profileID = await getProfileId();
-          setLocalStorageItem("PID", profileID);
-        } catch (error) {
-          console.error("Error fetching profile ID:", error);
-          setLocalStorageItem("PID", "Unknown");
-        }
+        await getProfileId();
       }
+      sendAnalytics("Home Page", "View"); // Send analytics event on component mount
     };
 
     // Fetch the profile ID in the background

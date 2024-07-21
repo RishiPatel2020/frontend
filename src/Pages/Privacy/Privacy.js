@@ -6,11 +6,13 @@ import { useEffect } from "react";
 import React from "react";
 import "./Privacy.css"; // Importing CSS for styles
 import { scrollToTop } from "../../Service/Scroll/ScrollTop";
+import { sendAnalytics } from "../../Service/Api";
 
 const Privacy = () => {
   const { isAuthenticated } = useContext(AuthContext);
   useEffect(() => {
     scrollToTop();
+    sendAnalytics("Privacy Page", "View"); // Send analytics event on component mount
   });
   return (
     <div className="privacy-policy">
