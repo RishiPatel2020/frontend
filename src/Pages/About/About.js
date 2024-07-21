@@ -12,7 +12,7 @@ import { sendAnalytics } from "../../Service/Api";
 const AboutPage = () => {
   useEffect(() => {
     scrollToTop();
-    sendAnalytics("About Page", "View"); // Send analytics event on component mount
+    sendAnalytics("About","Page", "View");
   }, []);
   return (
     <div

@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     scrollToTop();
-    sendAnalytics("Dashboard Page", "View"); // Send analytics event on component mount
+    sendAnalytics("Dashboard", "Page", "View");
   }, []);
 
   const handleSave = async () => {
@@ -48,6 +48,7 @@ const Dashboard = () => {
 
     if (isValid) {
       setLoading(true);
+      sendAnalytics("Edit Profile", "Save Button", "Click");
       setError(""); // Reset error message before making API call
       setSuccess(""); // Reset success message before making API call
 
@@ -171,7 +172,7 @@ const Dashboard = () => {
       <div>
         <h3 className="text-center text-dark bold">
           {tab === "P"
-            ? getLocalStorageItem("Premium")==="N"
+            ? getLocalStorageItem("Premium") === "N"
               ? "Apply for Premium"
               : "Application Submitted!"
             : "Edit your Profile"}
@@ -180,11 +181,11 @@ const Dashboard = () => {
           {tab === "P" ? (
             <>
               <p className="light">
-                {getLocalStorageItem("Premium")==="N"
+                {getLocalStorageItem("Premium") === "N"
                   ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
                   : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox."}
               </p>
-              {getLocalStorageItem("Premium")==="N" && (
+              {getLocalStorageItem("Premium") === "N" && (
                 <button
                   className="select-button bold bg-dark"
                   onClick={() => navigate("/premium")}

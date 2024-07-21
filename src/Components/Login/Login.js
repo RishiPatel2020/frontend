@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext/AuthContext";
 import ForgotPassword from "./ForgotPassword";
 import { loginUser } from "../../Service/Api";
+import { sendAnalytics } from "../../Service/Api";
 function Login() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [display, setDisplay] = useState(false);
@@ -32,6 +33,7 @@ function Login() {
   };
 
   const handleSubmit = async () => {
+    sendAnalytics("Log In Dialog", "Submit Button", "Click");
     setLoading(true);
     setInvalid(false);
     try {
@@ -51,7 +53,10 @@ function Login() {
   return (
     <>
       <Button
-        onClick={() => setShowDialog(true)}
+        onClick={() => {
+          setShowDialog(true);
+          sendAnalytics("Showcase", "Log In Button", "Click");
+        }}
         variant="dark"
         className="text-primary mx-4 mt-3 bold"
         style={{
@@ -114,6 +119,7 @@ function Login() {
             to=""
             style={{ color: "blue", marginRight: "6px" }}
             onClick={() => {
+              sendAnalytics("Log In Dialog", "ForgotPassword Link", "Click");
               setDisplay(false);
               setShowForgotPassword(true);
             }}

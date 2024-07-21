@@ -12,7 +12,7 @@ const Privacy = () => {
   const { isAuthenticated } = useContext(AuthContext);
   useEffect(() => {
     scrollToTop();
-    sendAnalytics("Privacy Page", "View"); // Send analytics event on component mount
+    sendAnalytics("Privacy", "Page", "View");
   });
   return (
     <div className="privacy-policy">
@@ -145,6 +145,9 @@ const Privacy = () => {
                 borderRadius: "15px",
                 fontSize: "20px",
                 boxShadow: "2px 2px 2px rgb(0,0,0)",
+              }}
+              onClick={() => {
+                sendAnalytics("Privacy", "Join Ria Button", "Click");
               }}
             >
               Join for Free

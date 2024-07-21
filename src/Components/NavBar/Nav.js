@@ -7,14 +7,17 @@ import React from "react";
 import { scrollToFAQ, scrollToReviews } from "../../Service/Scroll/ScrollFAQ";
 import { useContext } from "react";
 import AuthContext from "../AuthContext/AuthContext";
+import { sendAnalytics } from "../../Service/Api";
 function NavBar() {
   const { isAuthenticated } = useContext(AuthContext);
   // might cause error in PRODUCTION due to paths and hashes "#/"
 
   const handleFAQClick = () => {
+    sendAnalytics("Nav", "FAQ Link", "Click");
     scrollToFAQ();
   };
   const handleReviewsClick = () => {
+    sendAnalytics("Nav", "Reviews Link", "Click");
     scrollToReviews();
   };
 
@@ -29,7 +32,12 @@ function NavBar() {
       <Container>
         {/* Mirchi Meals  */}
         <Navbar.Brand>
-          <Nav.Link href="/frontend">
+          <Nav.Link
+            href="/frontend"
+            onClick={() => {
+              sendAnalytics("Nav", "Logo", "Click");
+            }}
+          >
             <img
               src={require("../../Resources/Logo/newLogo.png")}
               alt="MirchiMealsLogo"
@@ -64,7 +72,7 @@ function NavBar() {
               </span>
             </Nav.Link>
             <Nav.Link
-             href="#/"
+              href="#/"
               className="text-primary mx-1"
               onClick={(e) => handleReviewsClick()}
             >
@@ -88,7 +96,12 @@ function NavBar() {
               </span>
             </Nav.Link>
             {isAuthenticated && (
-              <Nav.Link href="#/dashboard">
+              <Nav.Link
+                href="#/dashboard"
+                onClick={() => {
+                  sendAnalytics("Nav", "Dashboard", "Click");
+                }}
+              >
                 {/* adjust marginRight Based on screens */}
                 <span
                   className="fontAdjustment text-primary"

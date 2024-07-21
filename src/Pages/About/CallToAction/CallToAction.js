@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { sendAnalytics } from "../../../Service/Api";
 const CallToAction = () => {
   const navigate = useNavigate();
   return (
@@ -14,7 +15,9 @@ const CallToAction = () => {
       </p>
       <button
         className="text-light bg-dark bold"
-        onClick={() => navigate("/frontend")}
+        onClick={() => { 
+          sendAnalytics("About","Join Ria Button", "Click");
+          navigate("/frontend");}}
       >
         Join Ria
       </button>

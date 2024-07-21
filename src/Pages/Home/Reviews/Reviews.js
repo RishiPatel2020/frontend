@@ -1,3 +1,4 @@
+import { sendAnalytics } from "../../../Service/Api";
 import React from "react";
 import Slider from "react-slick";
 import { Button } from "react-bootstrap";
@@ -82,6 +83,9 @@ const Reviews = () => {
                     borderRadius: "15px",
                     fontSize: "20px",
                     boxShadow: "2px 2px 2px rgb(0,0,0)",
+                  }}
+                  onClick={() => {
+                    sendAnalytics("Reviews", "Join Ria Button", "Click");
                   }}
                 >
                   Join for Free

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { sendAnalytics } from "../../Service/Api";
 const Home = () => {
   useEffect(() => {
-    sendAnalytics("Home Page", "View"); // Send analytics event on component mount
+    sendAnalytics("Home","Page", "View");
   }, []);
   const howItWorks = {
     backColor: "light",

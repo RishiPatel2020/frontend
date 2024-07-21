@@ -15,7 +15,7 @@ import { sendAnalytics } from "../../Service/Api";
 
 function Onboarding() {
   useEffect(() => {
-    sendAnalytics("Onboard Page", "View"); // Send analytics event on component mount
+    sendAnalytics("Onboard", "Page", "View");
   }, []);
   const { answers } = useContext(AnswersContext);
   const { login } = useContext(AuthContext); // Access the login function from context
@@ -44,6 +44,7 @@ function Onboarding() {
       alert("Please fill in all fields before submitting.");
       return;
     }
+    sendAnalytics("Onboard", "Submit Button", "Click");
     setLoading(true);
     try {
       const { pictures, email, ...otherAnswers } = answers;

@@ -1,3 +1,4 @@
+import { sendAnalytics } from "../../../Service/Api";
 import React from "react";
 import { useContext } from "react";
 import { Row, Col, Button } from "react-bootstrap";
@@ -60,6 +61,13 @@ const JoinHundreds = () => {
                   borderRadius: "15px",
                   fontSize: "20px",
                   boxShadow: "2px 2px 2px rgb(0,0,0)",
+                }}
+                onClick={() => {
+                  sendAnalytics(
+                    "Join Hundreds(Home Page)",
+                    "Join Ria Button",
+                    "Click"
+                  );
                 }}
               >
                 Join for Free

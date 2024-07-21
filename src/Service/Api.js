@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BACKEND_BASE } from "../Service/Constants";
+import { BACKEND_BASE, STOP } from "../Service/Constants";
 import { getDownloadURL, getStorage, uploadBytes, ref } from "firebase/storage";
 import firebaseApp from "../Service/firebase"; // Ensure this is correctly pointing to your Firebase config
 import { setLocalStorageItem, getLocalStorageItem } from "./Session";
@@ -101,32 +101,35 @@ export const getProfileId = async () => {
 };
 
 // Function to register an analytics event
-export const sendAnalytics = async (screenId, action) => {
-  try {
-    // Ensure profile ID is available
-    const profileID = getLocalStorageItem("PID");
-    if (!profileID || profileID === "Unknown") {
-      return;
+export const sendAnalytics = async (screenId, component, action) => {
+  if (!STOP) {
+    try {
+      // Ensure profile ID is available
+      const profileID = getLocalStorageItem("PID");
+      if (!profileID || profileID === "Unknown") {
+        return;
+      }
+
+      // Create the event data object
+      const eventData = {
+        screenId,
+        component,
+        action,
+        profileID,
+      };
+
+      // Send the event data to the backend without waiting for a response
+      axios
+        .post(`${BACKEND_BASE}/analytics`, eventData, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .catch((error) => {
+          console.error("Error registering analytics event:", error);
+        });
+    } catch (error) {
+      console.error("Error preparing analytics event:", error);
     }
-
-    // Create the event data object
-    const eventData = {
-      screenId,
-      action,
-      profileID,
-    };
-
-    // Send the event data to the backend without waiting for a response
-    axios
-      .post(`${BACKEND_BASE}/analytics`, eventData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .catch((error) => {
-        console.error("Error registering analytics event:", error);
-      });
-  } catch (error) {
-    console.error("Error preparing analytics event:", error);
   }
 };

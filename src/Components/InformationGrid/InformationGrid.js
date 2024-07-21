@@ -1,3 +1,4 @@
+import { sendAnalytics } from "../../Service/Api";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -111,6 +112,13 @@ const InformationGrid = ({ data }) => {
                       fontSize: "20px",
                       boxShadow: "2px 2px 2px rgb(0,0,0)",
                     }}
+                    onClick={() =>
+                      sendAnalytics(
+                        data.heading,
+                        "Join For Free Button",
+                        "Click"
+                      )
+                    }
                   >
                     Join for Free
                   </Button>

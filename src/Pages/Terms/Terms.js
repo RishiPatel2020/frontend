@@ -11,7 +11,7 @@ const Terms = () => {
   const { isAuthenticated } = useContext(AuthContext);
   useEffect(() => {
     scrollToTop();
-    sendAnalytics("Terms Page", "View"); // Send analytics event on component mount
+    sendAnalytics("Terms", "Page", "View");
   });
   return (
     <div className="terms-conditions">
@@ -139,6 +139,9 @@ const Terms = () => {
                 borderRadius: "15px",
                 fontSize: "20px",
                 boxShadow: "2px 2px 2px rgb(0,0,0)",
+              }}
+              onClick={() => {
+                sendAnalytics("Terms", "Join Ria Button", "Click");
               }}
             >
               Join for Free

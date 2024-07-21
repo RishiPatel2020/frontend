@@ -5,7 +5,7 @@ import "./Showcase.css";
 import { useContext } from "react";
 import AuthContext from "../../../Components/AuthContext/AuthContext";
 import Login from "../../../Components/Login/Login";
-
+import { sendAnalytics } from "../../../Service/Api";
 const Showcase = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
   return (
@@ -36,6 +36,13 @@ const Showcase = () => {
                             fontSize: "20px",
                             boxShadow: "2px 2px 2px rgb(0,0,0)",
                           }}
+                          onClick={() =>
+                            sendAnalytics(
+                              "Showcase",
+                              "Join For Free Button",
+                              "Click"
+                            )
+                          }
                         >
                           Join for Free
                         </Button>
@@ -60,7 +67,10 @@ const Showcase = () => {
                         </Button>
                       </Link>
                       <Button
-                        onClick={() => logout()}
+                        onClick={() => {
+                          sendAnalytics("Showcase", "Log out Button", "Click");
+                          logout();
+                        }}
                         variant="dark"
                         className="text-primary mx-4 mt-3 bold"
                         style={{

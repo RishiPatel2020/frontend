@@ -27,7 +27,7 @@ function App() {
       if (!existingProfileID || existingProfileID === "Unknown") {
         await getProfileId();
       }
-      sendAnalytics("Home Page", "View"); // Send analytics event on component mount
+      sendAnalytics("Home","Page", "View"); // Send analytics event on component mount
     };
 
     // Fetch the profile ID in the background
