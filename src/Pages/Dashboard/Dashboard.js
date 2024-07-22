@@ -61,11 +61,7 @@ const Dashboard = () => {
         setNewPassword("");
       } catch (err) {
         // Handle error scenarios
-        setError(
-          err.response && err.response.data
-            ? err.response.data.error
-            : "An unexpected error occurred. Please try again."
-        );
+        setError("An unexpected error occurred. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -172,7 +168,8 @@ const Dashboard = () => {
       <div>
         <h3 className="text-center text-dark bold">
           {tab === "P"
-            ? getLocalStorageItem("Premium") === "N"
+            ? !getLocalStorageItem("Premium") ||
+              getLocalStorageItem("Premium") === "N"
               ? "Apply for Premium"
               : "Application Submitted!"
             : "Edit your Profile"}
@@ -181,11 +178,13 @@ const Dashboard = () => {
           {tab === "P" ? (
             <>
               <p className="light">
-                {getLocalStorageItem("Premium") === "N"
+                {!getLocalStorageItem("Premium") ||
+                getLocalStorageItem("Premium") === "N"
                   ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
                   : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox."}
               </p>
-              {getLocalStorageItem("Premium") === "N" && (
+              {(!getLocalStorageItem("Premium") ||
+                getLocalStorageItem("Premium") === "N") && (
                 <button
                   className="select-button bold bg-dark"
                   onClick={() => navigate("/premium")}

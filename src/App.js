@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,8 +14,6 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
-import { getLocalStorageItem, setLocalStorageItem } from "./Service/Session";
-import { getProfileId, sendAnalytics } from "./Service/Api";
 
 import "./index.css";
 import "./App.css";

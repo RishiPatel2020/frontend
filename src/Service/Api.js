@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BACKEND_BASE, STOP } from "../Service/Constants";
+import { BACKEND_BASE, STOP_ANALYTICS } from "../Service/Constants";
 import { getDownloadURL, getStorage, uploadBytes, ref } from "firebase/storage";
 import firebaseApp from "../Service/firebase"; // Ensure this is correctly pointing to your Firebase config
 import { setLocalStorageItem, getLocalStorageItem } from "./Session";
@@ -102,7 +102,7 @@ export const getProfileId = async () => {
 
 // Function to register an analytics event
 export const sendAnalytics = async (screenId, component, action) => {
-  if (!STOP) {
+  if (!STOP_ANALYTICS) {
     try {
       // Ensure profile ID is available
       let profileID = getLocalStorageItem("PID");
