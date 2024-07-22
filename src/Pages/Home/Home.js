@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import React from "react";
 import Showcase from "./Showcase/Showcase";
@@ -6,9 +5,7 @@ import Question from "./Questions/Question";
 import Banner from "./Banner/Banner";
 import InformationGrid from "../../Components/InformationGrid/InformationGrid";
 import JoinHundreds from "./JoinHundreds/JoinHundreds";
-import { scrollToTop } from "../../Service/Scroll/ScrollTop";
 import Reviews from "./Reviews/Reviews";
-import { useNavigate } from "react-router-dom";
 import { sendAnalytics } from "../../Service/Api";
 const Home = () => {
   useEffect(() => {

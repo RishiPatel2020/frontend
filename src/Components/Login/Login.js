@@ -27,10 +27,7 @@ function Login() {
     setDisplay(false);
   };
 
-  const handleDisplay = (e) => {
-    e.preventDefault();
-    setDisplay(true);
-  };
+
 
   const handleSubmit = async () => {
     sendAnalytics("Log In Dialog", "Submit Button", "Click");

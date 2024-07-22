@@ -1,7 +1,7 @@
 import { sendAnalytics } from "../../../Service/Api";
 import React from "react";
 import { useContext } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import {Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AuthContext from "../../../Components/AuthContext/AuthContext";
 const JoinHundreds = () => {
