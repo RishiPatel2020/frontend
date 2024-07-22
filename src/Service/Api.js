@@ -105,8 +105,11 @@ export const sendAnalytics = async (screenId, component, action) => {
   if (!STOP) {
     try {
       // Ensure profile ID is available
-      const profileID = getLocalStorageItem("PID");
+      let profileID = getLocalStorageItem("PID");
       if (!profileID || profileID === "Unknown") {
+        profileID = await getProfileId();
+      }
+      if (profileID === "Unknown") {
         return;
       }
 
@@ -125,11 +128,7 @@ export const sendAnalytics = async (screenId, component, action) => {
             "Content-Type": "application/json",
           },
         })
-        .catch((error) => {
-          console.error("Error registering analytics event:", error);
-        });
-    } catch (error) {
-      console.error("Error preparing analytics event:", error);
-    }
+        .catch((error) => {});
+    } catch (error) {}
   }
 };
