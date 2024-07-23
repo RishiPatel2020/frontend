@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Premium.css";
 import React, { useState } from "react";
+import { sendAnalytics } from "../../Service/Api";
 import {
   getLocalStorageItem,
   setLocalStorageItem,
@@ -22,6 +23,7 @@ const Premium = () => {
     }
 
     try {
+      sendAnalytics("Premium Card", "Apply Button", "Clicked");
       await applyPremium(token);
       setLocalStorageItem("Premium", "Q");
       setShowConfirmation(true);
@@ -122,7 +124,10 @@ const Premium = () => {
           <br />
           <button
             className="select-button bold my-1 bg-dark"
-            onClick={() => navigate("/dashboard")}
+            onClick={() => {
+              sendAnalytics("Premium Card", "No Thnx Button", "Clicked");
+              navigate("/dashboard");
+            }}
           >
             No, Thanks!
           </button>
