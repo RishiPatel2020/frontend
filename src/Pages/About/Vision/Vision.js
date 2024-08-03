@@ -4,7 +4,7 @@ const Vision = () => {
   return (
     <div className="vision-section bg-primary">
       <h2 className="text-info bold">Vision</h2>
-      <p className="text-secondary">
+      <p className="text-secondary light">
         A future where every person of the South Asian community has the
         opportunity to discover genuine connections with people that match their
         preferences. Through innovation, inclusivity, and integrity, we strive

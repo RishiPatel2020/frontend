@@ -5,7 +5,7 @@ const Values = () => {
     <div className="values bg-primary text-secondary">
       <h2 className="text-info bold">Our Values and Philosophy</h2>
       <h4 className="bold">At Ria, we are guided by three core values:</h4>
-      <ul>
+      <ul className="light">
         <li>
           <strong className="text-info">Respect for Time:</strong> We believe
           your time is precious. Our platform is designed to efficiently
@@ -25,7 +25,7 @@ const Values = () => {
           confidentiality, ensuring you can search for love with peace of mind.
         </li>
       </ul>
-      <p>
+      <p className="light">
         Our philosophy is simple: every significant connection should start with
         trust and a deep understanding of each other's values and desires. Ria
         empowers you to find exactly that, transforming the landscape of online

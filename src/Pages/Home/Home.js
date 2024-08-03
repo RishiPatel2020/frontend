@@ -48,8 +48,8 @@ const Home = () => {
   };
 
   const theRiaWay = {
-    backColor: "light",
-    headingColor: "dark",
+    backColor: "primary",
+    headingColor: "info",
     titleColor: "info",
     textColor: "secondary",
 
@@ -93,13 +93,15 @@ const Home = () => {
       {/* How It Works */}
       <InformationGrid data={howItWorks} />
 
+      <Reviews />
+
       {/* Couples pictures */}
       <JoinHundreds />
 
       {/* The Ria way */}
       <InformationGrid data={theRiaWay} />
 
-      <Reviews />
+      
 
       {/* FAQs */}
       <Question />

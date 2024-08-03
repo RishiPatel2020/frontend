@@ -4,7 +4,7 @@ const OriginStory = () => {
   return (
     <div className="origin-story bg-light">
       <h2 className="text-info bold">Our Origin Story</h2>
-      <p className="text-secondary">
+      <p className="text-secondary light">
         After witnessing countless friends and family members navigate the
         frustrating world of online dating — spending hours swiping left and
         right only to end up more disheartened and lonely than when they

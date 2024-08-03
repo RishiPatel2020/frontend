@@ -52,7 +52,8 @@ const Reviews = () => {
         <div className="text-center">
           <h1
             style={{ margin: "0px 0px 10px", fontSize: "42px" }}
-            className="text-dark"
+            // className="text-dark"
+            className="text-info"
           >
             What Others are Saying
           </h1>
@@ -70,13 +71,13 @@ const Reviews = () => {
       </Slider>
       <Row>
         <Col>
-          <div className="justify-content-center align-items-center text-center mt-5">
+          <div className="justify-content-center align-items-center text-center mt-3">
             {/* Link to order page */}
             {!isAuthenticated && (
               <Link to="/onboard">
                 <Button
                   variant="dark"
-                  className="text-primary mt-3 bold"
+                  className="text-primary mb-3 bold"
                   style={{
                     height: "50px",
                     width: "171px",
