@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const login = (token, email,Premium) => {
+  const login = (token, email, Premium) => {
     localStorage.setItem("token", token);
     localStorage.setItem("emailAddress", email);
     localStorage.setItem("Premium", Premium);
@@ -26,6 +26,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("emailAddress");
+    localStorage.removeItem("Premium");
     setIsAuthenticated(false);
   };
 

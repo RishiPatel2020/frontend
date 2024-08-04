@@ -8,8 +8,12 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { getLocalStorageItem } from "../../Service/Session";
 import { updatePassword } from "../../Service/Api";
 import { sendAnalytics } from "../../Service/Api";
+import isTokenExpired from "../../Service/Cookies";
+import { useContext } from "react";
+import AuthContext from "../../Components/AuthContext/AuthContext";
 
 const Dashboard = () => {
+  const { isAuthenticated, logout } = useContext(AuthContext);
   const [tab, setTab] = useState("P");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -26,8 +30,15 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    scrollToTop();
-    sendAnalytics("Dashboard", "Page", "View");
+    const token = localStorage.getItem("token");
+    if (!token || isTokenExpired(token)) {
+      logout();
+      navigate("/");
+      return;
+    } else {
+      scrollToTop();
+      sendAnalytics("Dashboard", "Page", "View");
+    }
   }, []);
 
   const handleSave = async () => {
@@ -76,79 +87,42 @@ const Dashboard = () => {
     setShowNewPassword(!showNewPassword);
   };
 
-  const editProfile = () => (
-    <div className="form-container">
-      <div className="form-group">
-        <label>Email</label>
-        <input
-          type="email"
-          value={getLocalStorageItem("emailAddress")}
-          disabled
-          className="form-control"
-        />
-      </div>
-      <div className="form-group">
-        <label style={{ color: validation.currentPassword ? "red" : "" }}>
-          Current Password {validation.currentPassword && "**"}
-        </label>
-        <div className="password-input-container">
-          <input
-            type={showCurrentPassword ? "text" : "password"}
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-            className="form-control"
-          />
-          <FontAwesomeIcon
-            icon={showCurrentPassword ? faEyeSlash : faEye}
-            onClick={toggleShowCurrentPassword}
-            className="password-toggle-icon"
-          />
-        </div>
-      </div>
-      <div className="form-group">
-        <label style={{ color: validation.newPassword ? "red" : "" }}>
-          New Password {validation.newPassword && "**"}
-        </label>
-        <div className="password-input-container">
-          <input
-            type={showNewPassword ? "text" : "password"}
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            className="form-control"
-          />
-          <FontAwesomeIcon
-            icon={showNewPassword ? faEyeSlash : faEye}
-            onClick={toggleShowNewPassword}
-            className="password-toggle-icon"
-          />
-        </div>
-      </div>
-      <button
-        onClick={handleSave}
-        className="btn btn-success mt-2 bg-info text-white"
-        disabled={loading}
-      >
-        {loading ? "Saving..." : "Save"}
-      </button>
-      <button
-        onClick={() => {
-          setCurrentPassword("");
-          setNewPassword("");
-          setSuccess("");
-          setError("");
-        }}
-        className="btn bg-dark text-primary mt-2 mx-2"
-      >
-        Clear
-      </button>
-      <div className={`message ${success ? "success" : error ? "error" : ""}`}>
-        {success || error}
-      </div>
-    </div>
-  );
+  const notAppliedyet = () => {
+    return (
+      !getLocalStorageItem("Premium") ||
+      getLocalStorageItem("Premium") === undefined ||
+      getLocalStorageItem("Premium") === "N"
+    );
+  };
 
-  return (
-    <div style={{ height: "66vh" }}>
+  const premiumTabContent = () => {
+    const title = notAppliedyet()
+      ? "Apply for Premium"
+      : "Application Submitted!";
+    const body = notAppliedyet()
+      ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
+      : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox.";
+    return (
+      <>
+        <h3 className="text-center text-dark bold">{title}</h3>
+        <div className="text-center p-2">
+          <p className="light">{body}</p>
+
+          {notAppliedyet() && (
+            <button
+              className="select-button bold bg-dark"
+              onClick={() => navigate("/premium")}
+            >
+              Apply
+            </button>
+          )}
+        </div>
+      </>
+    );
+  };
+
+  const tabs = () => {
+    return (
       <div className="text-center">
         <div className="p-2">
           <button
@@ -165,42 +139,91 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div>
-        <h3 className="text-center text-dark bold">
-          {tab === "P"
-            ? !getLocalStorageItem("Premium") ||
-              getLocalStorageItem("Premium") === undefined ||
-              getLocalStorageItem("Premium") === "N"
-              ? "Apply for Premium"
-              : "Application Submitted!"
-            : "Edit your Profile"}
-        </h3>
-        <div className="text-center p-2">
-          {tab === "P" ? (
-            <>
-              <p className="light">
-                {!getLocalStorageItem("Premium") ||
-                getLocalStorageItem("Premium") === undefined ||
-                getLocalStorageItem("Premium") === "N"
-                  ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
-                  : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox."}
-              </p>
-              {(!getLocalStorageItem("Premium") ||
-                getLocalStorageItem("Premium") === undefined ||
-                getLocalStorageItem("Premium") === "N") && (
-                <button
-                  className="select-button bold bg-dark"
-                  onClick={() => navigate("/premium")}
-                >
-                  Apply
-                </button>
-              )}
-            </>
-          ) : (
-            editProfile()
-          )}
+    );
+  };
+
+  const editProfile = () => (
+    <>
+      <h3 className="text-center text-dark bold">Edit your Profile</h3>
+      <div className="text-center p-2">
+        <div className="form-container">
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={getLocalStorageItem("emailAddress")}
+              disabled
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label style={{ color: validation.currentPassword ? "red" : "" }}>
+              Current Password {validation.currentPassword && "**"}
+            </label>
+            <div className="password-input-container">
+              <input
+                type={showCurrentPassword ? "text" : "password"}
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                className="form-control"
+              />
+              <FontAwesomeIcon
+                icon={showCurrentPassword ? faEyeSlash : faEye}
+                onClick={toggleShowCurrentPassword}
+                className="password-toggle-icon"
+              />
+            </div>
+          </div>
+          <div className="form-group">
+            <label style={{ color: validation.newPassword ? "red" : "" }}>
+              New Password {validation.newPassword && "**"}
+            </label>
+            <div className="password-input-container">
+              <input
+                type={showNewPassword ? "text" : "password"}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className="form-control"
+              />
+              <FontAwesomeIcon
+                icon={showNewPassword ? faEyeSlash : faEye}
+                onClick={toggleShowNewPassword}
+                className="password-toggle-icon"
+              />
+            </div>
+          </div>
+          <button
+            onClick={handleSave}
+            className="btn btn-success mt-2 bg-info text-white"
+            disabled={loading}
+          >
+            {loading ? "Saving..." : "Save"}
+          </button>
+          <button
+            onClick={() => {
+              setCurrentPassword("");
+              setNewPassword("");
+              setSuccess("");
+              setError("");
+            }}
+            className="btn bg-dark text-primary mt-2 mx-2"
+          >
+            Clear
+          </button>
+          <div
+            className={`message ${success ? "success" : error ? "error" : ""}`}
+          >
+            {success || error}
+          </div>
         </div>
       </div>
+    </>
+  );
+
+  return (
+    <div style={{ height: "66vh" }}>
+      {tabs()}
+      <div>{tab === "P" ? premiumTabContent() : editProfile()}</div>
     </div>
   );
 };
