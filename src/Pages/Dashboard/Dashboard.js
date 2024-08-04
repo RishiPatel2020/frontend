@@ -98,9 +98,13 @@ const Dashboard = () => {
   const premiumTabContent = () => {
     const title = notAppliedyet()
       ? "Apply for Premium"
+      : getLocalStorageItem("Premium") === "A"
+      ? "Application Accepted"
       : "Application Submitted!";
     const body = notAppliedyet()
       ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
+      : getLocalStorageItem("Premium") === "A"
+      ? " Sit tight, we're actively working with premium members to get them paired. We'll let you know if you're a match via e-mail. Keep an eye on your inbox, best of luck!"
       : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox.";
     return (
       <>
