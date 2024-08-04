@@ -126,6 +126,7 @@ const Premium = () => {
             className="select-button bold my-1 bg-dark"
             onClick={() => {
               sendAnalytics("Premium Card", "No Thnx Button", "Clicked");
+              setLocalStorageItem("Premium", "N");
               navigate("/dashboard");
             }}
           >
