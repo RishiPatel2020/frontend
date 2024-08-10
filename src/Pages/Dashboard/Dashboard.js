@@ -13,7 +13,7 @@ import { useContext } from "react";
 import AuthContext from "../../Components/AuthContext/AuthContext";
 
 const Dashboard = () => {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   const [tab, setTab] = useState("P");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -104,7 +104,7 @@ const Dashboard = () => {
     const body = notAppliedyet()
       ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
       : getLocalStorageItem("Premium") === "A"
-      ? " Sit tight, we're actively working with premium members to get them paired. We'll let you know if you're a match via e-mail. Keep an eye on your inbox, best of luck!"
+      ? "We have accepted your application please check your email for further communications"
       : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox.";
     return (
       <>
@@ -129,11 +129,12 @@ const Dashboard = () => {
     return (
       <div className="text-center">
         <div className="p-2">
+          <p className="p-1 light">Sit tight, we're actively working with premium members to get them paired. We'll let you know if you're a match via e-mail. Keep an eye on your inbox, best of luck!</p>
           <button
             className={`tab-button ${tab === "P" ? "active" : ""} bold`}
             onClick={() => setTab("P")}
           >
-            Premium
+            Purchase Premium Plan
           </button>
           <button
             className={`tab-button ${tab === "M" ? "active" : ""} bold`}
@@ -225,7 +226,7 @@ const Dashboard = () => {
   );
 
   return (
-    <div style={{ height: "66vh" }}>
+    <div style={{ height: "87vh" }}>
       {tabs()}
       <div>{tab === "P" ? premiumTabContent() : editProfile()}</div>
     </div>
