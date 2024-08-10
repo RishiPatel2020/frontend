@@ -12,6 +12,7 @@ import { signUpUser } from "../../Service/Api";
 import "./Onboard.css";
 import { useEffect } from "react";
 import { sendAnalytics } from "../../Service/Api";
+import GhostLoader from "../../Components/GhostLoader/GhostLoader";
 
 function Onboarding() {
   useEffect(() => {
@@ -53,17 +54,20 @@ function Onboarding() {
         return;
       }
 
-      if (!pictures || pictures.length === 0) {
-        alert("Please upload at least one image.");
-        return;
-      }
+      // UNCOMMENT
+      // if (!pictures || pictures.length === 0) {
+      //   alert("Please upload at least one image.");
+      //   return;
+      // }
 
-      const uploadedUrls = await uploadImages(pictures);
+      // UNCOMMENT
+      // const uploadedUrls = await uploadImages(pictures);
 
       const dataToSubmit = {
         ...otherAnswers,
         email,
-        imageUrls: uploadedUrls,
+        // UNCOMMENT
+        // imageUrls: uploadedUrls,
       };
       console.log("Data to submit:", JSON.stringify(dataToSubmit, null, 2));
 
@@ -72,9 +76,16 @@ function Onboarding() {
       const token = data.token; // Extract the token from the response
       login(token, email); // Use the login function to store the token and set authentication state
 
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 10000);
+
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+
       console.log(`Response: ${JSON.stringify(data)}`);
-      navigate("/premium");
+      // navigate("/premium");
     } catch (error) {
       setError("Email already exists");
       console.error("Error uploading images or submitting data:", error);
@@ -84,16 +95,19 @@ function Onboarding() {
   };
 
   const steps = [
-    { component: ProfileInfo },
-    { component: Professional },
-    { component: PersonalBack },
-    { component: PictureUpload },
+    // UNCOMMENT
+    // { component: ProfileInfo },
+    // { component: Professional },
+    // { component: PersonalBack },
+    // { component: PictureUpload },
     { component: SignUp },
   ];
 
   const StepComponent = steps[currentStep].component;
 
-  return (
+  return loading ? (
+    <GhostLoader />
+  ) : (
     <div className="onboarding-container">
       <div className="progress-bar-container">
         <progress

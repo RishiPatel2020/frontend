@@ -93,7 +93,7 @@ const Premium = () => {
       <div className="subscription-container">
         <div className="subscription-card premium-plan text-secondary bg-light">
           <h2>Premium</h2>
-          <p className="price light">$1000/year</p>
+          <p className="price light">$999.99/year</p>
           <ul>
             <li>10 Seats available</li>
             <li>

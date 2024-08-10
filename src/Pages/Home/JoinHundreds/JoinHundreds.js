@@ -43,7 +43,7 @@ const JoinHundreds = () => {
       </h2> */}
       {/* Common Content for desktop and mobile */}
       <div>
-        <p className="text-secondary">
+        <p className="text-secondary light">
           Our matchmakers work with hundreds of Indian, Pakistani, Bangladeshi,
           Sri Lankan, Nepali, Guyanese, and more singles to find their perfect
           match

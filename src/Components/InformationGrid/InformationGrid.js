@@ -43,7 +43,7 @@ const InformationGrid = ({ data }) => {
               <h4 className={"text-" + data.titleColor}>{data.title1}</h4>
 
               {/* Description */}
-              <p className={"card-text text-" + data.textColor}>
+              <p className={"light card-text text-" + data.textColor}>
                 {data.description1}
               </p>
             </div>
@@ -59,7 +59,7 @@ const InformationGrid = ({ data }) => {
               />
 
               <h4 className={"text-" + data.titleColor}>{data.title2}</h4>
-              <p className={"card-text text-" + data.textColor}>
+              <p className={"light card-text text-" + data.textColor}>
                 {data.description2}
               </p>
             </div>
@@ -74,7 +74,7 @@ const InformationGrid = ({ data }) => {
               />
 
               <h4 className={"text-" + data.titleColor}>{data.title3}</h4>
-              <p className={"card-text text-" + data.textColor}>
+              <p className={"light card-text text-" + data.textColor}>
                 {data.description3}
               </p>
             </div>
@@ -90,7 +90,7 @@ const InformationGrid = ({ data }) => {
               />
 
               <h4 className={"text-" + data.titleColor}>{data.title4}</h4>
-              <p className={"card-text text-" + data.textColor}>
+              <p className={"light card-text text-" + data.textColor}>
                 {data.description4}
               </p>
             </div>

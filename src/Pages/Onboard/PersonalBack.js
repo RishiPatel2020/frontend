@@ -46,13 +46,13 @@ const questions = [
     id: "drinks",
     text: "Drinking",
     type: "dropdown",
-    options: ["yes", "no"],
+    options: ["Yes", "No"],
   },
   {
     id: "smokes",
     text: "Smoking",
     type: "dropdown",
-    options: ["yes", "no"],
+    options: ["Yes", "No"],
   },
   {
     id: "religion",
@@ -71,7 +71,7 @@ const questions = [
   },
   {
     id: "personality",
-    text: "Personality Traits (Select 3 max)",
+    text: "Personality Traits (Select 1 min, 3 max)",
     type: "multi",
     options: [
       "Outgoing",
@@ -95,7 +95,7 @@ const questions = [
   },
   {
     id: "hobbies",
-    text: "Hobbies (Select 6 max)",
+    text: "Hobbies (Select 1 min, 6 max)",
     type: "multi",
     options: [
       "Hiking",
