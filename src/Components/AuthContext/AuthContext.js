@@ -1,5 +1,6 @@
 import isTokenExpired from "../../Service/Cookies";
 import React, { createContext, useState, useEffect } from "react";
+import { NOT_APPLIED } from "../../Service/Constants";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -19,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   const login = (token, email, Premium) => {
     localStorage.setItem("token", token);
     localStorage.setItem("emailAddress", email);
-    localStorage.setItem("Premium", Premium ? Premium : "N");
+    localStorage.setItem("Premium", Premium ? Premium : NOT_APPLIED);
     setIsAuthenticated(true);
   };
 

@@ -77,11 +77,11 @@ function PictureUpload({ setIsValid }) {
               style={{ width: "150px" }}
               className="button"
             >
-              Remove
+              Change
             </button>
           </div>
         ))}
-        {pictures.length < 2 && (
+        {pictures.length < 1 && (
           <label
             htmlFor="fileInput"
             style={{

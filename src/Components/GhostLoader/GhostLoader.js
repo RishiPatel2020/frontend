@@ -17,7 +17,7 @@ const GhostLoader = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   useEffect(() => {
-    const messageDuration = 1250; // Duration to show each message
+    const messageDuration = 1500; // Duration to show each message
     const totalMessages = messages.length;
 
     const timer = setTimeout(() => {

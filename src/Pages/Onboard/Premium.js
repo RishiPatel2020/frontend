@@ -8,6 +8,7 @@ import {
   setLocalStorageItem,
 } from "../../Service/Session";
 import { applyPremium } from "../../Service/Api";
+import { NOT_APPLIED, QUEUED } from "../../Service/Constants";
 const Premium = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [message, setMessage] = useState(""); // State to manage messages
@@ -16,7 +17,7 @@ const Premium = () => {
   useEffect(() => {
     if (
       getLocalStorageItem("Premium") &&
-      getLocalStorageItem("Premium") !== "N"
+      getLocalStorageItem("Premium") !== NOT_APPLIED
     ) {
       navigate("/dashboard");
     }
@@ -33,7 +34,7 @@ const Premium = () => {
     try {
       sendAnalytics("Premium Card", "Apply Button", "Clicked");
       await applyPremium(token);
-      setLocalStorageItem("Premium", "Q");
+      setLocalStorageItem("Premium", QUEUED);
       setShowConfirmation(true);
     } catch (error) {
       setMessage(
@@ -134,7 +135,7 @@ const Premium = () => {
             className="select-button bold my-1 bg-dark"
             onClick={() => {
               sendAnalytics("Premium Card", "No Thnx Button", "Clicked");
-              setLocalStorageItem("Premium", "N");
+              setLocalStorageItem("Premium", NOT_APPLIED);
               navigate("/dashboard");
             }}
           >
