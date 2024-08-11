@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { LoadingAccessContext } from "./LoadingAccessContext";
 import "./GhostLoader.css";
 
 const GhostLoader = () => {
+  const navigate = useNavigate();
+  const { revokeLoadingAccess } = useContext(LoadingAccessContext); // Access the context
+
   const messages = [
     "Creating profile…",
     "Personalizing your match experience…",
@@ -12,14 +17,24 @@ const GhostLoader = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentMessageIndex((prevIndex) =>
-        prevIndex < messages.length - 1 ? prevIndex + 1 : 0 // Reset to 0 when reaching the end
-      );
-    }, 2000); // Show each message for 2 seconds
+    const messageDuration = 800; // Duration to show each message
+    const totalMessages = messages.length;
 
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+    const timer = setTimeout(() => {
+      setCurrentMessageIndex((prevIndex) => {
+        const nextIndex = prevIndex + 1;
+        if (nextIndex >= totalMessages) {
+          revokeLoadingAccess(); // Revoke access to the loading page
+          navigate("/dashboard"); // Navigate to the dashboard
+          return null;
+        }
+        return nextIndex;
+      });
+    }, messageDuration);
+
+    // Cleanup function to clear the timer
+    return () => clearTimeout(timer);
+  }, [currentMessageIndex, navigate, revokeLoadingAccess]);
 
   return (
     <div className="ghost-loader">

@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { LoadingAccessContext } from "./Components/GhostLoader/LoadingAccessContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
@@ -14,9 +18,11 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import { AnswersProvider } from "./Components/AnswersContext/AnswersContext";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
+import { LoadingAccessProvider } from "./Components/GhostLoader/LoadingAccessContext";
 
 import "./index.css";
 import "./App.css";
+import GhostLoader from "./Components/GhostLoader/GhostLoader";
 
 function App() {
   const navAndFoot = (element) => (
@@ -27,8 +33,24 @@ function App() {
       <Footer />
     </>
   );
+  const ProtectedLoadingRoute = () => {
+    const { canAccessLoading, revokeLoadingAccess } = useContext(LoadingAccessContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!canAccessLoading) {
+        navigate("/");
+      }
+
+      // Revoke access after leaving the loading screen
+      return () => revokeLoadingAccess();
+    }, [canAccessLoading, navigate, revokeLoadingAccess]);
+
+    return canAccessLoading ? <GhostLoader /> : null;
+  };
 
   return (
+    <LoadingAccessProvider>
     <Routes>
       <Route exact path="/" element={navAndFoot(<Home />)} />
       <Route exact path="/about" element={navAndFoot(<About />)} />
@@ -57,8 +79,14 @@ function App() {
         path="/premium"
         element={<PrivateRoute element={<Premium />} />}
       />
+      <Route
+        exact
+        path="/loading"
+        element={<ProtectedLoadingRoute />}
+      />
       <Route path="*" element={navAndFoot(<Home />)} />
     </Routes>
+    </LoadingAccessProvider>
   );
 }
 

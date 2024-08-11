@@ -1,3 +1,4 @@
+import { LoadingAccessContext } from "../../Components/GhostLoader/LoadingAccessContext";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
@@ -12,13 +13,13 @@ import { signUpUser } from "../../Service/Api";
 import "./Onboard.css";
 import { useEffect } from "react";
 import { sendAnalytics } from "../../Service/Api";
-import GhostLoader from "../../Components/GhostLoader/GhostLoader";
 
 function Onboarding() {
   useEffect(() => {
     sendAnalytics("Onboard", "Page", "View");
   }, []);
   const { answers } = useContext(AnswersContext);
+  const { grantLoadingAccess } = useContext(LoadingAccessContext);
   const { login } = useContext(AuthContext); // Access the login function from context
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -54,20 +55,18 @@ function Onboarding() {
         return;
       }
 
-      // UNCOMMENT
-      // if (!pictures || pictures.length === 0) {
-      //   alert("Please upload at least one image.");
-      //   return;
-      // }
 
-      // UNCOMMENT
-      // const uploadedUrls = await uploadImages(pictures);
+      if (!pictures || pictures.length === 0) {
+        alert("Please upload at least one image.");
+        return;
+      }
+
+      const uploadedUrls = await uploadImages(pictures);
 
       const dataToSubmit = {
         ...otherAnswers,
         email,
-        // UNCOMMENT
-        // imageUrls: uploadedUrls,
+        imageUrls: uploadedUrls,
       };
       console.log("Data to submit:", JSON.stringify(dataToSubmit, null, 2));
 
@@ -76,16 +75,10 @@ function Onboarding() {
       const token = data.token; // Extract the token from the response
       login(token, email); // Use the login function to store the token and set authentication state
 
-      setTimeout(() => {
-        setLoading(false);
-      }, 10000);
-
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1000);
-
+      setLoading(false);
       console.log(`Response: ${JSON.stringify(data)}`);
-      // navigate("/premium");
+      grantLoadingAccess();
+      navigate("/loading");
     } catch (error) {
       setError("Email already exists");
       console.error("Error uploading images or submitting data:", error);
@@ -95,19 +88,16 @@ function Onboarding() {
   };
 
   const steps = [
-    // UNCOMMENT
-    // { component: ProfileInfo },
-    // { component: Professional },
-    // { component: PersonalBack },
-    // { component: PictureUpload },
+    { component: ProfileInfo },
+    { component: Professional },
+    { component: PersonalBack },
+    { component: PictureUpload },
     { component: SignUp },
   ];
 
   const StepComponent = steps[currentStep].component;
 
-  return loading ? (
-    <GhostLoader />
-  ) : (
+  return (
     <div className="onboarding-container">
       <div className="progress-bar-container">
         <progress
