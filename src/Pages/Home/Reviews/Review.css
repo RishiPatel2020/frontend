@@ -1,7 +1,8 @@
 .review-carousel {
     position: relative;
     padding: 20px;
-    background-color: #f9f9f9; /* Light background for contrast */
+    /* background-color: #f9f9f9;  */
+    background-color: (254,251,246); 
   }
   
   .review-slider .slick-slide {
@@ -12,12 +13,14 @@
   
   .review-card {
     /* background: white; */
-    background-color: rgb(244,239,244);;
+    background-color: rgb(244,239,244);
+    /* background-color: rgb(254,251,246); */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added box shadow */
     text-align: center;
     margin: 0 10px; /* Increased margin for more spacing between reviews */
+    margin-bottom: 10px;
   }
   
   .review-text {

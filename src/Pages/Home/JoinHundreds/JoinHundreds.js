@@ -7,7 +7,7 @@ import AuthContext from "../../../Components/AuthContext/AuthContext";
 const JoinHundreds = () => {
   const { isAuthenticated } = useContext(AuthContext);
   return (
-    <section className="text-center bg-light mt-4">
+    <section className="text-center bg-light p-1">
       <div style={{ textAlign: "center" }}>
         {/* Main Title eg. "How you Save Time"  */}
         <h1
