@@ -15,7 +15,7 @@ const questions = [
     id: "gender",
     text: "Gender",
     type: "buttons",
-    options: ["Male", "Female", "Other"],
+    options: ["Male", "Female"],
   },
   {
     id: "dob", // Updated to DOB
