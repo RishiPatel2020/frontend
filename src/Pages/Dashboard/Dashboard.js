@@ -1,5 +1,6 @@
 // src/components/Dashboard.js
-import { ACCEPTED, NOT_APPLIED } from "../../Service/Constants";
+import { REJECTED } from "../../Service/Constants";
+import { ACCEPTED, NOT_APPLIED, QUEUED } from "../../Service/Constants";
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { useNavigate } from "react-router-dom";
@@ -96,57 +97,79 @@ const Dashboard = () => {
     );
   };
 
-  const premiumTabContent = () => {
-    const title = notAppliedyet()
-      ? "Apply for Premium"
-      : getLocalStorageItem("Premium") === ACCEPTED
-      ? "Application Accepted"
-      : "Application Submitted!";
-    const body = notAppliedyet()
-      ? "Consider applying to be a premium member for an active, faster, and exclusive matchmaking experience!"
-      : getLocalStorageItem("Premium") === ACCEPTED
-      ? "We have accepted your application please check your email for further communications"
-      : "Thanks, our team will get back to you in 2-4 days after reviewing your profile and the number of seats currently available. Keep an eye on your e-mail inbox.";
-    return (
-      <>
-        <h3 className="text-center text-dark bold">{title}</h3>
-        <div className="text-center p-2">
-          <p className="light">{body}</p>
+  const defaultCenterContent = () => {
+    let body = "";
+    const premiumStatus = getLocalStorageItem("Premium");
+    switch (premiumStatus) {
+      case QUEUED:
+        body = (
+          <p className="light">
+            Thanks, our team will get back to you in 2-4 days after reviewing
+            your profile and the number of seats currently available. Keep an
+            eye on your e-mail inbox.
+          </p>
+        );
 
-          {notAppliedyet() && (
-            <button
-              className="select-button bold bg-dark"
-              onClick={() => navigate("/premium")}
-            >
-              Apply
-            </button>
-          )}
-        </div>
-      </>
-    );
+        break;
+      case ACCEPTED:
+        body = (
+          <p className="light">
+            We're actively working to get you matched! Be on the lookout in your
+            email inbox to see updates.
+          </p>
+        );
+        break;
+      case REJECTED:
+        body = (
+          <p className="light">
+            Thanks for your interest in becoming a premium member, unfortunately
+            all seats are currently filled at this time. We have added you to
+            the wait list. In the meantime, we'll notify you if you are a match
+            for our existing premium members. Keep an eye on your inbox, best of
+            luck!
+          </p>
+        );
+        break;
+      default:
+        body = (
+          <div>
+            <p className="light">
+              Sit tight, we're actively working with premium members to get them
+              paired. We'll let you know if you're a match via e-mail. Keep an
+              eye on your inbox, best of luck! Consider applying to be a premium
+              member for an active, faster, and exclusive matchmaking
+              experience!
+            </p>
+            <p className=" light my-2">
+              Consider applying to be a premium member for an active, faster,
+              and exclusive matchmaking experience!
+            </p>
+          </div>
+        );
+
+        break;
+    }
+    return <div className="text-center p-3">{body}</div>;
   };
 
   const tabs = () => {
     return (
       <div className="text-center">
         <div className="p-2">
-          <button
-            className={`tab-button ${tab === "P" ? "active" : ""} bold`}
-            onClick={() => setTab("P")}
-          >
-            Apply for Premium
-          </button>
+          {getLocalStorageItem("Premium") === NOT_APPLIED && (
+            <button
+              className={`tab-button ${tab === "P" ? "active" : ""} bold`}
+              onClick={() => navigate("/premium")}
+            >
+              Apply for Premium
+            </button>
+          )}
           <button
             className={`tab-button ${tab === "M" ? "active" : ""} bold`}
             onClick={() => setTab("M")}
           >
             Edit Profile
           </button>
-          <p className="p-1 light">
-            Sit tight, we're actively working with premium members to get them
-            paired. We'll let you know if you're a match via e-mail. Keep an eye
-            on your inbox, best of luck!
-          </p>
         </div>
       </div>
     );
@@ -233,7 +256,7 @@ const Dashboard = () => {
   return (
     <div style={{ height: "87vh" }}>
       {tabs()}
-      <div>{tab === "P" ? premiumTabContent() : editProfile()}</div>
+      <div>{tab === "P" ? defaultCenterContent() : editProfile()}</div>
     </div>
   );
 };
