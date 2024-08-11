@@ -229,6 +229,7 @@ const Dashboard = () => {
             onClick={handleSave}
             className="btn btn-success mt-2 bg-info text-white"
             disabled={loading}
+            style={{marginRight:"10px"}}
           >
             {loading ? "Saving..." : "Save"}
           </button>
@@ -239,7 +240,7 @@ const Dashboard = () => {
               setSuccess("");
               setError("");
             }}
-            className="btn bg-dark text-primary mt-2 mx-2"
+            className="btn bg-dark text-primary mt-2"
           >
             Clear
           </button>

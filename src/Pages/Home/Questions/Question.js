@@ -52,6 +52,25 @@ const Question = () => {
 
         <Accordion.Item eventKey="3">
           <Accordion.Header>
+            <span className="bold">
+              Do I have to be a premium member to receive matches?
+            </span>
+          </Accordion.Header>
+
+          <Accordion.Body>
+            <span className="light">
+              No! Once your profile is added to our matchmaking database, our
+              matchmakers will consider your profile for qualities and traits
+              that premium members are looking for. It will just take a bit
+              longer to get you matched with a free membership as a free member
+              can only be matched with premium members, whereas premium members
+              can be matched with both premium AND free members
+            </span>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="4">
+          <Accordion.Header>
             <span className="bold">When can I expect to receive matches?</span>
           </Accordion.Header>
           <Accordion.Body>
@@ -65,7 +84,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="4">
+        <Accordion.Item eventKey="5">
           <Accordion.Header>
             <span className="bold">
               Once I get the e-mail of the candidates, what's next?
@@ -81,7 +100,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="5">
+        <Accordion.Item eventKey="6">
           <Accordion.Header>
             <span className="bold">
               I applied for a premium membership, how are premium members
@@ -97,7 +116,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="6">
+        <Accordion.Item eventKey="7">
           <Accordion.Header>
             <span className="bold">
               After my premium membership application, how long before I hear
@@ -112,7 +131,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="7">
+        <Accordion.Item eventKey="8">
           <Accordion.Header>
             <span className="bold">
               I was waitlisted for the premium membership, how long before seats
@@ -129,7 +148,7 @@ const Question = () => {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="8">
+        <Accordion.Item eventKey="9">
           <Accordion.Header>
             <span className="bold">I need other help, where do I go?</span>
           </Accordion.Header>

@@ -38,7 +38,7 @@ const Reviews = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 2500, // Slowed down speed (in milliseconds)
+    speed: 4000, // Slowed down speed (in milliseconds)
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -55,7 +55,7 @@ const Reviews = () => {
             // className="text-dark"
             className="text-info"
           >
-            What Others are Saying
+            What Users are Saying
           </h1>
         </div>
       </Container>
@@ -64,7 +64,7 @@ const Reviews = () => {
           <div key={index} className="review-card">
             <div className="review-content">
               <i className="review-text">{review.text}</i>
-              <p className="review-author text-info">{review.name}</p>
+              <p className="review-author text-dark">{review.name}</p>
             </div>
           </div>
         ))}
