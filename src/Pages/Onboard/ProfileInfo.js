@@ -18,10 +18,9 @@ const questions = [
     options: ["Male", "Female", "Other"],
   },
   {
-    id: "age",
-    text: "What is your age?",
-    type: "dropdown",
-    options: Array.from({ length: 99 - 21 + 1 }, (_, i) => i + 21),
+    id: "dob", // Updated to DOB
+    text: "Date of Birth",
+    type: "date", // Changed to date input type
   },
   {
     id: "intention",
@@ -40,16 +39,22 @@ const questions = [
   },
 ];
 
-function ProfileInfo({ setIsValid }) {
+function ProfileInfo({ setIsValid, setIsValidAge }) {
   const { answers, updateAnswer } = useContext(AnswersContext);
 
   const handleInputChange = (id, value) => {
     updateAnswer(id, value);
     console.log(`data so far: ${JSON.stringify(answers)}`);
+
+    if (id === "dob") {
+      const dob = new Date(value);
+      const today = new Date();
+      const age = today.getFullYear() - dob.getFullYear();
+      setIsValidAge(age >= 21);
+    }
   };
 
   useEffect(() => {
-    // Validate inputs
     const isValid = questions.every((question) => answers[question.id]);
     setIsValid(isValid);
   }, [answers, setIsValid]);
@@ -90,6 +95,14 @@ function ProfileInfo({ setIsValid }) {
                   </button>
                 ))}
               </div>
+            ) : question.type === "date" ? (
+              <input
+                type="date"
+                id={question.id}
+                value={answers[question.id] || ""}
+                onChange={(e) => handleInputChange(question.id, e.target.value)}
+                className="border-0 border-bottom rounded-1"
+              />
             ) : (
               <input
                 type={question.type}

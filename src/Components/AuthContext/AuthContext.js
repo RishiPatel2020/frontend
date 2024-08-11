@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   const login = (token, email, Premium) => {
     localStorage.setItem("token", token);
     localStorage.setItem("emailAddress", email);
-    localStorage.setItem("Premium", Premium);
+    localStorage.setItem("Premium", Premium ? Premium : "N");
     setIsAuthenticated(true);
   };
 

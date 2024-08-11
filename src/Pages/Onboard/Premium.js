@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Premium.css";
 import React, { useState } from "react";
@@ -12,7 +13,14 @@ const Premium = () => {
   const [message, setMessage] = useState(""); // State to manage messages
   const [isError, setIsError] = useState(false); // State to manage if there's an error
   const navigate = useNavigate();
-
+  useEffect(() => {
+    if (
+      getLocalStorageItem("Premium") &&
+      getLocalStorageItem("Premium") !== "N"
+    ) {
+      navigate("/dashboard");
+    }
+  }, []);
   const submitApplication = async () => {
     const token = getLocalStorageItem("token"); // Get token from local storage
 

@@ -1,5 +1,5 @@
 import { LoadingAccessContext } from "../../Components/GhostLoader/LoadingAccessContext";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
 import Professional from "./Professional";
@@ -8,28 +8,30 @@ import PictureUpload from "./PictureUpload";
 import SignUp from "./Signup";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 import AuthContext from "../../Components/AuthContext/AuthContext";
-import { uploadImages } from "../../Service/Api";
-import { signUpUser } from "../../Service/Api";
+import { uploadImages, signUpUser } from "../../Service/Api";
 import "./Onboard.css";
-import { useEffect } from "react";
 import { sendAnalytics } from "../../Service/Api";
 
 function Onboarding() {
   useEffect(() => {
     sendAnalytics("Onboard", "Page", "View");
   }, []);
+
   const { answers } = useContext(AnswersContext);
   const { grantLoadingAccess } = useContext(LoadingAccessContext);
-  const { login } = useContext(AuthContext); // Access the login function from context
+  const { login } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [isValid, setIsValid] = useState(false);
+  const [isValidAge, setIsValidAge] = useState(true);
 
   const handleNext = () => {
-    if (currentStep < steps.length - 1 && isValid) {
+    if (currentStep < steps.length - 1 && isValid && isValidAge) {
       setCurrentStep(currentStep + 1);
+    } else if (!isValidAge) {
+      alert("You must be 21 or older to register");
     } else {
       alert("Please fill in all fields before proceeding.");
     }
@@ -54,7 +56,6 @@ function Onboarding() {
         alert("Email is required.");
         return;
       }
-
 
       if (!pictures || pictures.length === 0) {
         alert("Please upload at least one image.");
@@ -106,7 +107,12 @@ function Onboarding() {
           className="progress-bar"
         />
       </div>
-      <StepComponent setIsValid={setIsValid} />
+      <StepComponent
+        setIsValid={setIsValid}
+        setIsValidAge={
+          StepComponent === ProfileInfo ? setIsValidAge : undefined
+        } // Pass age only if the step is ProfileInfo
+      />
       <div className="button-container">
         <button
           onClick={currentStep === 0 ? () => navigate("/") : handlePrevious}
@@ -120,7 +126,7 @@ function Onboarding() {
             className="button mx-2 bold"
             disabled={loading ? true : false}
           >
-            {loading ? "Loading..." : "Submit"}
+            Submit
           </button>
         ) : (
           <button onClick={handleNext} className="button mx-2 bold">
