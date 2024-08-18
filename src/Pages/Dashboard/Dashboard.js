@@ -177,7 +177,7 @@ const Dashboard = () => {
 
   const editProfile = () => (
     <>
-      <h3 className="text-center text-dark bold">Edit your Profile</h3>
+      <h3 className="text-center text-dark bold">Edit Your Profile</h3>
       <div className="text-center p-2">
         <div className="form-container">
           <div className="form-group">
