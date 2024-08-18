@@ -38,8 +38,8 @@ const GhostLoader = () => {
 
   return (
     <div className="ghost-loader">
-      <div className="loading-text">{messages[currentMessageIndex]}</div>
       <div className="spinner"></div>
+      <div className="loading-text">{messages[currentMessageIndex]}</div>
     </div>
   );
 };

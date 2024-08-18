@@ -31,8 +31,8 @@ const questions = [
     ],
   },
   {
-    id: "maritalStatus",
-    text: "Marital Status",
+    id: "previousMaritalStatus",
+    text: "Previous Marital Status",
     type: "dropdown",
     options: [
       "Single, never married",
@@ -164,6 +164,7 @@ const questions = [
       "Vegan",
       "Jain / Swaminarayan",
       "Pescatarian",
+      "Halal"
     ],
   },
 ];
@@ -236,6 +237,7 @@ function PersonalBack({ setIsValid }) {
                     question.maxSelections
                   )
                 }
+                className="light"
                 placeholder="Select options"
                 components={{ Input: CustomInput }}
                 styles={{
