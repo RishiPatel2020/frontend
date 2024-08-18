@@ -98,7 +98,7 @@ function PictureUpload({ setIsValid }) {
               padding: "10px", // Added padding for better appearance
             }}
           >
-            <span style={{ marginBottom: "5px", display: "block", fontWeight: 800 }}>
+            <span style={{ marginBottom: "5px", display: "block"}}>
               Click to upload
             </span>
             <input
