@@ -8,7 +8,7 @@ const JoinHundreds = () => {
   const { isAuthenticated } = useContext(AuthContext);
   return (
     <section className="text-center bg-light p-1">
-      <div style={{ textAlign: "center" }}>
+      <div style={{ textAlign: "center" , padding:"54px 32px"}}>
         {/* Main Title eg. "How you Save Time"  */}
         <h1
           style={{ margin: "0px 0px 10px", fontSize: "48px" }}

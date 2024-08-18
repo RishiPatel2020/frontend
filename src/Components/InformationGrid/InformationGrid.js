@@ -17,7 +17,7 @@ const InformationGrid = ({ data }) => {
         "row align-items-center justify-content-between bg-" + data.backColor
       }
     >
-      <Container style={{ padding: "64px 32px" }}>
+      <Container style={{ padding: "54px 32px" }}>
         <div style={{ textAlign: "center" }}>
           {/* Main Title eg. "How you Save Time"  */}
           <h1
@@ -28,7 +28,7 @@ const InformationGrid = ({ data }) => {
           </h1>
         </div>
 
-        <Row>
+        <Row className="my-4">
           <Col sm>
             <div className="card-body text-center">
               {/* Vector Image */}

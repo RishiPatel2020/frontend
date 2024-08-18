@@ -48,7 +48,7 @@ const Reviews = () => {
 
   return (
     <div className="review-carousel">
-      <Container id="reviews">
+      <Container id="reviews " style={{ padding: "44px 32px" }}>
         <div className="text-center">
           <h1
             style={{ margin: "0px 0px 10px", fontSize: "42px" }}
