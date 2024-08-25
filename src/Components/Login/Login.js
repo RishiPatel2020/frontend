@@ -6,6 +6,7 @@ import AuthContext from "../AuthContext/AuthContext";
 import ForgotPassword from "./ForgotPassword";
 import { loginUser } from "../../Service/Api";
 import { sendAnalytics } from "../../Service/Api";
+import './Login.css';
 function Login() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [display, setDisplay] = useState(false);
@@ -27,9 +28,10 @@ function Login() {
     setDisplay(false);
   };
 
-
-
   const handleSubmit = async () => {
+    if (loading) {
+      return;
+    }
     sendAnalytics("Log In Dialog", "Submit Button", "Click");
     setLoading(true);
     setInvalid(false);
@@ -124,7 +126,7 @@ function Login() {
             Forgot Password
           </Link>
           <Button variant="dark" onClick={handleSubmit} className="bold">
-            {loading ? "Loading..." : "Submit"}
+            {loading ? <div className="button-spinner"></div> : "Submit"}
           </Button>
         </Modal.Footer>
       </Modal>

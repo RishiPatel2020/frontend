@@ -1,4 +1,3 @@
-import { LoadingAccessContext } from "../../Components/GhostLoader/LoadingAccessContext";
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
@@ -9,6 +8,7 @@ import SignUp from "./Signup";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 import AuthContext from "../../Components/AuthContext/AuthContext";
 import { uploadImages, signUpUser } from "../../Service/Api";
+import { LoadingAccessContext } from "../../Components/GhostLoader/LoadingAccessContext";
 import "./Onboard.css";
 import { sendAnalytics } from "../../Service/Api";
 
@@ -21,7 +21,7 @@ function Onboarding() {
   const { grantLoadingAccess } = useContext(LoadingAccessContext);
   const { login } = useContext(AuthContext);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(false); // Set initial loading state to false
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [isValid, setIsValid] = useState(false);
@@ -44,12 +44,16 @@ function Onboarding() {
   };
 
   const handleSubmit = async () => {
+    if (loading) {
+      return;
+    }
     if (!isValid) {
       alert("Please fill in all fields before submitting.");
       return;
     }
     sendAnalytics("Onboard", "Submit Button", "Click");
-    setLoading(true);
+    setLoading(true); // Start loading
+
     try {
       const { pictures, email, ...otherAnswers } = answers;
       if (!email) {
@@ -76,14 +80,12 @@ function Onboarding() {
       const token = data.token; // Extract the token from the response
       login(token, email); // Use the login function to store the token and set authentication state
 
-      setLoading(false);
+      setLoading(false); // Stop loading before navigating
       console.log(`Response: ${JSON.stringify(data)}`);
       grantLoadingAccess();
       navigate("/loading");
     } catch (error) {
-      setError("Email already exists");
-      console.error("Error uploading images or submitting data:", error);
-      alert("An error occurred. Please try again.");
+      setError("Email already exists. Try using different email");
       setLoading(false); // Ensure to reset loading state on error
     }
   };
@@ -113,6 +115,9 @@ function Onboarding() {
           StepComponent === ProfileInfo ? setIsValidAge : undefined
         } // Pass age only if the step is ProfileInfo
       />
+      <div className="row">
+        {error && <p style={{ color: "red" }}>{error}</p>}
+      </div>
       <div className="button-container">
         <button
           onClick={currentStep === 0 ? () => navigate("/") : handlePrevious}
@@ -124,17 +129,17 @@ function Onboarding() {
           <button
             onClick={handleSubmit}
             className="button mx-2 bold"
-            disabled={loading ? true : false}
+            // disabled={loading}
           >
-            Submit
+            {loading ? <div className="button-spinner"></div> : "Submit"}
           </button>
         ) : (
           <button onClick={handleNext} className="button mx-2 bold">
             Next
           </button>
         )}
-        <br></br>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+
+        
       </div>
     </div>
   );
