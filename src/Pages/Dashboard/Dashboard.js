@@ -32,13 +32,13 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    scrollToTop();
     const token = localStorage.getItem("token");
     if (!token || isTokenExpired(token)) {
       logout();
       navigate("/");
       return;
     } else {
-      scrollToTop();
       sendAnalytics("Dashboard", "Page", "View");
     }
   }, []);
@@ -229,7 +229,7 @@ const Dashboard = () => {
             onClick={handleSave}
             className="btn btn-success mt-2 bg-info text-white"
             disabled={loading}
-            style={{marginRight:"10px"}}
+            style={{ marginRight: "10px" }}
           >
             {loading ? "Saving..." : "Save"}
           </button>

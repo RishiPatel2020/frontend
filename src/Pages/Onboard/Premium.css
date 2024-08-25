@@ -1,3 +1,22 @@
+/* Fixed Back Button Style */
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: rgb(72, 39, 110); /* Adjust as needed */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000; /* Ensures it's above other elements */
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Adjust as needed */
+}
+
 /* Responsive Styles */
 @media (min-width: 768px) {
   .subscription-container {

@@ -103,9 +103,8 @@ const Premium = () => {
 
   const displayCards = () => (
     <div className="App my-1">
-      <h5 className="bold">
-        Consider applying to be a premium member for an active, faster, and
-        exclusive matchmaking experience!
+      <h5 className="bold text-center">
+        Review plans below
       </h5>
       <div className="subscription-container">
         {/* Card 1 */}
@@ -339,8 +338,7 @@ const Premium = () => {
                 className="checkmark-icon"
               />{" "}
               <span>
-              <span className="bold">12X</span> Speed of
-              Finding Matches
+                <span className="bold">12X</span> Speed of Finding Matches
               </span>
             </li>
             <li>
@@ -420,6 +418,9 @@ const Premium = () => {
           </ul>
         </div>
       </div>
+      <button className="back-button" onClick={() => navigate(-1)}>
+        Back
+      </button>
     </div>
   );
 
