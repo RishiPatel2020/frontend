@@ -1,32 +1,26 @@
-.congrats-container {
+/* Benefits List */
+.benefits-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: var(--primary);
-  padding: 20px;
-}
-.congrats-card {
-  background: var(--light);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  text-align: center;
-  max-width: 500px;
-  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: inherit;
 }
 
-.congrats-card h1 {
-  margin-top: 0;
-  color: var(--dark);
-  font-size: 2rem;
+/* Checkmark Icon Styles */
+.checkmark-icon {
+  width: 16px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 8px; /* Space between the checkmark and text */
 }
 
-.congrats-card p {
-  color: var(--secondary);
-  font-size: 1.25rem;
-  margin: 20px 0;
-}
+/* Container and Card Styles */
 .subscription-container {
   display: flex;
   flex-direction: column;
@@ -38,7 +32,7 @@
 .subscription-card {
   background: var(--primary);
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   width: 80%;
   max-width: 300px;
   padding: 20px;
@@ -48,75 +42,121 @@
 }
 
 .subscription-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Enhanced hover shadow */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-.free-plan {
-  /* border: 2px solid var(--secondary); */
-  color: var(--secondary);
+/* Header and Icon Styles */
+.premium-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.premium-plan {
-  /* border: 2px solid var(--dark); */
-  background: var(--light);
-  color: var(--dark);
+.premium-icon {
+  width: 40px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px;
 }
 
-.subscription-card h2 {
-  margin-top: 0;
-  color: inherit;
-  font-size: 1.5rem;
+.premium-title {
+  font-size: 1.10em; /* Smaller title size */
+  margin-bottom: 10px;
+  text-align: left; /* Left align the title */
 }
 
-.subscription-card .price {
-  font-size: 1.25rem;
-  color: inherit;
-  margin: 10px 0;
+/* Text Alignment */
+.price,
+.availability {
+  text-align: left; /* Left align price and availability */
 }
 
-.subscription-card ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 10px 0;
-}
-
-.subscription-card li {
-  margin: 5px 0; /* Reduced margin between list items */
-  font-size: 1rem;
-  color: inherit;
-}
-
-.premium-plan li {
-  font-size: 0.875rem; /* Smaller font size for premium plan items */
-  margin: 5px 0; /* Reduced margin between list items */
-}
-
-.select-button {
+/* Button Styles */
+.apply-button {
+  width: 70%; /* Make the button smaller */
+  font-size: 1rem; /* Adjust button size */
+  height: 36px;
+  padding: 1px 15px; /* Adjust padding for smaller button */
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
+  background-color: var(--dark);
+  color: white;
   transition: background-color 0.3s;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted button shadow */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.select-button:hover {
-  background-color: var(--dark);
-}
-
-.premium-plan .select-button {
-  background-color: var(--dark);
-}
-
-.premium-plan .select-button:hover {
+.apply-button:hover {
   background-color: var(--secondary);
 }
 
-h5 {
-  margin-top: 40px; /* Add space above the header */
+/* Divider Line */
+.divider {
+  border-top: 3px solid white;
+  margin: 20px 0;
 }
 
+/* Benefits List */
+.benefits-list {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.benefits-list li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: inherit;
+  text-align: left;
+}
+
+/* Confirmation and Error Styles */
+.congrats-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.congrats-card,
+.error-card {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.congrats-card {
+  background-color: #e8f5e9;
+}
+
+.error-card {
+  background-color: #ffebee;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styles for Confirmation and Error States */
+.next-button,
+.retry-button,
+.dashboard-button {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.next-button {
+  background-color: #388e3c;
+}
+
+.retry-button {
+  background-color: #d32f2f;
+}
+
+.dashboard-button {
+  background-color: #37474f;
+}
+
+/* Responsive Styles */
 @media (min-width: 768px) {
   .subscription-container {
     flex-direction: row;
@@ -141,12 +181,12 @@ h5 {
   }
 
   .premium-plan li {
-    font-size: 1rem; /* Adjust font size for premium plan items on larger screens */
+    font-size: 1rem;
   }
 
-  .select-button {
+  .apply-button {
     font-size: 1.25rem;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Adjusted button shadow */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -156,80 +196,6 @@ h5 {
   }
 
   .subscription-card {
-    width: 30%;
+    width: 35%;
   }
-}
-@media (max-width: 768px) {
-  .congrats-card h1 {
-    font-size: 1.5rem;
-  }
-
-  .congrats-card p {
-    font-size: 1rem;
-  }
-
-  .next-button {
-    font-size: 1rem;
-    padding: 8px 16px;
-  }
-}
-.next-button {
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  box-shadow: 2px 2px 2px rgb(0, 0, 0);
-}
-
-.next-button:hover {
-  background-color: var(--secondary);
-}
-/* src/components/Premium.css */
-.congrats-container,
-.error-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  
-}
-
-.congrats-card,
-.error-card {
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.congrats-card {
-  background-color: #e8f5e9; /* Light green background for success */
-}
-
-.error-card {
-  background-color: #ffebee; /* Light red background for error */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
-}
-
-.next-button,
-.retry-button,
-.dashboard-button {
-  margin: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-}
-
-.next-button {
-  background-color: #388e3c; /* Darker green for success */
-}
-
-.retry-button {
-  background-color: #d32f2f; /* Darker red for error */
-}
-
-.dashboard-button {
-  background-color: #37474f; /* Darker gray for navigation */
 }

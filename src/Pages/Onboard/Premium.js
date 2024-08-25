@@ -9,11 +9,15 @@ import {
 } from "../../Service/Session";
 import { applyPremium } from "../../Service/Api";
 import { NOT_APPLIED, QUEUED } from "../../Service/Constants";
+import PremiumIcon from "../../Resources/Premium/Middle_Pricing.png"; // Assuming you have an image in the assets folder
+import CheckmarkIcon from "../../Resources/Premium/Checkmark Bullet (Beige).png"; // Path to your checkmark image
+
 const Premium = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [message, setMessage] = useState(""); // State to manage messages
-  const [isError, setIsError] = useState(false); // State to manage if there's an error
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (
       getLocalStorageItem("Premium") &&
@@ -22,8 +26,9 @@ const Premium = () => {
       navigate("/dashboard");
     }
   }, []);
+
   const submitApplication = async () => {
-    const token = getLocalStorageItem("token"); // Get token from local storage
+    const token = getLocalStorageItem("token");
 
     if (!token) {
       setMessage("You must be logged in to apply for premium membership.");
@@ -100,47 +105,89 @@ const Premium = () => {
         exclusive matchmaking experience!
       </h5>
       <div className="subscription-container">
-        <div className="subscription-card premium-plan text-secondary bg-light">
-          <h2>Premium</h2>
-          <p className="price light">$999.99/year</p>
-          <ul>
-            <li>10 Seats available</li>
-            <li>
-              Can be matched with free and paying customers in the Ria database
-            </li>
-            <li>4X Speed of Finding Matches</li>
-            <li>Unlimited # of Potential Matches</li>
-            <li>12 Months Membership Term</li>
-            <li>
-              Gold Standard Guarantee - Extra 6 months membership if no
-              candidates found within first 12 months
-            </li>
-            <li>Follow-up detailed questionnaire</li>
-            <li>External Searching via offline networks and channels</li>
-            <li>Monthly Progress Updates</li>
-            <li>3 Free Professional Photos Photoshoot</li>
-            <li>50 Date Ideas in Your Area</li>
-            <li>Body Language, Confidence, and Date Etiquette Manual</li>
-            <li>2024 Outfits & Styling Ideas E-Book</li>
-            <li>Post-Date Feedback</li>
-          </ul>
+        <div className="subscription-card premium-plan text-secondary bg-dark">
+          <div className="p-3">
+            <div className="premium-header">
+              <img
+                src={PremiumIcon}
+                alt="Premium Icon"
+                className="premium-icon"
+              />
+            </div>
+            <h2 className="premium-title text-white">Premium - 1 Year</h2>
+            <p className="availability text-white light">9 Seats available</p>
+            {/* <p className="price text-white">$999.99 / yr</p> */}
+            <h2 className="text-white" style={{ textAlign: "left" }}>
+              $999<span style={{ fontSize: "small" }}>/ yr</span>
+            </h2>
+            <p className="availability text-white light">
+              Save $400 compared to 6 months
+            </p>
+          </div>
+
           <button
-            className="select-button bold bg-dark"
+            className="apply-button bold bg-info"
             onClick={() => submitApplication()}
           >
             Apply
           </button>
-          <br />
-          <button
-            className="select-button bold my-1 bg-dark"
-            onClick={() => {
-              sendAnalytics("Premium Card", "No Thnx Button", "Clicked");
-              setLocalStorageItem("Premium", NOT_APPLIED);
-              navigate("/dashboard");
-            }}
-          >
-            No, Thanks!
-          </button>
+
+          <hr className="divider" />
+
+          <ul className="benefits-list text-white light p-3">
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Match with free and paying customers
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              <strong style={{ marginRight: "5px" }}>4X</strong> Speed of
+              Finding Matches
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              <span>
+                Gold Guarantee - Extra <strong className="bold">6</strong>{" "}
+                months if no candidates found within first 12 months
+              </span>
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Unlimited # of Potential Matches
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              External Searching via offline networks and channels
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Post meeting feedback
+            </li>
+          </ul>
         </div>
       </div>
     </div>
