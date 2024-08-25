@@ -9,7 +9,7 @@ import {
 } from "../../Service/Session";
 import { applyPremium } from "../../Service/Api";
 import { NOT_APPLIED, QUEUED } from "../../Service/Constants";
-import PremiumIcon from "../../Resources/Premium/Middle_Pricing.png"; // Assuming you have an image in the assets folder
+import PremiumIcon from "../../Resources/Premium/Middle_Pricing.png"; // Path to your image
 import CheckmarkIcon from "../../Resources/Premium/Checkmark Bullet (Beige).png"; // Path to your checkmark image
 
 const Premium = () => {
@@ -98,13 +98,14 @@ const Premium = () => {
     </div>
   );
 
-  const displayCard = () => (
+  const displayCards = () => (
     <div className="App my-1">
       <h5 className="bold">
         Consider applying to be a premium member for an active, faster, and
         exclusive matchmaking experience!
       </h5>
       <div className="subscription-container">
+        {/* Existing Card */}
         <div className="subscription-card premium-plan text-secondary bg-dark">
           <div className="p-3">
             <div className="premium-header">
@@ -116,7 +117,6 @@ const Premium = () => {
             </div>
             <h2 className="premium-title text-white">Premium - 1 Year</h2>
             <p className="availability text-white light">9 Seats available</p>
-            {/* <p className="price text-white">$999.99 / yr</p> */}
             <h2 className="text-white" style={{ textAlign: "left" }}>
               $999<span style={{ fontSize: "small" }}>/ yr</span>
             </h2>
@@ -134,7 +134,7 @@ const Premium = () => {
 
           <hr className="divider" />
 
-          <ul className="benefits-list text-white light p-3">
+          <ul className="benefits-list text-white light">
             <li>
               <img
                 src={CheckmarkIcon}
@@ -189,6 +189,170 @@ const Premium = () => {
             </li>
           </ul>
         </div>
+
+        {/* Additional Cards */}
+        <div className="subscription-card premium-plan text-secondary bg-dark">
+          <div className="p-3">
+            <div className="premium-header">
+              <img
+                src={PremiumIcon}
+                alt="Premium Icon"
+                className="premium-icon"
+              />
+            </div>
+            <h2 className="premium-title text-white">Premium - 6 Months</h2>
+            <p className="availability text-white light">15 Seats available</p>
+            <h2 className="text-white" style={{ textAlign: "left" }}>
+              $599<span style={{ fontSize: "small" }}>/ 6 mos</span>
+            </h2>
+            <p className="availability text-white light">
+              Save $200 compared to 3 months
+            </p>
+          </div>
+
+          <button
+            className="apply-button bold bg-info"
+            onClick={() => submitApplication()}
+          >
+            Apply
+          </button>
+
+          <hr className="divider" />
+
+          <ul className="benefits-list text-white light">
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Match with free and paying customers
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              <strong style={{ marginRight: "5px" }}>2X</strong> Speed of
+              Finding Matches
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Silver Guarantee - Extra <strong className="bold">3</strong>{" "}
+                months if no candidates found within first 6 months
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Unlimited # of Potential Matches
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              External Searching via offline networks and channels
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Post meeting feedback
+            </li>
+          </ul>
+        </div>
+
+        <div className="subscription-card premium-plan text-secondary bg-dark">
+          <div className="p-3">
+            <div className="premium-header">
+              <img
+                src={PremiumIcon}
+                alt="Premium Icon"
+                className="premium-icon"
+              />
+            </div>
+            <h2 className="premium-title text-white">Premium - 1 Month</h2>
+            <p className="availability text-white light">20 Seats available</p>
+            <h2 className="text-white" style={{ textAlign: "left" }}>
+              $199<span style={{ fontSize: "small" }}>/ mo</span>
+            </h2>
+            <p className="availability text-white light">
+            Save $50 compared to weekly
+            </p>
+          </div>
+
+          <button
+            className="apply-button bold bg-info"
+            onClick={() => submitApplication()}
+          >
+            Apply
+          </button>
+
+          <hr className="divider" />
+
+          <ul className="benefits-list text-white light">
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Match with free and paying customers
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              <strong style={{ marginRight: "5px" }}>1X</strong> Speed of
+              Finding Matches
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              No Guarantee, but access to all features
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Unlimited # of Potential Matches
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              External Searching via offline networks and channels
+            </li>
+            <li>
+              <img
+                src={CheckmarkIcon}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Post meeting feedback
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -197,7 +361,7 @@ const Premium = () => {
     ? displayConfirmation()
     : isError
     ? displayError()
-    : displayCard();
+    : displayCards();
 };
 
 export default Premium;

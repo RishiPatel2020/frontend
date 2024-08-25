@@ -1,3 +1,43 @@
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .subscription-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .subscription-card {
+    width: 30%;
+    max-width: none;
+    margin: 0 10px; /* Spacing between cards */
+  }
+
+  .subscription-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .subscription-card .price {
+    font-size: 1.25rem;
+  }
+
+  .subscription-card li {
+    font-size: 1.125rem;
+  }
+
+  .apply-button {
+    font-size: 1.125rem;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (min-width: 1200px) {
+  .subscription-container {
+    justify-content: center;
+  }
+
+  .subscription-card {
+    width: 30%;
+  }
+}
 /* Benefits List */
 .benefits-list {
   list-style-type: none;
@@ -28,6 +68,7 @@
   gap: 20px;
   padding: 20px;
 }
+
 
 .subscription-card {
   background: var(--primary);
