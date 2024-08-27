@@ -1,3 +1,48 @@
+.button-spinner {
+  display: inline-block;
+  width: 1em; /* Adjust size to make it smaller */
+  height: 1em;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Make spinner responsive */
+@media (min-width: 768px) {
+  .button-spinner {
+    width: 0.9em; /* Slightly smaller on larger screens */
+    height: 0.9em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .button-spinner {
+    width: 0.8em; /* Even smaller on larger screens */
+    height: 0.8em;
+  }
+}
+.premium-card-label {
+  background-color: rgb(244,239,244); /* Label background color */
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+
+}
+
+
 /* Fixed Back Button Style */
 .back-button {
   position: fixed;
@@ -97,13 +142,10 @@
   max-width: 300px;
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
 
-.subscription-card:hover {
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
+
 
 /* Header and Icon Styles */
 .premium-header {

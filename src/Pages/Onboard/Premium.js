@@ -19,6 +19,9 @@ const Premium = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
+  const [loading1, setLoading1] = useState(false);
+  const [loading2, setLoading2] = useState(false);
+  const [loading3, setLoading3] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +33,7 @@ const Premium = () => {
     }
   }, []);
 
-  const submitApplication = async () => {
+  const submitApplication = async (type) => {
     const token = getLocalStorageItem("token");
 
     if (!token) {
@@ -41,7 +44,7 @@ const Premium = () => {
 
     try {
       sendAnalytics("Premium Card", "Apply Button", "Clicked");
-      await applyPremium(token);
+      await applyPremium(type);
       setLocalStorageItem("Premium", QUEUED);
       setShowConfirmation(true);
     } catch (error) {
@@ -103,9 +106,7 @@ const Premium = () => {
 
   const displayCards = () => (
     <div className="App my-1">
-      <h5 className="bold text-center">
-        Review plans below
-      </h5>
+      <h5 className="bold text-center">View plans below</h5>
       <div className="subscription-container">
         {/* Card 1 */}
         <div className="subscription-card premium-plan text-secondary bg-primary">
@@ -126,9 +127,12 @@ const Premium = () => {
 
           <button
             className="apply-button bold bg-info"
-            onClick={() => submitApplication()}
+            onClick={() => {
+              setLoading1(true);
+              submitApplication("6 months");
+            }}
           >
-            Apply
+            {loading1 ? <div className="button-spinner"></div> : "Apply"}
           </button>
 
           <hr
@@ -194,7 +198,9 @@ const Premium = () => {
         </div>
 
         {/* Card 2 */}
+
         <div className="subscription-card premium-plan text-secondary bg-dark">
+          <div className="premium-card-label text-dark">Most Popular</div>
           <div className="p-3">
             <div className="premium-header">
               <img
@@ -215,9 +221,12 @@ const Premium = () => {
 
           <button
             className="apply-button bold bg-info"
-            onClick={() => submitApplication()}
+            onClick={() => {
+              setLoading2(true);
+              submitApplication("1 year");
+            }}
           >
-            Apply
+            {loading2 ? <div className="button-spinner"></div> : "Apply"}
           </button>
 
           <hr className="divider" />
@@ -297,9 +306,12 @@ const Premium = () => {
 
           <button
             className="apply-button bold bg-info"
-            onClick={() => submitApplication()}
+            onClick={() => {
+              setLoading3(true);
+              submitApplication("Premium+");
+            }}
           >
-            Apply
+            {loading3 ? <div className="button-spinner"></div> : "Apply"}
           </button>
 
           <hr

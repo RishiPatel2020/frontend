@@ -45,12 +45,14 @@ export const forgotPassword = async (email) => {
   return response.data;
 };
 
-export const applyPremium = async () => {
+export const applyPremium = async (type) => {
   const token = getLocalStorageItem("token"); // Retrieve token from local storage
 
   const response = await axios.post(
     `${BACKEND_BASE}/applyPremium`,
-    null, // No request body needed for this endpoint
+    {
+      type,
+    },
     {
       headers: {
         Authorization: token, // Include token in Authorization header
