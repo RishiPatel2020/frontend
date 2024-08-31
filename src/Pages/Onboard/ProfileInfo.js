@@ -7,7 +7,7 @@ const questions = [
     id: "for",
     text: "Profile for",
     type: "dropdown",
-    options: ["Myself", "My Child", "My Friend"],
+    options: ["Myself", "My Child", "My Friend","My Relative"],
   },
   { id: "firstName", text: "First Name", type: "text" },
   { id: "lastName", text: "Last Name", type: "text" },

@@ -28,7 +28,6 @@ const questions = [
       "Bachelors",
       "Associates",
       "High School",
-      "Other",
     ],
   },
 ];

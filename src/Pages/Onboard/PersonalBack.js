@@ -74,6 +74,7 @@ const questions = [
     text: "Personality Traits (Select 3 max)",
     type: "multi",
     options: [
+      "Disciplined",
       "Outgoing",
       "Introverted",
       "Extroverted",

@@ -72,16 +72,16 @@ const Home = () => {
     image3: require("../../Resources/TheRiaWay/first.png"),
     image3Height: "150px",
     image3Width: "250px",
-    title3: "Verified Users",
+    title3: "Verified and Active Profiles",
     description3:
-      "Each user is manually verified by the Ria team to ensure a genuine experience",
+      "Each user is manually verified and routinely contacted for any changes to their relationship status",
 
     image4: require("../../Resources/TheRiaWay/fourth.png"),
     image4Width: "250px",
     image4Height: "150px",
     title4: "Serious Seekers",
     description4:
-      "Ria's hundreds of members are also looking for something long-term or dating-to-marry",
+      "Ria's hundreds of members are also looking for something long-term or marriage",
   };
 
   return (
