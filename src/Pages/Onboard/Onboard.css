@@ -1,3 +1,12 @@
+.dob-inputs {
+  display: flex;
+  gap: 10px; /* Adds space between the inputs */
+}
+
+.dob-input {
+  width: 60px; /* Adjust the width based on your design */
+}
+
 .button-spinner {
   display: inline-block;
   width: 1em; /* Adjust size to make it smaller */

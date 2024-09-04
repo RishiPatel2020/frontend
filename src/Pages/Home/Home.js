@@ -44,7 +44,7 @@ const Home = () => {
     image4Height: "150px",
     title4: "Meet Matches",
     description4:
-      "Meet your matches in-person and let us know how it went so we can further refine our search",
+      "Meet your matches and let us know how it went so we can further refine our search",
   };
 
   const theRiaWay = {

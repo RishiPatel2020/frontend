@@ -134,14 +134,13 @@ const Dashboard = () => {
         body = (
           <div>
             <p className="light">
-              Sit tight, we're actively working with premium members to get them
-              paired. We'll let you know if you're a match via e-mail. Keep an
-              eye on your inbox, best of luck! Consider applying to be a premium
-              member for an active, faster, and exclusive matchmaking
-              experience!
+              Your profile has been added to our database. We're actively
+              working with premium members to get them paired. We'll let you
+              know if your profile is a potential fit via email - keep an eye on
+              your inbox!
             </p>
             <p className=" light my-2">
-              Consider applying to be a premium member for an active, faster,
+              Consider applying to be a premium member for a tailored, faster,
               and exclusive matchmaking experience!
             </p>
           </div>
@@ -158,7 +157,7 @@ const Dashboard = () => {
         <div className="p-2">
           {getLocalStorageItem("Premium") === NOT_APPLIED && (
             <button
-              className={`tab-button ${tab === "P" ? "active" : ""} bold`}
+              className={`tab-button ${tab === "P" ? "" : ""} bold`}
               onClick={() => navigate("/premium")}
             >
               Apply for Premium

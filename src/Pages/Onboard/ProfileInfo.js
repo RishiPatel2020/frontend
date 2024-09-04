@@ -7,7 +7,7 @@ const questions = [
     id: "for",
     text: "Profile for",
     type: "dropdown",
-    options: ["Myself", "My Child", "My Friend","My Relative"],
+    options: ["Myself", "My Child", "My Friend", "My Relative"],
   },
   { id: "firstName", text: "First Name", type: "text" },
   { id: "lastName", text: "Last Name", type: "text" },
@@ -16,11 +16,6 @@ const questions = [
     text: "Gender",
     type: "buttons",
     options: ["Male", "Female"],
-  },
-  {
-    id: "dob", // Updated to DOB
-    text: "Date of Birth",
-    type: "date", // Changed to date input type
   },
   {
     id: "intention",
@@ -44,10 +39,13 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
 
   const handleInputChange = (id, value) => {
     updateAnswer(id, value);
-    console.log(`data so far: ${JSON.stringify(answers)}`);
-
-    if (id === "dob") {
-      const dob = new Date(value);
+    if (id === "dobYear" || id === "dobMonth" || id === "dobDay") {
+      // validate if number is less than 0; check ranges
+      const dob = new Date(
+        answers.dobYear || 0,
+        (answers.dobMonth || 1) - 1,
+        answers.dobDay || 1
+      );
       const today = new Date();
       const age = today.getFullYear() - dob.getFullYear();
       setIsValidAge(age >= 21);
@@ -95,14 +93,6 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
                   </button>
                 ))}
               </div>
-            ) : question.type === "date" ? (
-              <input
-                type="date"
-                id={question.id}
-                value={answers[question.id] || ""}
-                onChange={(e) => handleInputChange(question.id, e.target.value)}
-                className="border-0 border-bottom rounded-1"
-              />
             ) : (
               <input
                 type={question.type}
@@ -114,6 +104,39 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
             )}
           </div>
         ))}
+
+        <div className="question">
+          <label>Date of Birth</label>
+          <div className="dob-inputs">
+            <input
+              type="number"
+              id="dobMonth"
+              placeholder="MM"
+              value={answers.dobMonth || ""}
+              onChange={(e) => handleInputChange("dobMonth", e.target.value)}
+              className="border-0 border-bottom rounded-1 dob-input"
+              min={0}
+            />
+            <input
+              type="number"
+              id="dobDay"
+              placeholder="DD"
+              value={answers.dobDay || ""}
+              onChange={(e) => handleInputChange("dobDay", e.target.value)}
+              className="border-0 border-bottom rounded-1 dob-input"
+              min={0}
+            />
+            <input
+              type="number"
+              id="dobYear"
+              placeholder="YYYY"
+              value={answers.dobYear || ""}
+              onChange={(e) => handleInputChange("dobYear", e.target.value)}
+              className="border-0 border-bottom rounded-1 dob-input"
+              min={0}
+            />
+          </div>
+        </div>
       </form>
     </div>
   );
