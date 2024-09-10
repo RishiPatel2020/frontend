@@ -55,12 +55,9 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  z-index: 1000; /* Ensures it's above other elements */
+   z-index: 1000; /*Ensures it's above other elements */
 }
 
-.back-button:hover {
-  background-color: #0056b3; /* Adjust as needed */
-}
 
 /* Responsive Styles */
 @media (min-width: 768px) {

@@ -106,7 +106,12 @@ const Premium = () => {
 
   const displayCards = () => (
     <div className="App my-1">
-      <h5 className="bold text-center">View plans below</h5>
+      {/* <h5 className="bold text-center">View plans below</h5> */}
+      <div className="button-container" style={{marginBottom:"33px"}}>
+      <button className="back-button" onClick={() => navigate(-1)}>
+        Back
+      </button> 
+      </div>
       <div className="subscription-container">
         {/* Card 1 */}
         <div className="subscription-card premium-plan text-secondary bg-primary">
@@ -430,9 +435,9 @@ const Premium = () => {
           </ul>
         </div>
       </div>
-      <button className="back-button" onClick={() => navigate(-1)}>
+      {/* <button className="back-button" onClick={() => navigate(-1)}>
         Back
-      </button>
+      </button> */}
     </div>
   );
 

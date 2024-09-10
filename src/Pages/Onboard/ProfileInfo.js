@@ -2,6 +2,14 @@ import React, { useContext, useEffect } from "react";
 import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 
+const states = [
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+];
+
 const questions = [
   {
     id: "for",
@@ -40,7 +48,6 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
   const handleInputChange = (id, value) => {
     updateAnswer(id, value);
     if (id === "dobYear" || id === "dobMonth" || id === "dobDay") {
-      // validate if number is less than 0; check ranges
       const dob = new Date(
         answers.dobYear || 0,
         (answers.dobMonth || 1) - 1,
@@ -61,6 +68,7 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
     <div className="question-container">
       <h1 className="text-dark bold">Basic Info</h1>
       <form>
+        
         {questions.map((question) => (
           <div key={question.id} className="question">
             <label htmlFor={question.id}>{question.text}</label>
@@ -105,6 +113,43 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
           </div>
         ))}
 
+
+
+        
+<div className="city-state-container">
+  {/* City/Town Field */}
+  <div className="question city-input">
+    <label htmlFor="city">City/Town</label>
+    <input
+      type="text"
+      id="city"
+      value={answers.city || ""}
+      onChange={(e) => handleInputChange("city", e.target.value)}
+      className="border-0 border-bottom rounded-1"
+    />
+  </div>
+
+  {/* State Dropdown */}
+  <div className="question state-input">
+    <label htmlFor="state">State</label>
+    <select
+      id="state"
+      value={answers.state || ""}
+      onChange={(e) => handleInputChange("state", e.target.value)}
+      className="border-0 border-bottom rounded-1"
+    >
+      <option value="">Select a state</option>
+      {states.map((state, index) => (
+        <option key={index} value={state}>
+          {state}
+        </option>
+      ))}
+    </select>
+  </div>
+</div>
+
+
+        {/* Date of Birth Inputs */}
         <div className="question">
           <label>Date of Birth</label>
           <div className="dob-inputs">

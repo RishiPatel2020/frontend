@@ -1,4 +1,7 @@
 // src/components/Dashboard.js
+import ForgotPassword from "../../Components/Login/ForgotPassword";
+
+import { Link } from "react-router-dom";
 import { REJECTED } from "../../Service/Constants";
 import { ACCEPTED, NOT_APPLIED, QUEUED } from "../../Service/Constants";
 import React, { useState, useEffect } from "react";
@@ -15,6 +18,8 @@ import { useContext } from "react";
 import AuthContext from "../../Components/AuthContext/AuthContext";
 
 const Dashboard = () => {
+  const [display, setDisplay] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
   const { logout } = useContext(AuthContext);
   const [tab, setTab] = useState("P");
   const [currentPassword, setCurrentPassword] = useState("");
@@ -74,7 +79,25 @@ const Dashboard = () => {
         setNewPassword("");
       } catch (err) {
         // Handle error scenarios
-        setError("An unexpected error occurred. Please try again.");
+        const forgotPassword = (
+          <Link
+            to=""
+            style={{ color: "blue", marginRight: "6px" }}
+            onClick={() => {
+              sendAnalytics("Log In Dialog", "ForgotPassword Link", "Click");
+              setShowForgotPassword(true);
+            }}
+          >
+            Forgot Password
+          </Link>
+        );
+        setError(
+          <>
+            Wrong current password entered 
+            <br></br>
+            {forgotPassword}
+          </>
+        );
       } finally {
         setLoading(false);
       }
@@ -139,7 +162,7 @@ const Dashboard = () => {
               know if your profile is a potential fit via email - keep an eye on
               your inbox!
             </p>
-            <p className=" light my-2">
+            <p className="light my-2">
               Consider applying to be a premium member for a tailored, faster,
               and exclusive matchmaking experience!
             </p>
@@ -158,6 +181,10 @@ const Dashboard = () => {
           {getLocalStorageItem("Premium") === NOT_APPLIED && (
             <button
               className={`tab-button ${tab === "P" ? "" : ""} bold`}
+              style={{
+                marginBottom: "7px",
+                boxShadow: "2px 2px 2px rgb(0,0,0)",
+              }}
               onClick={() => navigate("/premium")}
             >
               Apply for Premium
@@ -166,6 +193,7 @@ const Dashboard = () => {
           <button
             className={`tab-button ${tab === "M" ? "active" : ""} bold`}
             onClick={() => setTab("M")}
+            style={{ boxShadow: "2px 2px 2px rgb(0,0,0)" }}
           >
             Edit Profile
           </button>
@@ -226,7 +254,7 @@ const Dashboard = () => {
           </div>
           <button
             onClick={handleSave}
-            className="btn btn-success mt-2 bg-info text-white"
+            className="btn mt-2 text-white bg-dark"
             disabled={loading}
             style={{ marginRight: "10px" }}
           >
@@ -254,9 +282,14 @@ const Dashboard = () => {
   );
 
   return (
-    <div style={{ height: "87vh" }}>
-      {tabs()}
+    <div style={{ height: "97vh" }}>
       <div>{tab === "P" ? defaultCenterContent() : editProfile()}</div>
+      {tabs()}
+      <ForgotPassword
+        showForgotPassword={showForgotPassword}
+        setShowForgotPassword={setShowForgotPassword}
+        setDisplay={setDisplay}
+      />
     </div>
   );
 };

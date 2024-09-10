@@ -71,7 +71,7 @@ function NavBar() {
                 About
               </span>
             </Nav.Link>
-            <Nav.Link
+            {/* <Nav.Link
               href="#/"
               className="text-primary mx-1"
               onClick={(e) => handleReviewsClick()}
@@ -82,7 +82,7 @@ function NavBar() {
               >
                 Reviews
               </span>
-            </Nav.Link>
+            </Nav.Link> */}
             <Nav.Link
               className="text-primary mx-1"
               href="#/"

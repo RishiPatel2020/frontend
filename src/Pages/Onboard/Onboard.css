@@ -1,10 +1,31 @@
+.first-last-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first-name-input,
+.last-name-input {
+  width: 48%; /* Adjust width for responsive design */
+}
+
+.city-state-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.city-input,
+.state-input {
+  width: 48%;
+}
+
 .dob-inputs {
   display: flex;
-  gap: 10px; /* Adds space between the inputs */
+  justify-content: space-between;
+  gap:20px;
 }
 
 .dob-input {
-  width: 60px; /* Adjust the width based on your design */
+  width: 30%; /* Adjust width for date inputs */
 }
 
 .button-spinner {

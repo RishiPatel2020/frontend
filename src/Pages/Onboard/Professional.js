@@ -14,7 +14,6 @@ const questions = [
       "Student",
       "Unemployed",
       "Retired",
-      "Other",
     ],
   },
   { id: "jobTitle", text: "Job Title", type: "text" },
