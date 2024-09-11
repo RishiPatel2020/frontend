@@ -3,33 +3,64 @@ import "./Onboard.css";
 import { AnswersContext } from "../../Components/AnswersContext/AnswersContext";
 
 const states = [
-  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+  "AL",
+  "AK",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "OH",
+  "OK",
+  "OR",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY",
 ];
 
 const questions = [
-  {
-    id: "for",
-    text: "Profile for",
-    type: "dropdown",
-    options: ["Myself", "My Child", "My Friend", "My Relative"],
-  },
-  { id: "firstName", text: "First Name", type: "text" },
-  { id: "lastName", text: "Last Name", type: "text" },
   {
     id: "gender",
     text: "Gender",
     type: "buttons",
     options: ["Male", "Female"],
-  },
-  {
-    id: "intention",
-    text: "Intention of Profile",
-    type: "dropdown",
-    options: ["Marriage", "Long-term Relationship"],
   },
   {
     id: "height",
@@ -40,6 +71,7 @@ const questions = [
       (_, i) => `${Math.floor(i / 12) + 4}' ${i % 12}"`
     ),
   },
+  
 ];
 
 function ProfileInfo({ setIsValid, setIsValidAge }) {
@@ -60,7 +92,10 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
   };
 
   useEffect(() => {
-    const isValid = questions.every((question) => answers[question.id]);
+    const isValid =
+      questions.every((question) => answers[question.id]) &&
+      answers.city &&
+      answers.state;
     setIsValid(isValid);
   }, [answers, setIsValid]);
 
@@ -68,6 +103,78 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
     <div className="question-container">
       <h1 className="text-dark bold">Basic Info</h1>
       <form>
+      <div className="city-state-container">
+          {/* City/Town Field */}
+          <div className="question city-input">
+            <label htmlFor="profileFor">Profile for</label>
+            <select
+              id="profileFor"
+              name="profileFor"
+              value={answers.profileFor || ""}
+              onChange={(e) => handleInputChange("profileFor", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {["Myself", "My Child", "My Friend", "My Relative"].map(
+                (profileFor, index) => (
+                  <option key={index} value={profileFor}>
+                    {profileFor}
+                  </option>
+                )
+              )}
+            </select>
+          </div>
+
+          {/* State Dropdown */}
+          <div className="question state-input">
+            <label htmlFor="IntentionOfProfile">Intention</label>
+            <select
+              id="IntentionOfProfile"
+              name="IntentionOfProfile"
+              value={answers.IntentionOfProfile || ""}
+              onChange={(e) =>
+                handleInputChange("IntentionOfProfile", e.target.value)
+              }
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {["Marriage", "Long-term Relationship"].map(
+                (profileOf, index) => (
+                  <option key={index} value={profileOf}>
+                    {profileOf}
+                  </option>
+                )
+              )}
+            </select>
+          </div>
+        </div>
+        <div className="city-state-container">
+          {/* City/Town Field */}
+          <div className="question city-input">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="firstName"
+              name="firstName"
+              id="firstName"
+              value={answers.firstName || ""}
+              onChange={(e) => handleInputChange("firstName", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            />
+          </div>
+
+          {/* State Dropdown */}
+          <div className="question state-input">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="lastName"
+              name="lastName"
+              id="lastName"
+              value={answers.lastName || ""}
+              onChange={(e) => handleInputChange("lastName", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            />
+          </div>
+        </div>
         
         {questions.map((question) => (
           <div key={question.id} className="question">
@@ -113,41 +220,39 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
           </div>
         ))}
 
+        <div className="city-state-container">
+          {/* City/Town Field */}
+          <div className="question city-input">
+            <label htmlFor="city">City/Town</label>
+            <input
+              type="text"
+              name="city"
+              id="city"
+              value={answers.city || ""}
+              onChange={(e) => handleInputChange("city", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            />
+          </div>
 
-
-        
-<div className="city-state-container">
-  {/* City/Town Field */}
-  <div className="question city-input">
-    <label htmlFor="city">City/Town</label>
-    <input
-      type="text"
-      id="city"
-      value={answers.city || ""}
-      onChange={(e) => handleInputChange("city", e.target.value)}
-      className="border-0 border-bottom rounded-1"
-    />
-  </div>
-
-  {/* State Dropdown */}
-  <div className="question state-input">
-    <label htmlFor="state">State</label>
-    <select
-      id="state"
-      value={answers.state || ""}
-      onChange={(e) => handleInputChange("state", e.target.value)}
-      className="border-0 border-bottom rounded-1"
-    >
-      <option value="">Select a state</option>
-      {states.map((state, index) => (
-        <option key={index} value={state}>
-          {state}
-        </option>
-      ))}
-    </select>
-  </div>
-</div>
-
+          {/* State Dropdown */}
+          <div className="question state-input">
+            <label htmlFor="state">State</label>
+            <select
+              id="state"
+              name="state"
+              value={answers.state || ""}
+              onChange={(e) => handleInputChange("state", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {states.map((state, index) => (
+                <option key={index} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
 
         {/* Date of Birth Inputs */}
         <div className="question">
