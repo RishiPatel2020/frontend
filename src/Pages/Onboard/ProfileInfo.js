@@ -71,7 +71,6 @@ const questions = [
       (_, i) => `${Math.floor(i / 12) + 4}' ${i % 12}"`
     ),
   },
-  
 ];
 
 function ProfileInfo({ setIsValid, setIsValidAge }) {
@@ -79,32 +78,69 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
 
   const handleInputChange = (id, value) => {
     updateAnswer(id, value);
-    if (id === "dobYear" || id === "dobMonth" || id === "dobDay") {
-      const dob = new Date(
-        answers.dobYear || 0,
-        (answers.dobMonth || 1) - 1,
-        answers.dobDay || 1
-      );
-      const today = new Date();
-      const age = today.getFullYear() - dob.getFullYear();
-      setIsValidAge(age >= 21);
+  };
+
+  // Helper function to check if the birthdate is valid for current year age check
+  const isValidBirthdate = (month, day) => {
+    const today = new Date();
+    const birthdate = new Date(today.getFullYear() - 25, month - 1, day);
+
+    return birthdate <= today; // Ensure 25th birthday has occurred
+  };
+  const validateDOB = (dobMonth, dobDay, dobYear) => {
+    const currentYear = new Date().getFullYear();
+
+    // Ensure the fields are numeric and within valid ranges
+    if (
+      !dobMonth ||
+      !dobDay ||
+      !dobYear ||
+      isNaN(dobMonth) ||
+      isNaN(dobDay) ||
+      isNaN(dobYear) ||
+      dobMonth < 1 ||
+      dobMonth > 12 ||
+      dobDay < 1 ||
+      dobDay > 31 ||
+      dobYear.length !== 4
+    ) {
+      return false; // Invalid if fields are not correct
     }
+
+    // Ensure that the user is at least 25 years old
+    const age = currentYear - parseInt(dobYear, 10);
+    if (age < 25 || (age === 25 && !isValidBirthdate(dobMonth, dobDay))) {
+      return false; // Invalid if user is under 25
+    }
+
+    return true; // Passed all validations
   };
 
   useEffect(() => {
     const isValid =
       questions.every((question) => answers[question.id]) &&
       answers.city &&
-      answers.state;
-    setIsValid(isValid);
+      answers.state &&
+      answers.firstName &&
+      answers.lastName &&
+      answers.dobMonth &&
+      answers.dobDay &&
+      answers.dobYear;
+    const isValidAge = validateDOB(
+      answers.dobMonth,
+      answers.dobDay,
+      answers.dobYear
+    );
+
+    setIsValid(isValid && isValidAge);
   }, [answers, setIsValid]);
 
   return (
     <div className="question-container">
       <h1 className="text-dark bold">Basic Info</h1>
       <form>
-      <div className="city-state-container">
-          {/* City/Town Field */}
+        <div className="city-state-container">
+          {/* profile for */}
           <div className="question city-input">
             <label htmlFor="profileFor">Profile for</label>
             <select
@@ -116,32 +152,30 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
             >
               <option value="">Select</option>
               {["Myself", "My Child", "My Friend", "My Relative"].map(
-                (profileFor, index) => (
-                  <option key={index} value={profileFor}>
-                    {profileFor}
+                (profileFor_, index) => (
+                  <option key={index} value={profileFor_}>
+                    {profileFor_}
                   </option>
                 )
               )}
             </select>
           </div>
 
-          {/* State Dropdown */}
+          {/* Intention of */}
           <div className="question state-input">
-            <label htmlFor="IntentionOfProfile">Intention</label>
+            <label htmlFor="intention">Intention</label>
             <select
-              id="IntentionOfProfile"
-              name="IntentionOfProfile"
-              value={answers.IntentionOfProfile || ""}
-              onChange={(e) =>
-                handleInputChange("IntentionOfProfile", e.target.value)
-              }
+              id="intention"
+              name="intention"
+              value={answers.intention || ""}
+              onChange={(e) => handleInputChange("intention", e.target.value)}
               className="border-0 border-bottom rounded-1"
             >
               <option value="">Select</option>
               {["Marriage", "Long-term Relationship"].map(
-                (profileOf, index) => (
-                  <option key={index} value={profileOf}>
-                    {profileOf}
+                (intention_, index) => (
+                  <option key={index} value={intention_}>
+                    {intention_}
                   </option>
                 )
               )}
@@ -149,7 +183,7 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
           </div>
         </div>
         <div className="city-state-container">
-          {/* City/Town Field */}
+          {/* First Name */}
           <div className="question city-input">
             <label htmlFor="firstName">First Name</label>
             <input
@@ -162,7 +196,7 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
             />
           </div>
 
-          {/* State Dropdown */}
+          {/* Last Name */}
           <div className="question state-input">
             <label htmlFor="lastName">Last Name</label>
             <input
@@ -175,7 +209,8 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
             />
           </div>
         </div>
-        
+
+        {/* Gender & Height */}
         {questions.map((question) => (
           <div key={question.id} className="question">
             <label htmlFor={question.id}>{question.text}</label>
