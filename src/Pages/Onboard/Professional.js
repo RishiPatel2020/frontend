@@ -34,8 +34,25 @@ function Professional({ setIsValid }) {
 
   useEffect(() => {
     // Validate inputs
-    const isValid = questions.every((question) => answers[question.id]);
-    setIsValid(isValid);
+    // const isValid = questions.every((question) => answers[question.id]);
+    // setIsValid(isValid);
+    const alphabeticRegex = /^[A-Za-z]+$/;
+    if (!answers.employment) {
+      setIsValid("Please select Employment");
+      return;
+    } else if (!answers.jobTitle) {
+      setIsValid("Please provide Job Title ");
+      return;
+    }
+    if (!alphabeticRegex.test(answers.jobTitle)) {
+      setIsValid("Job Title has to be alphabetic");
+      return;
+    } else if (!answers.education) {
+      setIsValid("Please select Education");
+      return;
+    }
+    // Clear validation message if everything is valid
+    setIsValid(null);
   }, [answers, setIsValid]);
 
   return (
