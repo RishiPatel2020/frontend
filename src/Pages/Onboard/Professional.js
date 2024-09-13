@@ -21,13 +21,7 @@ const questions = [
     id: "education",
     text: "Education",
     type: "dropdown",
-    options: [
-      "Doctorate",
-      "Masters",
-      "Bachelors",
-      "Associates",
-      "High School",
-    ],
+    options: ["Doctorate", "Masters", "Bachelors", "Associates", "High School"],
   },
 ];
 
@@ -46,7 +40,9 @@ function Professional({ setIsValid }) {
 
   return (
     <div className="question-container">
-      <h1 className="text-dark" style={{fontWeight:"bold"}}>Employment and Education</h1>
+      <h1 className="text-dark" style={{ fontWeight: "bold" }}>
+        Professional Info
+      </h1>
       <form>
         {questions.map((question, index) => (
           <div key={index} className="question my-3">
