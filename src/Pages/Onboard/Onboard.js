@@ -95,8 +95,8 @@ function Onboarding() {
   };
 
   const steps = [
-    { component: ProfileInfo },
-    { component: Professional },
+    // { component: ProfileInfo },
+    // { component: Professional },
     { component: PersonalBack },
     { component: PictureUpload },
     { component: SignUp },

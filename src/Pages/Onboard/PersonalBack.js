@@ -8,29 +8,6 @@ const CustomInput = (props) => <components.Input {...props} readOnly />;
 
 const questions = [
   {
-    id: "community",
-    text: "Community",
-    type: "dropdown",
-    options: [
-      "Bengali",
-      "Gujarati",
-      "Guyanese",
-      "Hindi Speaking",
-      "Kannada",
-      "Kashmiri",
-      "Malayali",
-      "Maharashtrian",
-      "Rajasthani",
-      "Sindhi",
-      "Shia",
-      "Sunni",
-      "Tamil",
-      "Telugu",
-      "Urdu",
-      "Other",
-    ],
-  },
-  {
     id: "previousMaritalStatus",
     text: "Previous Marital Status",
     type: "dropdown",
@@ -43,35 +20,8 @@ const questions = [
     ],
   },
   {
-    id: "drinks",
-    text: "Drinking",
-    type: "dropdown",
-    options: ["Yes", "No"],
-  },
-  {
-    id: "smokes",
-    text: "Smoking",
-    type: "dropdown",
-    options: ["Yes", "No"],
-  },
-  {
-    id: "religion",
-    text: "Religion",
-    type: "dropdown",
-    options: [
-      "Hindu",
-      "Christian",
-      "Sikh",
-      "Jain",
-      "Buddhist",
-      "Parsi",
-      "Atheist",
-      "Other",
-    ],
-  },
-  {
     id: "personality",
-    text: "Personality Traits (Select 3 max)",
+    text: "Personality Traits",
     type: "multi",
     options: [
       "Disciplined",
@@ -96,7 +46,7 @@ const questions = [
   },
   {
     id: "hobbies",
-    text: "Hobbies (Select 6 max)",
+    text: "Hobbies",
     type: "multi",
     options: [
       "Hiking",
@@ -157,7 +107,7 @@ const questions = [
   },
   {
     id: "diet",
-    text: "Dietary Practices:",
+    text: "Dietary Practices",
     type: "dropdown",
     options: [
       "Non-Vegetarian",
@@ -165,7 +115,7 @@ const questions = [
       "Vegan",
       "Jain / Swaminarayan",
       "Pescatarian",
-      "Halal"
+      "Halal",
     ],
   },
 ];
@@ -187,20 +137,153 @@ function PersonalBack({ setIsValid }) {
   };
 
   useEffect(() => {
-    // Validate inputs
-    const isValid = questions.every(question => {
-      if (question.type === "multi") {
-        return answers[question.id] && answers[question.id].length <= question.maxSelections;
+    let validationMessage = "";
+
+    if (!answers.community) {
+      validationMessage = "Please select Community";
+    } else if (!answers.religion) {
+      validationMessage = "Please select Religion";
+    } else if (!answers.drinks) {
+      validationMessage = "Please select Drinking";
+    } else if (!answers.smokes) {
+      validationMessage = "Please select Smoking";
+    } else {
+      // Loop through all questions to validate them
+      for (const question of questions) {
+        const answer = answers[question.id];
+
+        // Check for dropdown or single-select type questions
+        if (!answer) {
+          validationMessage = `Please select ${question.text}`;
+          break;
+        }
+
+        // For multi-select, check max selections
+        if (question.type === "multi" && answer.length < 1) {
+          validationMessage = `Please select at least 1 option for ${question.text}`;
+          break;
+        }
       }
-      return answers[question.id];
-    });
-    setIsValid(isValid);
+    }
+    // Set validation message or mark as valid
+    setIsValid(validationMessage.length > 0 ? validationMessage : null);
   }, [answers, setIsValid]);
 
   return (
     <div className="question-container">
-      <h1 className="text-dark" style={{fontWeight:"bold"}}>Personal Details</h1>
+      <h1 className="text-dark" style={{ fontWeight: "bold" }}>
+        Detailed Info
+      </h1>
       <form>
+        <div className="city-state-container">
+          {/* Community */}
+          <div className="question state-input">
+            <label htmlFor="community">Community</label>
+            <select
+              id="community"
+              name="community"
+              value={answers.community || ""}
+              onChange={(e) => handleInputChange("community", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {[
+                "Bengali",
+                "Gujarati",
+                "Guyanese",
+                "Hindi Speaking",
+                "Jatt",
+                "Kannada",
+                "Kashmiri",
+                "Malayali",
+                "Marathi",
+                "Marwari",
+                "Odia",
+                "Punjabi",
+                "Rajasthani",
+                "Shia",
+                "Sindhi",
+                "Sunni",
+                "Tamil",
+                "Telugu",
+                "Urdu",
+              ].map((community_, index) => (
+                <option key={index} value={community_}>
+                  {community_}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Religeon */}
+          <div className="question city-input">
+            <label htmlFor="religion">Religion</label>
+            <select
+              id="religion"
+              name="religion"
+              value={answers.religion || ""}
+              onChange={(e) => handleInputChange("religion", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {[
+                "Hindu",
+                "Christian",
+                "Sikh",
+                "Jain",
+                "Buddhist",
+                "Parsi",
+                "Atheist",
+                "Other",
+              ].map((religion_, index) => (
+                <option key={index} value={religion_}>
+                  {religion_}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="city-state-container">
+          {/* Drinking */}
+          <div className="question state-input">
+            <label htmlFor="drinks">Drinking</label>
+            <select
+              id="drinks"
+              name="drinks"
+              value={answers.drinks || ""}
+              onChange={(e) => handleInputChange("drinks", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {["Yes", "No"].map((drinks_, index) => (
+                <option key={index} value={drinks_}>
+                  {drinks_}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Smoking */}
+          <div className="question city-input">
+            <label htmlFor="smokes">Smoking</label>
+            <select
+              id="smokes"
+              name="smokes"
+              value={answers.smokes || ""}
+              onChange={(e) => handleInputChange("smokes", e.target.value)}
+              className="border-0 border-bottom rounded-1"
+            >
+              <option value="">Select</option>
+              {["Yes", "No"].map((smokes_, index) => (
+                <option key={index} value={smokes_}>
+                  {smokes_}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         {questions.map((question) => (
           <div key={question.id} className="question my-3">
             <label htmlFor={question.id} className="mx-2">
@@ -244,27 +327,29 @@ function PersonalBack({ setIsValid }) {
                 styles={{
                   control: (base) => ({
                     ...base,
-                    cursor: 'pointer',
-                    border: '1px solid #ccc',
-                    boxShadow: 'none',
-                    backgroundColor: 'rgb(243, 243, 243)',
+                    cursor: "pointer",
+                    border: "1px solid #ccc",
+                    boxShadow: "none",
+                    backgroundColor: "rgb(243, 243, 243)",
                   }),
                   dropdownIndicator: (base) => ({
                     ...base,
-                    cursor: 'pointer',
+                    cursor: "pointer",
                   }),
                   input: (base) => ({
                     ...base,
-                    pointerEvents: 'none', // Disable typing
+                    pointerEvents: "none", // Disable typing
                   }),
                   menu: (base) => ({
                     ...base,
-                    backgroundColor: 'rgb(243, 243, 243)',
+                    backgroundColor: "rgb(243, 243, 243)",
                   }),
                   option: (base, state) => ({
                     ...base,
-                    backgroundColor: state.isSelected ? 'rgb(190, 156, 92)' : 'rgb(243, 243, 243)',
-                    color: state.isSelected ? 'white' : 'black',
+                    backgroundColor: state.isSelected
+                      ? "rgb(190, 156, 92)"
+                      : "rgb(243, 243, 243)",
+                    color: state.isSelected ? "white" : "black",
                   }),
                 }}
               />
