@@ -1,3 +1,4 @@
+import { Modal, Button } from "react-bootstrap";
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileInfo from "./ProfileInfo";
@@ -21,19 +22,22 @@ function Onboarding() {
   const { grantLoadingAccess } = useContext(LoadingAccessContext);
   const { login } = useContext(AuthContext);
   const [error, setError] = useState(null);
+  const [displayAlert, setDisplayAlert] = useState(null);
   const [loading, setLoading] = useState(false); // Set initial loading state to false
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(null);
   const [isValidAge, setIsValidAge] = useState(true);
 
   const handleNext = () => {
-    if (currentStep < steps.length - 1 && isValid && isValidAge) {
+    if (currentStep < steps.length - 1 && isValid === null && isValidAge) {
       setCurrentStep(currentStep + 1);
     } else if (!isValidAge) {
       alert("You must be 21 or older to register");
     } else {
-      alert("Please fill in all fields before proceeding.");
+      // BAU ALERT
+      // alert("Please fill in all fields before proceeding.");
+      setDisplayAlert(isValid);
     }
   };
 
@@ -114,6 +118,7 @@ function Onboarding() {
         setIsValidAge={
           StepComponent === ProfileInfo ? setIsValidAge : undefined
         } // Pass age only if the step is ProfileInfo
+        setDisplayAlert={setDisplayAlert}
       />
       <div className="row">
         {error && <p style={{ color: "red" }}>{error}</p>}
@@ -138,9 +143,33 @@ function Onboarding() {
             Next
           </button>
         )}
-
-        
       </div>
+      {displayAlert && (
+        <Modal
+          show={displayAlert !== null}
+          onHide={() => setDisplayAlert(null)}
+        >
+          <Modal.Header closeButton style={{ textAlign: "center" }}>
+            <Modal.Title>Alert</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <p className="lead">{displayAlert}</p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant="dark"
+              onClick={() => {
+                setDisplayAlert(null);
+              }}
+              className="bold"
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      )}
     </div>
   );
 }

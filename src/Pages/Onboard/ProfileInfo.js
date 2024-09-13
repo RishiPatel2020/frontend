@@ -73,7 +73,7 @@ const questions = [
   },
 ];
 
-function ProfileInfo({ setIsValid, setIsValidAge }) {
+function ProfileInfo({ setIsValid, setDisplayAlert }) {
   const { answers, updateAnswer } = useContext(AnswersContext);
 
   const handleInputChange = (id, value) => {
@@ -92,12 +92,6 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
 
     // Ensure the fields are numeric and within valid ranges
     if (
-      !dobMonth ||
-      !dobDay ||
-      !dobYear ||
-      isNaN(dobMonth) ||
-      isNaN(dobDay) ||
-      isNaN(dobYear) ||
       dobMonth < 1 ||
       dobMonth > 12 ||
       dobDay < 1 ||
@@ -117,22 +111,48 @@ function ProfileInfo({ setIsValid, setIsValidAge }) {
   };
 
   useEffect(() => {
-    const isValid =
-      questions.every((question) => answers[question.id]) &&
-      answers.city &&
-      answers.state &&
-      answers.firstName &&
-      answers.lastName &&
-      answers.dobMonth &&
-      answers.dobDay &&
-      answers.dobYear;
-    const isValidAge = validateDOB(
-      answers.dobMonth,
-      answers.dobDay,
-      answers.dobYear
-    );
-
-    setIsValid(isValid && isValidAge);
+    const alphabeticRegex = /^[A-Za-z]+$/;
+    if (!answers.profileFor) {
+      setIsValid("Please provide the Profile for");
+    } else if (!answers.intention) {
+      setIsValid("Please provide the Intention");
+    } else if (!answers.firstName) {
+      setIsValid("Please provide First Name");
+    } else if (!answers.lastName) {
+      setIsValid("Please provide Last Name");
+    } else if (!answers.gender) {
+      setIsValid("Please provide Gender");
+    } else if (!answers.height) {
+      setIsValid("Please provide Height");
+    } else if (!answers.city) {
+      setIsValid("Please provide the City/Town name");
+    } else if (!answers.state) {
+      setIsValid("Please provide the State name");
+    } else if (!answers.dobMonth) {
+      setIsValid("Please provide Date of Birth Month");
+    } else if (!answers.dobDay) {
+      setIsValid("Please provide Date of Birth Day");
+    } else if (!answers.dobYear) {
+      setIsValid("Please provide Date of Birth Year");
+    } else if (answers.dobMonth < 1 || answers.dobMonth > 12) {
+      setIsValid("Month has to be in range of 1-12");
+    } else if (answers.dobDay < 1 || answers.dobDay > 31) {
+      setIsValid("Day has to be in range of 1-31");
+    } else if (answers.dobYear.length !== 4) {
+      setIsValid("Year has to be 4 digits");
+    } else if (!alphabeticRegex.test(answers.firstName)) {
+      setIsValid("First Name has to be alphabetic");
+    } else if (!alphabeticRegex.test(answers.lastName)) {
+      setIsValid("Last Name has to be alphabetic");
+    } else if (!alphabeticRegex.test(answers.city)) {
+      setIsValid("City name has to be alphabetic");
+    } else {
+      const currentYear = new Date().getFullYear();
+      const age = currentYear - parseInt(answers.dobYear, 10);
+      if (age < 25) {
+        setIsValid("You have to be at least 25 years old to sign up");
+      }
+    }
   }, [answers, setIsValid]);
 
   return (
