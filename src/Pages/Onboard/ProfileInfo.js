@@ -82,6 +82,7 @@ function ProfileInfo({ setIsValid }) {
 
   useEffect(() => {
     const alphabeticRegex = /^[A-Za-z]+$/;
+    const alphabeticRegexCityName = /^[A-Za-z\s]+$/;
 
     // Check required fields
     if (!answers.profileFor) {
@@ -120,7 +121,7 @@ function ProfileInfo({ setIsValid }) {
       setIsValid("Please provide the City/Town name");
       return;
     }
-    if (!alphabeticRegex.test(answers.city)) {
+    if (!alphabeticRegexCityName.test(answers.city)) {
       setIsValid("City name has to be alphabetic");
       return;
     }

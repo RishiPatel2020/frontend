@@ -33,10 +33,7 @@ function Professional({ setIsValid }) {
   };
 
   useEffect(() => {
-    // Validate inputs
-    // const isValid = questions.every((question) => answers[question.id]);
-    // setIsValid(isValid);
-    const alphabeticRegex = /^[A-Za-z]+$/;
+    const alphabeticRegex = /^[A-Za-z\s]+$/;
     if (!answers.employment) {
       setIsValid("Please select Employment");
       return;
