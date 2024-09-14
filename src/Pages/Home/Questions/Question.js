@@ -86,16 +86,13 @@ const Question = () => {
 
         <Accordion.Item eventKey="5">
           <Accordion.Header>
-            <span className="bold">
-              Once I get the e-mail of the candidates, what's next?
-            </span>
+            <span className="bold">How am I notified of candidates?</span>
           </Accordion.Header>
           <Accordion.Body>
             <span className="light">
-              You'll be able to send interests for any of the candidates in the
-              profiles and if they also do the same, you'll be invited to chat
-              with each other! Make sure you also submit the profiles you're not
-              interested in so that they don't roll over into the next cycle!
+              Your profile is constantly checked against preferences of our
+              premium members to see if there's a match. We'll email you of the
+              candidate. Please be on the lookout in your email inbox from us!
             </span>
           </Accordion.Body>
         </Accordion.Item>
@@ -109,8 +106,8 @@ const Question = () => {
           </Accordion.Header>
           <Accordion.Body>
             <span className="light">
-              Depending on the authenticity of your profile and the number of
-              available seats at the time of your application, we decided
+              Depending on the authenticity of your profile and the number
+              of available seats at the time of your application, we decide
               whether or not to include you in the premium matching pool.
             </span>
           </Accordion.Body>
