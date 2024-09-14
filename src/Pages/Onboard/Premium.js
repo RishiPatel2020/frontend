@@ -107,10 +107,10 @@ const Premium = () => {
   const displayCards = () => (
     <div className="App my-1">
       {/* <h5 className="bold text-center">View plans below</h5> */}
-      <div className="button-container" style={{marginBottom:"33px"}}>
-      <button className="back-button" onClick={() => navigate(-1)}>
-        Back
-      </button> 
+      <div className="button-container" style={{ marginBottom: "33px" }}>
+        <button className="back-button" onClick={() => navigate(-1)}>
+          Back
+        </button>
       </div>
       <div className="subscription-container">
         {/* Card 1 */}
@@ -155,16 +155,20 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              Match with free and paying customers
+              Comprehensive preferences questionnaire
             </li>
             <li>
               <img
                 src={DarkCheckMark}
                 alt="Checkmark"
                 className="checkmark-icon"
-              />{" "}
-              <strong style={{ marginRight: "5px" }}>4X</strong> Speed of
-              Finding Matches
+              />
+              <span>
+                <span style={{ marginRight: "5px" }} className="bold">
+                  4X
+                </span>
+                Speed of finding matches
+              </span>
             </li>
             <li>
               <img
@@ -173,7 +177,7 @@ const Premium = () => {
                 className="checkmark-icon"
               />{" "}
               Silver Guarantee - Extra 1 month if no candidates found within
-              first 12 months
+              first 6 months
             </li>
             <li>
               <img
@@ -181,7 +185,7 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              Unlimited # of Potential Matches
+              Match with free and paying customers
             </li>
             <li>
               <img
@@ -189,7 +193,23 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              External Searching via offline networks and channels
+              Unlimited # of potential matches
+            </li>
+            <li>
+              <img
+                src={DarkCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              External searching via offline networks and channels
+            </li>
+            <li>
+              <img
+                src={DarkCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />
+              Bi-weekly progress updates
             </li>
             <li>
               <img
@@ -243,7 +263,7 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              Match with free and paying customers
+              Comprehensive preferences questionnaire
             </li>
             <li>
               <img
@@ -251,8 +271,12 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              <strong style={{ marginRight: "5px" }}>4X</strong> Speed of
-              Finding Matches
+              <span>
+                <span style={{ marginRight: "5px" }} className="bold">
+                  4X
+                </span>
+                Speed of finding matches
+              </span>
             </li>
             <li>
               <img
@@ -271,7 +295,7 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              Unlimited # of Potential Matches
+              Match with free and paying customers
             </li>
             <li>
               <img
@@ -279,7 +303,23 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              External Searching via offline networks and channels
+              Unlimited # of potential matches
+            </li>
+            <li>
+              <img
+                src={BeigeCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              External searching via offline networks and channels
+            </li>
+            <li>
+              <img
+                src={BeigeCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />
+              Bi-weekly progress updates
             </li>
             <li>
               <img
@@ -334,10 +374,7 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              <span>
-                Pass to all <span className="bold">10</span> Ria events in the
-                next 12 months (speed dating, happy-hours, workshops, and more)
-              </span>
+              Comprehensive preferences questionnaire
             </li>
             <li>
               <img
@@ -345,7 +382,10 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              Match with free and paying customers
+              <span>
+                Pass to all <span className="bold">10</span> Ria events in the
+                next 12 months (speed dating, happy-hours, workshops, and more)
+              </span>
             </li>
 
             <li>
@@ -355,7 +395,7 @@ const Premium = () => {
                 className="checkmark-icon"
               />{" "}
               <span>
-                <span className="bold">12X</span> Speed of Finding Matches
+                <span className="bold">12X</span> Speed of finding matches
               </span>
             </li>
             <li>
@@ -375,9 +415,34 @@ const Premium = () => {
                 alt="Checkmark"
                 className="checkmark-icon"
               />{" "}
-              Unlimited # of Potential Matches
+              Match with free and paying customers
+            </li>
+            <li>
+              <img
+                src={DarkCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Unlimited # of potential matches
             </li>
 
+            <li>
+              <img
+                src={DarkCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              External searching via offline networks and channels
+            </li>
+
+            <li>
+              <img
+                src={DarkCheckMark}
+                alt="Checkmark"
+                className="checkmark-icon"
+              />{" "}
+              Weekly progress updates
+            </li>
             <li>
               <img
                 src={DarkCheckMark}
@@ -386,15 +451,6 @@ const Premium = () => {
               />{" "}
               Post meeting feedback
             </li>
-            <li>
-              <img
-                src={DarkCheckMark}
-                alt="Checkmark"
-                className="checkmark-icon"
-              />{" "}
-              External Searching via offline networks and channels
-            </li>
-
             <li>
               <img
                 src={DarkCheckMark}
@@ -413,24 +469,6 @@ const Premium = () => {
               <span>
                 <span className="bold">3hrs</span>. professional photoshoot
               </span>
-            </li>
-
-            <li>
-              <img
-                src={DarkCheckMark}
-                alt="Checkmark"
-                className="checkmark-icon"
-              />{" "}
-              Follow-up detailed questionnaire
-            </li>
-
-            <li>
-              <img
-                src={DarkCheckMark}
-                alt="Checkmark"
-                className="checkmark-icon"
-              />{" "}
-              Weekly Progress Updates
             </li>
           </ul>
         </div>

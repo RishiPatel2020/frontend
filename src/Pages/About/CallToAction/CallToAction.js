@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import AuthContext from "../../../Components/AuthContext/AuthContext";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { sendAnalytics } from "../../../Service/Api";
 const CallToAction = () => {
-  const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext);
   return (
     <div className="call-to-action bg-light">
       <h2 className="text-info bold">Ready to Find Love?</h2>
@@ -14,15 +18,28 @@ const CallToAction = () => {
         hands-off fully compatible matchmaking experience. Let's make
         connections meaningful again.
       </p>
-      <button
-        className="text-light bg-dark bold"
-        onClick={() => {
-          sendAnalytics("About", "Join Ria Button", "Click");
-          navigate("/frontend");
-        }}
-      >
-        Join Ria
-      </button>
+      <div className="d-flex justify-content-center mb-3 text-center">
+        {!isAuthenticated && (
+          <Link to="/onboard">
+            <Button
+              variant="dark"
+              className="text-primary mt-3 bold"
+              style={{
+                height: "50px",
+                width: "171px",
+                borderRadius: "15px",
+                fontSize: "20px",
+                boxShadow: "2px 2px 2px rgb(0,0,0)",
+              }}
+              onClick={() => {
+                sendAnalytics("Privacy", "Join Ria Button", "Click");
+              }}
+            >
+              Join for Free
+            </Button>
+          </Link>
+        )}
+      </div>
     </div>
   );
 };
