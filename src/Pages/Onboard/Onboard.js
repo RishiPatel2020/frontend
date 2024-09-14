@@ -24,20 +24,19 @@ function Onboarding() {
   const [error, setError] = useState(null);
   const [displayAlert, setDisplayAlert] = useState(null);
   const [loading, setLoading] = useState(false); // Set initial loading state to false
+  const [passwordMatchError, setPasswordMatchError] = useState({
+    valuePresent: false,
+    match: true,
+  });
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
-  const [isValid, setIsValid] = useState(null);
-  const [isValidAge, setIsValidAge] = useState(true);
+  const [isNotValid, setIsNotValid] = useState(null);
 
   const handleNext = () => {
-    if (currentStep < steps.length - 1 && isValid === null && isValidAge) {
+    if (currentStep < steps.length - 1 && isNotValid === null) {
       setCurrentStep(currentStep + 1);
-    } else if (!isValidAge) {
-      alert("You must be 21 or older to register");
     } else {
-      // BAU ALERT
-      // alert("Please fill in all fields before proceeding.");
-      setDisplayAlert(isValid);
+      setDisplayAlert(isNotValid);
     }
   };
 
@@ -51,52 +50,56 @@ function Onboarding() {
     if (loading) {
       return;
     }
-    if (!isValid) {
-      alert("Please fill in all fields before submitting.");
+    const emailExpression = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isValidEmail = answers.email && emailExpression.test(answers.email);
+    // Sign up validations
+    if (!isValidEmail) {
+      setDisplayAlert("Please provide a valid email");
       return;
-    }
-    sendAnalytics("Onboard", "Submit Button", "Click");
-    setLoading(true); // Start loading
+    } else if (!answers.password) {
+      setDisplayAlert("Please enter password");
+      return;
+    } else if (!passwordMatchError.valuePresent) {
+      setDisplayAlert("Confirm password");
+      return;
+    } else if (!passwordMatchError.match) {
+      setDisplayAlert("Passwords don't match");
+      return;
+    } else {
+      sendAnalytics("Onboard", "Submit Button", "Click");
+      setLoading(true); // Start loading
 
-    try {
-      const { pictures, email, ...otherAnswers } = answers;
-      if (!email) {
-        alert("Email is required.");
-        return;
+      try {
+        const { pictures, email, ...otherAnswers } = answers;
+
+        const uploadedUrls = await uploadImages(pictures);
+
+        const dataToSubmit = {
+          ...otherAnswers,
+          email,
+          imageUrls: uploadedUrls,
+        };
+        console.log("Data to submit:", JSON.stringify(dataToSubmit, null, 2));
+
+        const data = await signUpUser(dataToSubmit);
+
+        const token = data.token; // Extract the token from the response
+        login(token, email); // Use the login function to store the token and set authentication state
+
+        setLoading(false); // Stop loading before navigating
+        console.log(`Response: ${JSON.stringify(data)}`);
+        grantLoadingAccess();
+        navigate("/loading");
+      } catch (error) {
+        setError("Email already exists. Try using different email");
+        setLoading(false); // Ensure to reset loading state on error
       }
-
-      if (!pictures || pictures.length === 0) {
-        alert("Please upload at least one image.");
-        return;
-      }
-
-      const uploadedUrls = await uploadImages(pictures);
-
-      const dataToSubmit = {
-        ...otherAnswers,
-        email,
-        imageUrls: uploadedUrls,
-      };
-      console.log("Data to submit:", JSON.stringify(dataToSubmit, null, 2));
-
-      const data = await signUpUser(dataToSubmit);
-
-      const token = data.token; // Extract the token from the response
-      login(token, email); // Use the login function to store the token and set authentication state
-
-      setLoading(false); // Stop loading before navigating
-      console.log(`Response: ${JSON.stringify(data)}`);
-      grantLoadingAccess();
-      navigate("/loading");
-    } catch (error) {
-      setError("Email already exists. Try using different email");
-      setLoading(false); // Ensure to reset loading state on error
     }
   };
 
   const steps = [
-    // { component: ProfileInfo },
-    // { component: Professional },
+    { component: ProfileInfo },
+    { component: Professional },
     { component: PersonalBack },
     { component: PictureUpload },
     { component: SignUp },
@@ -114,11 +117,12 @@ function Onboarding() {
         />
       </div>
       <StepComponent
-        setIsValid={setIsValid}
-        setIsValidAge={
-          StepComponent === ProfileInfo ? setIsValidAge : undefined
-        } // Pass age only if the step is ProfileInfo
+        setIsValid={setIsNotValid}
         setDisplayAlert={setDisplayAlert}
+        {...(currentStep ===
+        steps.findIndex((step) => step.component === SignUp)
+          ? { passwordMatchError, setPasswordMatchError }
+          : {})}
       />
       <div className="row">
         {error && <p style={{ color: "red" }}>{error}</p>}

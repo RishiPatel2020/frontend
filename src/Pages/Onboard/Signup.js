@@ -6,9 +6,8 @@ const questions = [
   { id: "password", text: "Password", type: "password" },
 ];
 
-function SignUp({ setIsValid }) {
+function SignUp({ setIsValid, passwordMatchError, setPasswordMatchError }) {
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordMatchError, setPasswordMatchError] = useState(false);
   const { answers, updateAnswer } = useContext(AnswersContext);
 
   useEffect(() => {
@@ -34,9 +33,17 @@ function SignUp({ setIsValid }) {
   const handleConfirmPasswordChange = (value) => {
     setConfirmPassword(value);
     if (value !== answers["password"]) {
-      setPasswordMatchError(true);
+      setPasswordMatchError({
+        ...passwordMatchError,
+        valuePresent: value.length > 0,
+        match: false,
+      });
     } else {
-      setPasswordMatchError(false);
+      setPasswordMatchError({
+        ...passwordMatchError,
+        valuePresent: value.length > 0,
+        match: true,
+      });
     }
   };
 
@@ -71,7 +78,7 @@ function SignUp({ setIsValid }) {
             style={{ border: "none", backgroundColor: "rgb(243,243,243)" }}
             className="border-0 border-bottom rounded-1"
           />
-          {passwordMatchError && (
+          {!passwordMatchError.match && (
             <p style={{ color: "red" }}>Passwords do not match!</p>
           )}
         </div>
