@@ -15,7 +15,7 @@ function PictureUpload({ setIsValid }) {
   useEffect(() => {
     // Validate that at least one picture is uploaded
     const isValid = pictures.length > 0;
-    setIsValid(isValid);
+    setIsValid(!isValid ? "Please upload a picture" : null);
   }, [pictures, setIsValid]);
 
   const generateUniqueId = () => {
@@ -44,7 +44,9 @@ function PictureUpload({ setIsValid }) {
 
   return (
     <div>
-      <h1 className="my-5 text-dark text-center" style={{fontWeight:"bold"}}>Upload Profile Picture</h1>
+      <h1 className="my-5 text-dark text-center" style={{ fontWeight: "bold" }}>
+        Upload Profile Picture
+      </h1>
       <div
         style={{
           display: "flex",
@@ -98,7 +100,7 @@ function PictureUpload({ setIsValid }) {
               padding: "10px", // Added padding for better appearance
             }}
           >
-            <span style={{ marginBottom: "5px", display: "block"}}>
+            <span style={{ marginBottom: "5px", display: "block" }}>
               Click to upload
             </span>
             <input
