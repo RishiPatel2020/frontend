@@ -151,7 +151,18 @@ const Question = () => {
           </Accordion.Header>
 
           <Accordion.Body>
-            <span className="light">support@riamatchmaking.com</span>
+            <span className="light">info@riameets.com</span>
+          </Accordion.Body>
+        </Accordion.Item>
+
+
+        <Accordion.Item eventKey="10">
+          <Accordion.Header>
+            <span className="bold"> Interested in partnering, who do I contact?</span>
+          </Accordion.Header>
+
+          <Accordion.Body>
+            <span className="light">info@riameets.com</span>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

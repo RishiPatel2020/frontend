@@ -87,16 +87,17 @@ const Dashboard = () => {
               sendAnalytics("Log In Dialog", "ForgotPassword Link", "Click");
               setShowForgotPassword(true);
             }}
+            className="light"
           >
             Forgot Password
           </Link>
         );
         setError(
-          <>
+          <div className="light">
             Wrong current password entered 
             <br></br>
             {forgotPassword}
-          </>
+          </div>
         );
       } finally {
         setLoading(false);
