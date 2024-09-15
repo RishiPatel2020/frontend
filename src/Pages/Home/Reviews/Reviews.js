@@ -48,10 +48,10 @@ const Reviews = () => {
 
   return (
     <div className="review-carousel">
-      <Container id="reviews " style={{ padding: "44px 32px" }}>
+      <Container id="reviews " style={{ padding: "24px 12px" }}>
         <div className="text-center">
           <h1
-            style={{ margin: "0px 0px 10px", fontSize: "42px" }}
+            style={{ fontSize: "42px" }}
             // className="text-dark"
             className="text-info"
           >
@@ -71,7 +71,7 @@ const Reviews = () => {
       </Slider>
       <Row>
         <Col>
-          <div className="justify-content-center align-items-center text-center mt-3">
+          <div className="justify-content-center align-items-center text-center mt-5">
             {/* Link to order page */}
             {!isAuthenticated && (
               <Link to="/onboard">

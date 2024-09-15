@@ -8,10 +8,10 @@ const JoinHundreds = () => {
   const { isAuthenticated } = useContext(AuthContext);
   return (
     <section className="text-center bg-light p-1">
-      <div style={{ textAlign: "center" , padding:"54px 32px"}}>
+      <div style={{ textAlign: "center" , padding:"24px 12px"}}>
         {/* Main Title eg. "How you Save Time"  */}
         <h1
-          style={{ margin: "0px 0px 10px", fontSize: "48px" }}
+          style={{ fontSize: "48px" }}
           className="text-dark"
         >
           Quality Over Quantity
@@ -24,6 +24,7 @@ const JoinHundreds = () => {
         </h2> */}
       </div>
       {/* Desktop image (hidden on xs to md screens) */}
+      <div style={{ textAlign: "center" , padding:"24px 12px"}}>
       <img
         src={require("../../../Resources/Background/newBack3.png")}
         alt="Desktop View"
@@ -35,6 +36,7 @@ const JoinHundreds = () => {
         alt="Mobile View"
         className="img-fluid d-block d-md-none"
       />
+      </div>
       {/* <h2
         style={{ margin: "0px 0px 10px", fontSize: "34px" }}
         className="text-info"
@@ -43,7 +45,7 @@ const JoinHundreds = () => {
       </h2> */}
       {/* Common Content for desktop and mobile */}
       <div>
-        <p className="text-secondary light">
+        <p className="text-secondary light mt-4">
           Our matchmakers work with hundreds of Indian, Pakistani, Bangladeshi,
           Sri Lankan, Nepali, Guyanese, and more singles to find their perfect
           match
